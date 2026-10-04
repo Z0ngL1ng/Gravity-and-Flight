@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="400" viewBox="0 0 1200 400" role="img" aria-labelledby="title desc">
+  <title id="title">Gravity and Flight — grounded reasoning, responsive judgments</title>
+  <desc id="desc">Two complementary principles for remote-sensing reasoning. Gravity grounds each judgment in visible evidence. Flight reassesses judgments as evidence and context change.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101e2b"/>
+      <stop offset="1" stop-color="#1a3040"/>
+    </linearGradient>
+    <linearGradient id="bridge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e6b67b"/>
+      <stop offset="1" stop-color="#84d4cc"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="400" rx="20" fill="url(#background)"/>
+  <g fill="none" stroke="#7595a8" opacity="0.12">
+    <path d="M-30 310 C180 195 300 420 530 310 S860 205 1230 300"/>
+    <path d="M-30 325 C180 210 300 435 530 325 S860 220 1230 315"/>
+    <path d="M-30 340 C180 225 300 450 530 340 S860 235 1230 330"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif">
+    <text x="60" y="52" font-size="14" letter-spacing="3" fill="#b9ccd8">REMOTE SENSING · EVIDENCE-GROUNDED REASONING</text>
+    <text x="60" y="112" font-size="44" font-weight="600" fill="#f5f7f8">Gravity and Flight</text>
+    <text x="60" y="145" font-size="20" fill="#b9ccd8">Ground each judgment. Reassess when evidence changes.</text>
+    <rect x="60" y="183" width="514" height="145" rx="14" fill="#152735" stroke="#486071"/>
+    <rect x="626" y="183" width="514" height="145" rx="14" fill="#152d38" stroke="#486b72"/>
+    <circle cx="97" cy="224" r="7" fill="#e6b67b"/>
+    <text x="118" y="234" font-size="29" font-weight="600" fill="#e6b67b">Gravity</text>
+    <text x="88" y="270" font-size="19" fill="#edf1f4">What supports this judgment?</text>
+    <text x="88" y="300" font-size="17" fill="#b9ccd8">Visible evidence → Valid relations → Conclusion</text>
+    <circle cx="663" cy="224" r="7" fill="#84d4cc"/>
+    <text x="684" y="234" font-size="29" font-weight="600" fill="#84d4cc">Flight</text>
+    <text x="654" y="270" font-size="19" fill="#edf1f4">What should change with new evidence?</text>
+    <text x="654" y="300" font-size="17" fill="#b9ccd8">Preserve · Revise · Qualify, as evidence warrants</text>
+    <path d="M574 254 H626" stroke="url(#bridge)" stroke-width="3"/>
+    <text x="600" y="367" text-anchor="middle" font-size="16" letter-spacing="1" fill="#c9d7df">TWO COMPLEMENTARY PRINCIPLES · ONE RESEARCH DIRECTION</text>
+  </g>
+</svg>
