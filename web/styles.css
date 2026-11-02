@@ -711,7 +711,7 @@ p {
 .verification-note p {
   max-width: 1000px;
 }
-/* Training details remain available beneath the original paper figure. */
+/* The original paper figure carries the method narrative. */
 .method-section .section-heading {
   align-items: center;
 }
@@ -740,47 +740,6 @@ summary > span:last-child {
 }
 details[open] > summary > span:last-child {
   transform: rotate(45deg);
-}
-.technical-details {
-  margin-top: 44px;
-}
-.details-body {
-  padding: 20px 0 35px;
-  font-size: 14px;
-}
-.pipeline {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 30px;
-  list-style: none;
-  padding: 25px 0 30px;
-  margin: 0;
-}
-.step-number {
-  font-family: var(--display);
-  font-size: 35px;
-  color: var(--accent);
-}
-.pipeline h4 {
-  font-size: 16px;
-  margin: 10px 0;
-}
-.pipeline p {
-  font-size: 13px;
-  color: var(--muted);
-}
-.equation {
-  font-family: var(--display);
-  font-size: 28px;
-  margin: 24px 0 14px;
-  overflow-wrap: anywhere;
-}
-.details-body > p:not(.eyebrow) {
-  max-width: 900px;
-  line-height: 1.8;
-}
-.details-body .text-link {
-  margin-top: 20px;
 }
 /* Results: a generous numerical margin and a common, honest 0–100 axis. */
 .results-section {
@@ -1392,9 +1351,6 @@ details[open] > summary > span:last-child {
   }
 }
 @media (max-width: 900px) {
-  .lineage-sources > p {
-    max-width: 380px;
-  }
   .aero-copy > p:first-child {
     font-size: 17px;
   }
@@ -1622,18 +1578,6 @@ details[open] > summary > span:last-child {
   }
 }
 @media (max-width: 600px) {
-  .lineage-sources {
-    gap: 8px;
-    margin-top: 12px;
-  }
-  .lineage-sources a {
-    min-height: 44px;
-  }
-  .lineage-sources > p {
-    max-width: none;
-    flex-basis: 100%;
-    padding-top: 0;
-  }
   .aero-inspiration {
     grid-template-columns: minmax(0, 1fr);
     gap: 26px;
@@ -1932,32 +1876,12 @@ details[open] > summary > span:last-child {
     margin-top: 30px;
   }
 
-  .technical-details {
-    margin-top: 30px;
-  }
   summary {
     font-size: 13px;
     padding-block: 18px;
   }
   summary > span:last-child {
     font-size: 22px;
-  }
-  .pipeline {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 25px;
-  }
-  .pipeline h4 {
-    font-size: 14px;
-  }
-  .pipeline p {
-    font-size: 12px;
-  }
-  .equation {
-    font-size: 22px;
-    line-height: 1.7;
-  }
-  .details-body > p {
-    font-size: 12px;
   }
   .results-layout {
     grid-template-columns: 1fr;
@@ -2486,51 +2410,62 @@ details[open] > summary > span:last-child {
   margin-bottom: 32px;
   max-width: 1000px;
 }
-.figure-reading {
-  margin-top: 24px;
-  padding: 18px 0;
-  border-block: 1px solid var(--line);
+/* A quiet reference to the earlier work and its official resources. */
+.fba-resources {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px 64px;
+  align-items: center;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
 }
-.figure-reading summary {
-  cursor: pointer;
-  font-size: 13px;
+.fba-resource-intro h3 {
+  margin: 10px 0 8px;
+  font-family: var(--italic);
+  font-size: clamp(26px, 2.6vw, 34px);
+  line-height: 1.2;
+  letter-spacing: 0;
 }
-.figure-reading p {
-  padding: 16px 0 0;
-  max-width: 950px;
+.fba-resource-intro > p:not(.eyebrow) {
+  max-width: 52ch;
   font-size: 13px;
-  line-height: 1.8;
+  line-height: 1.7;
   color: var(--muted);
 }
-.lineage-sources {
+.fba-resource-intro .fba-citation {
+  margin-top: 6px;
+  font-size: 11px;
+}
+.fba-resource-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 12px 30px;
-  align-items: start;
-  margin-top: 14px;
-}
-.lineage-sources > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 24px;
-}
-.lineage-sources a {
-  display: inline-flex;
-  gap: 12px;
+  gap: 4px 28px;
   align-items: center;
+}
+.fba-resource-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   min-height: 44px;
-  font-size: 12px;
+  font-size: 13px;
   text-decoration: underline;
   text-underline-offset: 4px;
+  text-decoration-color: var(--line);
 }
-.lineage-sources > p {
-  max-width: 550px;
-  flex: 1 1 270px;
-  font-size: 11px;
-  color: var(--muted);
-  line-height: 1.75;
-  padding-top: 10px;
+.fba-resource-links a:hover {
+  text-decoration-color: currentColor;
+}
+@media (max-width: 760px) {
+  .fba-resources {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 24px;
+  }
+  .fba-resource-links {
+    gap: 2px 24px;
+  }
 }
 #figure-viewer {
   width: min(1440px, calc(100vw - 40px));
@@ -2858,9 +2793,6 @@ details[open] > summary > span:last-child {
   white-space: nowrap;
   text-decoration: underline;
   text-underline-offset: 4px;
-}
-.method-section .technical-details {
-  margin-top: 28px;
 }
 /* A wider classical serif and looser spacing give the brand room to breathe. */
 .hero h1,

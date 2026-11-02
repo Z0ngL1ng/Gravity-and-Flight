@@ -14,6 +14,8 @@ Gravity and Flight（G&F）以 **Qwen3.5-4B** 为基座，通过两阶段后训�
 
 [Filling Before Advancing（FBA）](https://github.com/Z0ngL1ng/filling-before-advancing) 建立遥感场景专精所需的能力，其第二阶段 **Bridging-Conv** 从目标场景与相关场景中学习共享先验。G&F 将这一思路推进到**同一场景领域内部**的细粒度上下文变化：当局部属性、空间关系或可见性改变，哪些判断应随之改变，哪些应保持一致，哪些应降低具体程度？
 
+前作引用：[Zong 等（2026），*Filling Before Advancing*](https://arxiv.org/abs/2607.22205) · [项目网站](https://z0ngl1ng.github.io/filling-before-advancing/) · [模型预览页](https://huggingface.co/zongling/FBA) · [数据集预览页](https://huggingface.co/datasets/zongling/CPRS)。
+
 命名灵感来自重力与气动升力。**Gravity** 让视觉陈述立足图像；**Flight** 检验推理如何从已描述的观察出发。这一类比启发了互补验证设计，不是奖励函数的物理模型。
 
 ## 方法

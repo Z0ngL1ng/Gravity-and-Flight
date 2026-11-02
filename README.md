@@ -14,6 +14,8 @@ Gravity and Flight (G&F) adapts **Qwen3.5-4B** through two stages of post-traini
 
 [Filling Before Advancing (FBA)](https://github.com/Z0ngL1ng/filling-before-advancing) develops capabilities for remote-sensing scenario specialization. Its second stage, **Bridging-Conv**, learns shared priors across target and related scenes. G&F takes that idea into finer contextual changes **within one scene domain**: which judgments should change, stay consistent, or become less specific as local attributes, spatial relations, and visibility vary?
 
+Prior work: [Zong et al. (2026), *Filling Before Advancing*](https://arxiv.org/abs/2607.22205) · [Project website](https://z0ngl1ng.github.io/filling-before-advancing/) · [Hugging Face model preview](https://huggingface.co/zongling/FBA) · [Hugging Face dataset preview](https://huggingface.co/datasets/zongling/CPRS).
+
 The name draws on gravity and aerodynamic lift. **Gravity** anchors visual claims to the image; **Flight** evaluates reasoning from described observations. The analogy motivates complementary verification, not a physical reward model.
 
 ## Method

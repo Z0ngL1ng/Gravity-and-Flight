@@ -17,9 +17,9 @@
     />
     <meta content="website" property="og:type" />
     <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="styles.css?v=c4cbc7cf84a7" rel="stylesheet" />
+    <link href="styles.css?v=1dcf66e2db76" rel="stylesheet" />
     <script defer="" src="research-data.js"></script>
-    <script defer="" src="i18n.js?v=5c61aa5e7964"></script>
+    <script defer="" src="i18n.js?v=486f66a8a126"></script>
     <script defer="" src="main.js?v=874e98df3a8c"></script>
     <link
       as="font"
@@ -226,8 +226,8 @@
               data-figure=""
               data-figure-height="1107"
               data-figure-width="2800"
-              data-pdf="assets/papers/fba-motivation.pdf"
-              href="assets/papers/fba-motivation.webp"
+              data-pdf="assets/papers/fba-motivation.pdf?v=a9c58054718b"
+              href="assets/papers/fba-motivation.webp?v=9bd8e88c70dc"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -237,7 +237,7 @@
                 decoding="async"
                 height="1107"
                 loading="lazy"
-                src="assets/papers/fba-motivation-1400.webp"
+                src="assets/papers/fba-motivation-1400.webp?v=a2efe401175c"
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -253,7 +253,7 @@
               </p>
               <a
                 class="paper-pdf"
-                href="assets/papers/fba-motivation.pdf"
+                href="assets/papers/fba-motivation.pdf?v=a9c58054718b"
                 rel="noopener noreferrer"
                 target="_blank"
                 ><span data-i18n="figure.pdf">Original PDF</span
@@ -285,7 +285,7 @@
               data-figure-height="953"
               data-figure-width="2800"
               data-pdf="assets/papers/gf-motivation.pdf?v=ff343d2a27d7"
-              href="assets/papers/gf-motivation.webp?v=6280b2c6c352"
+              href="assets/papers/gf-motivation.webp?v=f3a2dbfc7db3"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -295,7 +295,7 @@
                 decoding="async"
                 height="953"
                 loading="lazy"
-                src="assets/papers/gf-motivation-1400.webp?v=707c1138803c"
+                src="assets/papers/gf-motivation-1400.webp?v=a2605837b8df"
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -376,8 +376,8 @@
               data-figure=""
               data-figure-height="1205"
               data-figure-width="2800"
-              data-pdf="assets/papers/fba-method.pdf"
-              href="assets/papers/fba-method.webp"
+              data-pdf="assets/papers/fba-method.pdf?v=c22a08dd3b46"
+              href="assets/papers/fba-method.webp?v=c617c239b355"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -387,7 +387,7 @@
                 decoding="async"
                 height="1205"
                 loading="lazy"
-                src="assets/papers/fba-method-1400.webp"
+                src="assets/papers/fba-method-1400.webp?v=868c22d85c01"
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -404,7 +404,7 @@
               </p>
               <a
                 class="paper-pdf"
-                href="assets/papers/fba-method.pdf"
+                href="assets/papers/fba-method.pdf?v=c22a08dd3b46"
                 rel="noopener noreferrer"
                 target="_blank"
                 ><span data-i18n="figure.pdf">Original PDF</span
@@ -436,7 +436,7 @@
               data-figure-height="1392"
               data-figure-width="2800"
               data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
-              href="assets/papers/gf-method.webp?v=9d4e760d8953"
+              href="assets/papers/gf-method.webp?v=e5f2a7eee558"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -446,7 +446,7 @@
                 decoding="async"
                 height="1392"
                 loading="lazy"
-                src="assets/papers/gf-method-1400.webp?v=553935c42859"
+                src="assets/papers/gf-method-1400.webp?v=75acef40ec96"
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -456,11 +456,9 @@
             >
             <figcaption>
               <p class="paper-caption" data-i18n="paper.gfMethodCaption">
-                EoT-SFT initializes observation → analysis → answer. RTPO then
-                samples responses independently for two task-matched images,
-                evaluates matched pairs with separate Gravity and Flight views,
-                and combines these scores with task correctness into an additive
-                reward and shared advantage. Inference uses one image.
+                Two stages connect careful observation to contextual reasoning:
+                EoT-SFT establishes the process, and RTPO refines it through
+                feedback on task-matched image pairs. Inference uses one image.
               </p>
               <a
                 class="paper-pdf"
@@ -473,36 +471,63 @@
             </figcaption>
           </figure>
         </div>
-        <details class="figure-reading">
-          <summary data-i18n="figure.reading">
-            Reading the G&amp;F method figure
-          </summary>
-          <p data-i18n="paper.gfMethodInputDetail">
-            Gravity checks visual truth against images and Evidence Cards.
-            Flight evaluates descriptions and analyses using the public task and
-            permitted comparison metadata; it receives no answer contract or
-            reference judgment, and is not gated by Gravity.
-          </p>
-        </details>
-        <div class="lineage-sources">
-          <div>
+        <aside
+          aria-labelledby="fba-resources-title"
+          class="fba-resources"
+          data-reveal=""
+        >
+          <div class="fba-resource-intro">
+            <p class="eyebrow" data-i18n="fba.label">
+              The preceding work · 2026
+            </p>
+            <h3 id="fba-resources-title">Filling Before Advancing</h3>
+            <p>
+              Capability-Gap-Driven Post-Training for Scenario-Specialized
+              Remote Sensing MLLMs.
+            </p>
+            <p class="fba-citation">Zong et al. · arXiv:2607.22205</p>
+          </div>
+          <nav
+            aria-label="FBA resources"
+            class="fba-resource-links"
+            data-i18n-aria="fba.resources"
+          >
+            <a
+              href="https://arxiv.org/abs/2607.22205"
+              rel="noopener noreferrer"
+              target="_blank"
+              ><span data-i18n="fba.paper">arXiv paper</span
+              ><span aria-hidden="true">↗</span></a
+            >
+            <a
+              href="https://z0ngl1ng.github.io/filling-before-advancing/"
+              rel="noopener noreferrer"
+              target="_blank"
+              ><span data-i18n="fba.website">Project website</span
+              ><span aria-hidden="true">↗</span></a
+            >
             <a
               href="https://github.com/Z0ngL1ng/filling-before-advancing"
               rel="noopener noreferrer"
               target="_blank"
-              ><span data-i18n="lineage.project">FBA project</span> ↗</a
-            ><a
-              href="https://arxiv.org/abs/2607.22205"
+              ><span>GitHub</span><span aria-hidden="true">↗</span></a
+            >
+            <a
+              href="https://huggingface.co/zongling/FBA"
               rel="noopener noreferrer"
               target="_blank"
-              ><span data-i18n="lineage.paper">FBA paper</span> ↗</a
+              ><span data-i18n="fba.model">HF model</span
+              ><span aria-hidden="true">↗</span></a
             >
-          </div>
-          <p data-i18n="lineage.route">
-            Research lineage. G&amp;F itself starts from Qwen3.5-4B and trains
-            through EoT-SFT → RTPO.
-          </p>
-        </div>
+            <a
+              href="https://huggingface.co/datasets/zongling/CPRS"
+              rel="noopener noreferrer"
+              target="_blank"
+              ><span data-i18n="fba.dataset">HF dataset</span
+              ><span aria-hidden="true">↗</span></a
+            >
+          </nav>
+        </aside>
       </section>
       <section aria-label="Research at a glance" class="numbers-strip">
         <div class="wrap numbers-grid" data-reveal="">
@@ -888,7 +913,7 @@
             data-figure-height="1392"
             data-figure-width="2800"
             data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
-            href="assets/papers/gf-method.webp?v=9d4e760d8953"
+            href="assets/papers/gf-method.webp?v=e5f2a7eee558"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -899,19 +924,19 @@
               height="1392"
               loading="lazy"
               sizes="(min-width: 1440px) 1320px, 92vw"
-              src="assets/papers/gf-method-1400.webp?v=553935c42859"
+              src="assets/papers/gf-method-1400.webp?v=75acef40ec96"
               srcset="
-                assets/papers/gf-method-1400.webp?v=553935c42859 1400w,
-                assets/papers/gf-method.webp?v=9d4e760d8953      2800w
+                assets/papers/gf-method-1400.webp?v=75acef40ec96 1400w,
+                assets/papers/gf-method.webp?v=e5f2a7eee558      2800w
               "
               width="2800"
             />
           </a>
           <figcaption class="method-plate-caption">
             <p class="paper-caption" data-i18n="method.figureCaption">
-              EoT-SFT teaches observation → analysis → answer. RTPO uses
-              independently sampled responses, additive pair rewards, and shared
-              advantages. At inference, the model still sees one image.
+              First, learn to observe, reason, and answer. Then refine those
+              judgments across related contexts. Training uses image pairs;
+              inference needs only one image.
             </p>
             <div class="method-plate-actions">
               <a
@@ -920,7 +945,7 @@
                 data-figure-height="1392"
                 data-figure-width="2800"
                 data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
-                href="assets/papers/gf-method.webp?v=9d4e760d8953"
+                href="assets/papers/gf-method.webp?v=e5f2a7eee558"
                 rel="noopener noreferrer"
                 target="_blank"
                 ><span data-i18n="figure.enlarge">Explore figure</span
@@ -936,90 +961,6 @@
             </div>
           </figcaption>
         </figure>
-        <details class="technical-details">
-          <summary>
-            <span data-i18n="method.details"
-              >Training details &amp; objective</span
-            ><span aria-hidden="true">＋</span>
-          </summary>
-          <div class="details-body">
-            <p class="eyebrow">
-              <span data-i18n="method.stepsLabel"
-                >Four steps, from sampling to update</span
-              >
-            </p>
-            <ol class="pipeline">
-              <li>
-                <span class="step-number">01</span>
-                <h4>
-                  <span data-i18n="method.step0">Sample independently</span>
-                </h4>
-                <p data-i18n="method.body0">
-                  The same policy generates K = 6 responses per image from that
-                  image and the shared question.
-                </p>
-              </li>
-              <li>
-                <span class="step-number">02</span>
-                <h4>
-                  <span data-i18n="method.step1">Match &amp; verify</span>
-                </h4>
-                <p data-i18n="method.body1">
-                  Random one-to-one matching forms response pairs. Gravity,
-                  Flight, and Task Check evaluate their prescribed views.
-                </p>
-              </li>
-              <li>
-                <span class="step-number">03</span>
-                <h4>
-                  <span data-i18n="method.step2">Share the advantage</span>
-                </h4>
-                <p data-i18n="method.body2">
-                  Combine the scores, normalize within the candidate group, and
-                  assign one pair-level advantage to both responses.
-                </p>
-              </li>
-              <li>
-                <span class="step-number">04</span>
-                <h4><span data-i18n="method.step3">Update one policy</span></h4>
-                <p data-i18n="method.body3">
-                  Both sides receive equal loss weight. KL regularization uses
-                  the frozen Stage-1 reference, outside the reward.
-                </p>
-              </li>
-            </ol>
-            <div
-              aria-label="Pair reward equals task reward plus the mean of valid Gravity and Flight scores"
-              class="equation"
-            >
-              Rₖ = rₖ<sup>task</sup> + ½ ∑ᵢ vᵢ,ₖ [λ<sub>G</sub>Gᵢ,ₖ +
-              λ<sub>F</sub>Fᵢ,ₖ]
-            </div>
-            <p data-i18n="method.reward">
-              The pair reward adds task correctness and weighted Gravity and
-              Flight scores. The validity indicator v checks the description →
-              analysis → answer structure. There is no Gravity gate on Flight in
-              this formulation.
-            </p>
-            <div class="equation">Âₖ = (Rₖ − μ) / (σ + ε)</div>
-            <p data-i18n="method.reward2">
-              The same group-normalized advantage updates both responses.
-              Evidence Cards, Boundary Cards, and comparison annotations
-              supervise verification; they are never included in the policy
-              prompt.
-            </p>
-            <a
-              class="text-link"
-              href="https://github.com/Z0ngL1ng/Gravity-and-Flight/blob/main/docs/RESEARCH.md#method"
-              rel="noopener noreferrer"
-              target="_blank"
-              ><span data-i18n="method.source"
-                >Method notes · Definitions &amp; objective</span
-              >
-              ↗</a
-            >
-          </div>
-        </details>
       </section>
       <section
         aria-labelledby="results-title"

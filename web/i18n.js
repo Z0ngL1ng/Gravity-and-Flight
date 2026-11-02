@@ -80,24 +80,6 @@ window.GF_I18N = {
     "method.title": "How G&amp;F learns.",
     "method.lead":
       "Read the framework from top to bottom: supervised initialization, then relational policy optimization.",
-    "method.step0": "Sample independently",
-    "method.body0":
-      "The same policy generates K = 6 responses per image from that image and the shared question.",
-    "method.step1": "Match & verify",
-    "method.body1":
-      "Random one-to-one matching forms response pairs. Gravity, Flight, and Task Check evaluate their prescribed views.",
-    "method.step2": "Share the advantage",
-    "method.body2":
-      "Combine the scores, normalize within the candidate group, and assign one pair-level advantage to both responses.",
-    "method.step3": "Update one policy",
-    "method.body3":
-      "Both sides receive equal loss weight. KL regularization uses the frozen Stage-1 reference, outside the reward.",
-    "method.details": "Training details & objective",
-    "method.reward":
-      "The pair reward adds task correctness and weighted Gravity and Flight scores. The validity indicator v checks the description → analysis → answer structure. There is no Gravity gate on Flight in this formulation.",
-    "method.reward2":
-      "The same group-normalized advantage updates both responses. Evidence Cards, Boundary Cards, and comparison annotations supervise verification; they are never included in the policy prompt.",
-    "method.source": "Method notes · Definitions & objective",
     "results.label": "05 / The results",
     "results.title": "The difference,<br><em>measured.</em>",
     "results.lead":
@@ -184,7 +166,6 @@ window.GF_I18N = {
     "nav.analysis": "Response analysis",
     "example.inspectA": "Inspect original Anchor image in a new tab",
     "example.inspectB": "Inspect original Bridging image in a new tab",
-    "method.stepsLabel": "Four steps, from sampling to update",
     "results.tableHint": "Scroll horizontally to compare all six sets",
     "index.label": "In this study",
     "hero.artAlt":
@@ -193,10 +174,6 @@ window.GF_I18N = {
     "hero.begin": "Enter the study",
     "lineage.fbaTitle": "Across scene domains",
     "lineage.gfTitle": "Within one scene domain",
-    "lineage.project": "FBA project",
-    "lineage.paper": "FBA paper",
-    "lineage.route":
-      "Research lineage. G&amp;F itself starts from Qwen3.5-4B and trains through EoT-SFT → RTPO.",
     "aero.lift": "Lift",
     "aero.weight": "Weight",
     "aero.sketch": "A conceptual inspiration for the two verification views.",
@@ -219,9 +196,7 @@ window.GF_I18N = {
     "paper.gfMotivationCaption":
       "An illustrative harbor case: recognizing ships and facilities does not by itself resolve vehicle-staging suitability. The G&F response connects vehicle rows, paved space, and nearby berths to the task. Both waterfronts are in one input image.",
     "paper.gfMethodCaption":
-      "EoT-SFT initializes observation → analysis → answer. RTPO then samples responses independently for two task-matched images, evaluates matched pairs with separate Gravity and Flight views, and combines these scores with task correctness into an additive reward and shared advantage. Inference uses one image.",
-    "paper.gfMethodInputDetail":
-      "Gravity checks visual truth against images and Evidence Cards. Flight evaluates descriptions and analyses using the public task and permitted comparison metadata; it receives no answer contract or reference judgment, and is not gated by Gravity.",
+      "Two stages connect careful observation to contextual reasoning: EoT-SFT establishes the process, and RTPO refines it through feedback on task-matched image pairs. Inference uses one image.",
     "paper.fbaMotivationAlt":
       "FBA motivation showing scenario-data scarcity and gaps in alignment, modality, and task capability, followed by a staged specialization design.",
     "paper.fbaMethodAlt":
@@ -250,10 +225,15 @@ window.GF_I18N = {
     "figure.fit": "Fit to window",
     "figure.close": "Close",
     "figure.pan": "Scroll to explore the enlarged figure.",
-    "figure.reading": "Reading the G&F method figure",
     "method.figureTitle": "The G&F training framework",
     "method.figureCaption":
-      "EoT-SFT teaches observation → analysis → answer. RTPO uses independently sampled responses, additive pair rewards, and shared advantages. At inference, the model still sees one image.",
+      "First, learn to observe, reason, and answer. Then refine those judgments across related contexts. Training uses image pairs; inference needs only one image.",
+    "fba.label": "The preceding work · 2026",
+    "fba.resources": "FBA resources",
+    "fba.paper": "arXiv paper",
+    "fba.website": "Project website",
+    "fba.model": "HF model",
+    "fba.dataset": "HF dataset",
   },
   zh: {
     "nav.story": "研究起点",
@@ -330,23 +310,6 @@ window.GF_I18N = {
     "method.title": "G&amp;F 如何学习。",
     "method.lead":
       "从上到下阅读这张图：先以监督学习初始化，再通过关系迁移优化策略。",
-    "method.step0": "独立采样",
-    "method.body0": "同一策略根据各自图像与共同问题，每侧生成 K = 6 条回答。",
-    "method.step1": "匹配与验证",
-    "method.body1":
-      "随机一对一匹配形成回答对；Gravity、Flight 与 Task Check 分别评估各自规定的视图。",
-    "method.step2": "共享优势信号",
-    "method.body2":
-      "组合分数，在候选组内归一化，并为两侧回答分配同一个成对优势信号。",
-    "method.step3": "更新单图策略",
-    "method.body3":
-      "两侧损失等权；KL 正则使用冻结的 Stage-1 参考，并位于奖励之外。",
-    "method.details": "训练细节与优化目标",
-    "method.reward":
-      "成对奖励由任务正确性与加权 Gravity、Flight 分数组成。有效性指示量 v 检查描述 → 分析 → 答案结构。当前公式不使用 Gravity 对 Flight 进行门控。",
-    "method.reward2":
-      "同一组内归一化优势用于更新两侧回答。Evidence Card、Boundary Card 与比较标注仅用于验证监督，不进入策略的输入提示。",
-    "method.source": "方法说明 · 定义与目标",
     "results.label": "05 / 实验结果",
     "results.title": "改变，<br><em>有据可量。</em>",
     "results.lead":
@@ -428,7 +391,6 @@ window.GF_I18N = {
     "nav.analysis": "回答分析",
     "example.inspectA": "在新标签页查看原始Anchor图像",
     "example.inspectB": "在新标签页查看原始Bridging图像",
-    "method.stepsLabel": "从采样到更新的四个步骤",
     "results.tableHint": "左右滑动，查看六项评测",
     "index.label": "本研究",
     "hero.artAlt": "暖色纸面上的同心圆弧，展开为向上延伸的蓝色轨迹。",
@@ -436,10 +398,6 @@ window.GF_I18N = {
     "hero.begin": "开始阅读",
     "lineage.fbaTitle": "场景间的迁移",
     "lineage.gfTitle": "同类场景内的迁移",
-    "lineage.project": "FBA 项目",
-    "lineage.paper": "FBA 论文",
-    "lineage.route":
-      "研究思路在此延续。G&amp;F 从 Qwen3.5-4B 出发，依次进行 EoT-SFT → RTPO 训练。",
     "aero.lift": "升力",
     "aero.weight": "重力",
     "aero.sketch": "两种验证视角的概念性启发。",
@@ -460,9 +418,7 @@ window.GF_I18N = {
     "paper.gfMotivationCaption":
       "一个港口示例：仅识别船舶与设施，还不足以判断车辆集结条件。G&F 的回答将车辆排列、铺装空间与邻近泊位联系到任务；图中两处岸线位于同一张输入图像中。",
     "paper.gfMethodCaption":
-      "EoT-SFT 初始化“观察 → 分析 → 回答”的过程。RTPO 随后为两张任务匹配图像独立采样回答，以各自限定输入的 Gravity 与 Flight 视角评估匹配回答对，再将评分与任务正确性相加，形成配对奖励与共享优势。推理时仍只输入一张图像。",
-    "paper.gfMethodInputDetail":
-      "Gravity 依据图像与 Evidence Card 检查视觉事实。Flight 使用公开任务和允许的比较元信息评估描述与分析，不接收答案契约或参考判断，也不受 Gravity 分数门控。",
+      "两个阶段将细致观察连接到上下文推理：EoT-SFT 建立这一过程，RTPO 利用共享任务下的成对图像反馈进一步优化。实际推理只需一张图。",
     "paper.fbaMotivationAlt":
       "FBA 动机图：场景数据稀缺与对齐、模态、任务能力缺口，以及分阶段实现专精的设计。",
     "paper.fbaMethodAlt":
@@ -490,9 +446,14 @@ window.GF_I18N = {
     "figure.fit": "适应窗口",
     "figure.close": "关闭",
     "figure.pan": "放大后可滚动查看图中细节。",
-    "figure.reading": "如何阅读 G&F 方法图",
     "method.figureTitle": "G&F 完整训练框架",
     "method.figureCaption":
-      "EoT-SFT 学习观察 → 分析 → 回答。RTPO 使用独立采样的回答、相加的配对奖励与共享优势。推理时，模型仍只输入一张图像。",
+      "先学习观察、推理与回答，再在相关上下文中优化判断。训练时使用成对图像，实际推理只需一张图。",
+    "fba.label": "前序工作 · 2026",
+    "fba.resources": "FBA 相关资源",
+    "fba.paper": "arXiv 论文",
+    "fba.website": "项目官网",
+    "fba.model": "HF 模型",
+    "fba.dataset": "HF 数据集",
   },
 };
