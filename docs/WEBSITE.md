@@ -4,7 +4,9 @@ The website is a static bilingual research narrative. It requires no build step,
 
 ## View the website
 
-**The source is public; GitHub Pages still needs to be enabled for this repository.** The intended website URL is `https://z0ngl1ng.github.io/Gravity-and-Flight/web/`. It is not yet a verified live link.
+**[Visit the live project website →](https://z0ngl1ng.github.io/Gravity-and-Flight/)**
+
+GitHub Pages was enabled and the public website verified on **2026-11-02**. The root URL redirects to the canonical [website entry](https://z0ngl1ng.github.io/Gravity-and-Flight/web/).
 
 For a local preview, run from the repository root:
 
@@ -14,16 +16,16 @@ python3 -m http.server 8765
 
 Open [localhost:8765/web/](http://localhost:8765/web/). The root URL also redirects to `web/`.
 
-**网站源码已公开，在线访问需先启用 GitHub Pages。** 在仓库根目录执行上述命令后，可通过本机浏览器预览。当前预期线上地址尚未验证上线。
+**[项目网站已上线 →](https://z0ngl1ng.github.io/Gravity-and-Flight/)**，于 2026-11-02 完成在线验证。也可在仓库根目录执行上述命令，通过本机浏览器预览。
 
 ## Publish with GitHub Pages
 
-This repository is ready for branch-based static publishing:
+The active publishing source is **main / (root)**. Updates pushed to `main` are published by GitHub Pages. To restore this configuration if it changes:
 
 1. Open [Settings → Pages](https://github.com/Z0ngL1ng/Gravity-and-Flight/settings/pages).
 2. Under **Build and deployment**, select **Deploy from a branch**.
 3. Select **main**, then **/(root)**, and save.
-4. After the Pages build completes, open the URL shown by GitHub and verify the website. Update this page and the [release status](../RELEASE_STATUS.md) to record the live link.
+4. After the Pages build completes, open the public URL and verify the website. If the address changes, update both READMEs and the [release status](../RELEASE_STATUS.md).
 
 The root `.nojekyll` serves the static source directly. The root `index.html` redirects to `web/`; all website assets use relative paths so they load under the `/Gravity-and-Flight/` project prefix. No custom domain is configured.
 

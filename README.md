@@ -6,7 +6,7 @@
 
 *Ground each judgment. Adapt when evidence changes.*
 
-[Website launch & preview](docs/WEBSITE.md#view-the-website) · [Research notes](docs/RESEARCH.md) · [Release status](RELEASE_STATUS.md) · [中文](README_zh.md)
+[Project website](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [Research notes](docs/RESEARCH.md) · [Release status](RELEASE_STATUS.md) · [中文](README_zh.md)
 
 </div>
 
@@ -14,7 +14,7 @@
 
 **Gravity and Flight (G&F)** is a two-stage post-training framework that teaches vision-language models how to connect detailed observations to task-specific judgments. Related scenes provide a further lesson: which judgments should remain consistent, which should change, and which should become less specific when evidence is limited.
 
-This public showcase contains the project website, method overview, and selected reported results. **GitHub Pages activation is pending.** The full manuscript, training/evaluation implementation, model weights, and datasets are not released in this repository; see the [availability table](RELEASE_STATUS.md).
+This public showcase contains the project website, method overview, and selected reported results. **[Visit the live website →](https://z0ngl1ng.github.io/Gravity-and-Flight/)** The full manuscript, training/evaluation implementation, model weights, and datasets are not released in this repository; see the [availability table](RELEASE_STATUS.md).
 
 ## From scene transfer to context transfer
 

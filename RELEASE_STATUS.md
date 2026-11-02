@@ -7,7 +7,7 @@ This repository is the public home of **Gravity and Flight**. It currently relea
 | Resource / 资源 | Availability / 状态 | Entry / 入口 |
 | --- | --- | --- |
 | Bilingual website source / 双语网站源码 | Available / 已公开 | [`web/`](web/) |
-| Hosted website / 在线网站 | Pages activation pending / 待启用 Pages | [Preview & deployment / 预览与部署](docs/WEBSITE.md#view-the-website) |
+| Hosted website / 在线网站 | Live · verified 2026-11-02 / 已上线并验证 | [Project website / 项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/) |
 | Research notes & reported results / 研究说明与报告结果 | Available / 已公开 | [Research notes](docs/RESEARCH.md), [中文介绍](README_zh.md) |
 | Project illustrations / 项目插图 | Available / 已公开 | [`assets/`](assets/), [`web/assets/`](web/assets/) |
 | Full manuscript / 完整论文 | Not released / 尚未发布 | A public manuscript link will be added here when available. |

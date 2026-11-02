@@ -6,7 +6,7 @@
 
 *让判断有据，让推理随证据变化。*
 
-[网站上线与预览](docs/WEBSITE.md#view-the-website) · [研究说明](docs/RESEARCH.md) · [发布状态](RELEASE_STATUS.md) · [English](README.md)
+[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [研究说明](docs/RESEARCH.md) · [发布状态](RELEASE_STATUS.md) · [English](README.md)
 
 </div>
 
@@ -14,7 +14,7 @@
 
 **Gravity and Flight（G&F）** 是一个两阶段后训练框架，旨在让视觉语言模型将细致观察连接到具体任务下的判断。相关场景提供进一步的学习信号：哪些判断应保持一致，哪些应随证据改变，哪些应在支持不足时降低具体程度。
 
-本公开仓库提供项目网站、方法概览与部分已报告的研究结果。**在线网站待启用 GitHub Pages。** 完整论文、训练与评测实现、模型权重及数据集尚未在本仓库发布，具体见[资源状态表](RELEASE_STATUS.md)。
+本公开仓库提供项目网站、方法概览与部分已报告的研究结果。**[访问已上线的网站 →](https://z0ngl1ng.github.io/Gravity-and-Flight/)** 完整论文、训练与评测实现、模型权重及数据集尚未在本仓库发布，具体见[资源状态表](RELEASE_STATUS.md)。
 
 ## 从场景间迁移，到场景内迁移
 
