@@ -1,7 +1,7 @@
 /* Repository-owned bilingual research copy. */
 window.GF_I18N = {
   en: {
-    "nav.story": "From FBA",
+    "nav.story": "The story",
     "nav.example": "The evidence",
     "nav.method": "The method",
     "nav.results": "The results",
@@ -173,7 +173,7 @@ window.GF_I18N = {
     "meta.description":
       "Gravity and Flight: an aerodynamics-inspired framework that develops FBA’s scene-transfer question into fine-grained contextual adaptation.",
     "index.title": "In this study",
-    "index.story": "Research lineage",
+    "index.story": "Background & lineage",
     "index.example": "Evidence",
     "index.aero": "Inspiration",
     "index.method": "Training",
@@ -208,23 +208,8 @@ window.GF_I18N = {
       "Concentric gravity arcs on warm paper open into upward blue trajectories.",
     "hero.artCaption": "Gravity anchors observation. Flight guides reasoning.",
     "hero.begin": "Enter the study",
-    "lineage.stage": "Stage 2 · Bridging-Conv",
     "lineage.fbaTitle": "Across scene domains",
-    "lineage.related": "Related scenes",
-    "lineage.examples": "Coast · water · ships",
-    "lineage.target": "Target scene",
-    "lineage.harbor": "Harbor",
-    "lineage.priors": "Learn shared priors for scenario specialization.",
-    "lineage.current": "This work",
     "lineage.gfTitle": "Within one scene domain",
-    "lineage.shared": "Harbor scenes · shared task q",
-    "lineage.contextA": "Image A · context A",
-    "lineage.contextB": "Image B · context B",
-    "lineage.adaptation":
-      "Adapt judgments to fine-grained changes in evidence.",
-    "lineage.shift": "A finer scale of transfer",
-    "lineage.question":
-      "When local evidence changes, what should stay, change, or become less specific?",
     "lineage.project": "FBA project",
     "lineage.paper": "FBA paper",
     "lineage.route":
@@ -236,9 +221,56 @@ window.GF_I18N = {
       "The design draws inspiration from the interplay of gravity and aerodynamic lift. Gravity anchors visual claims to the image; Flight evaluates how reasoning develops from those observations and adapts across task-matched contexts.",
     "aero.note":
       "The sketch expresses the naming metaphor. Its arrows do not encode reward weights.",
+    "paper.backgroundTitle":
+      "From filling capability gaps to organizing existing strengths.",
+    "paper.backgroundFba":
+      "FBA asked which remote-sensing capabilities a model needs before scenario specialization. Its staged training develops semantic alignment, shared priors across related scenes and sensors, and evidence-grounded scenario skills.",
+    "paper.backgroundGf":
+      "G&F shifts our research focus to how a capable backbone uses what it already recognizes. In the harbor example, identifying ships and facilities is a starting point; judging vehicle-staging suitability requires connecting vehicle rows, usable paved space, and nearby berths to the question. We train this observation-to-judgment process through demonstrations and feedback on task-matched scenes.",
+    "paper.backgroundLineage":
+      "FBA's second stage, Bridging-Conv, is the intellectual starting point for that move. Its transfer across target and related scenes motivates our finer question within one scene domain: which contextual changes should alter a judgment, preserve it, or narrow its scope? G&F explores this question with EoT-SFT and RTPO, starting from Qwen3.5-4B.",
+    "paper.fbaMotivationCaption":
+      "FBA's original motivation: acquire the alignment, modality, and task capabilities needed for scenario specialization. This is the earlier work's framing, illustrated with a harbor report.",
+    "paper.fbaMethodCaption":
+      "FBA's three-stage training design. Stage 2 learns shared priors from target and related bridging scenes; this transfer idea later motivated G&F's focus on contextual variations within one scene domain.",
+    "paper.gfMotivationCaption":
+      "An illustrative harbor case: recognizing ships and facilities does not by itself resolve vehicle-staging suitability. The G&F response connects vehicle rows, paved space, and nearby berths to the task. Both waterfronts are in one input image.",
+    "paper.gfMethodCaption":
+      "EoT-SFT initializes observation → analysis → answer. RTPO then samples responses independently for two task-matched images, evaluates matched pairs with separate Gravity and Flight views, and combines these scores with task correctness into an additive reward and shared advantage. Inference uses one image.",
+    "paper.gfMethodInputDetail":
+      "Gravity checks visual truth against images and Evidence Cards. Flight evaluates descriptions and analyses using the public task and permitted comparison metadata; it receives no answer contract or reference judgment, and is not gated by Gravity.",
+    "paper.fbaMotivationAlt":
+      "FBA motivation showing scenario-data scarcity and gaps in alignment, modality, and task capability, followed by a staged specialization design.",
+    "paper.fbaMethodAlt":
+      "FBA three-stage method: remote-sensing semantic anchoring, domain-bridge convergence using target and related scenes, and evidence-grounded scenario tuning.",
+    "paper.gfMotivationAlt":
+      "One harbor image with two waterfronts: a Base response favors the left using broad cues, while the G&F example favors the right using vehicles, paved space, and nearby berths.",
+    "paper.gfMethodAlt":
+      "G&F training overview: supervised observation, analysis, and answer; independent Anchor and Bridging rollouts; separate verification views; additive pair rewards, shared advantages, and a frozen reference.",
+    "background.label": "01 / A changing research question",
+    "background.title":
+      "From adding knowledge<br><em>to organizing capability.</em>",
+    "background.body1":
+      "Our earlier work focused on capability coverage: giving a model the remote-sensing knowledge and skills it needed before specialization. As the backbone grows stronger, our research shifts toward a new question: how can it organize what it already knows to solve more demanding tasks?",
+    "background.body2":
+      "Recognizing ships, vehicles, and facilities is a starting point. A useful judgment must select the observations that matter, connect them to the task, and adapt when the local evidence changes. This is the step from FBA to Gravity &amp; Flight.",
+    "background.fbaTitle": "Build the capability base.",
+    "background.gfTitle": "Put existing capabilities to work.",
+    "background.bridge":
+      "Knowing what is there is the beginning.<br><em>Knowing what matters is the next step.</em>",
+    "lineage.label": "The connection to FBA",
+    "figure.motivation": "Motivation figure",
+    "figure.method": "Method figure",
+    "figure.enlarge": "Explore figure",
+    "figure.pdf": "Original PDF",
+    "figure.detail": "View at 1:1",
+    "figure.fit": "Fit to window",
+    "figure.close": "Close",
+    "figure.pan": "Scroll to explore the enlarged figure.",
+    "figure.reading": "Reading the G&F method figure",
   },
   zh: {
-    "nav.story": "研究脉络",
+    "nav.story": "研究起点",
     "nav.example": "视觉证据",
     "nav.method": "训练方法",
     "nav.results": "实验结果",
@@ -400,7 +432,7 @@ window.GF_I18N = {
     "meta.description":
       "Gravity and Flight：受空气动力学启发，从 FBA 的场景迁移思路出发，探索同类场景中的细粒度上下文迁移。",
     "index.title": "本页导览",
-    "index.story": "研究脉络",
+    "index.story": "背景与脉络",
     "index.example": "视觉证据",
     "index.aero": "设计启发",
     "index.method": "训练方法",
@@ -433,22 +465,8 @@ window.GF_I18N = {
     "hero.artAlt": "暖色纸面上的同心圆弧，展开为向上延伸的蓝色轨迹。",
     "hero.artCaption": "Gravity 让观察立足证据，Flight 让推理适应变化。",
     "hero.begin": "开始阅读",
-    "lineage.stage": "第二阶段 · Bridging-Conv",
     "lineage.fbaTitle": "场景间的迁移",
-    "lineage.related": "相关场景",
-    "lineage.examples": "海岸 · 水域 · 船舶",
-    "lineage.target": "目标场景",
-    "lineage.harbor": "港口",
-    "lineage.priors": "学习共享先验，为目标场景专精做准备。",
-    "lineage.current": "本研究",
     "lineage.gfTitle": "同类场景内的迁移",
-    "lineage.shared": "同属港口场景 · 共同任务 q",
-    "lineage.contextA": "图像 A · 上下文 A",
-    "lineage.contextB": "图像 B · 上下文 B",
-    "lineage.adaptation": "依据细粒度证据变化，学习如何调整判断。",
-    "lineage.shift": "迁移粒度的进一步细化",
-    "lineage.question":
-      "当局部证据变化，哪些判断应保持、哪些应改变，哪些需要降低具体程度？",
     "lineage.project": "FBA 项目",
     "lineage.paper": "FBA 论文",
     "lineage.route":
@@ -459,5 +477,50 @@ window.GF_I18N = {
     "aero.body":
       "设计借鉴飞行中重力与气动升力的共同作用。Gravity 让视觉陈述立足图像；Flight 检验推理如何从这些观察出发，并在任务匹配的上下文之间适应变化。",
     "aero.note": "示意图表达命名中的隐喻，箭头不表示奖励权重。",
+    "paper.backgroundTitle": "从补足能力，到组织已有能力。",
+    "paper.backgroundFba":
+      "FBA 关注模型在场景专精前需要具备哪些遥感能力，通过分阶段训练建立语义对齐、相关场景与传感器之间的共享先验，以及有证据支撑的场景能力。",
+    "paper.backgroundGf":
+      "G&F 将我们的研究重点推进到：如何让具备较强基础能力的模型，用好已经能够识别的内容。在港口示例中，识别船舶与设施只是起点；判断哪处岸线更适合车辆集结，还需要把车辆排列、可用铺装空间和邻近泊位联系到具体问题。我们通过示范与任务匹配场景的反馈，训练这一从观察到判断的过程。",
+    "paper.backgroundLineage":
+      "FBA 第二阶段 Bridging-Conv 是这一研究转向的思想起点。它在目标场景与相关场景之间迁移共享先验，启发我们进一步追问：在同类场景内部，哪些上下文变化应当改变判断，哪些应保持判断，哪些应收窄结论范围？G&F 从 Qwen3.5-4B 出发，以 EoT-SFT 与 RTPO 探索这个问题。",
+    "paper.fbaMotivationCaption":
+      "FBA 的原始动机：为场景专精建立所需的对齐、模态与任务能力。图中以港口报告说明前作的研究问题。",
+    "paper.fbaMethodCaption":
+      "FBA 的三阶段训练设计。第二阶段从目标场景与相关桥接场景学习共享先验；这一迁移思路随后启发了 G&F 对同类场景内部上下文变化的研究。",
+    "paper.gfMotivationCaption":
+      "一个港口示例：仅识别船舶与设施，还不足以判断车辆集结条件。G&F 的回答将车辆排列、铺装空间与邻近泊位联系到任务；图中两处岸线位于同一张输入图像中。",
+    "paper.gfMethodCaption":
+      "EoT-SFT 初始化“观察 → 分析 → 回答”的过程。RTPO 随后为两张任务匹配图像独立采样回答，以各自限定输入的 Gravity 与 Flight 视角评估匹配回答对，再将评分与任务正确性相加，形成配对奖励与共享优势。推理时仍只输入一张图像。",
+    "paper.gfMethodInputDetail":
+      "Gravity 依据图像与 Evidence Card 检查视觉事实。Flight 使用公开任务和允许的比较元信息评估描述与分析，不接收答案契约或参考判断，也不受 Gravity 分数门控。",
+    "paper.fbaMotivationAlt":
+      "FBA 动机图：场景数据稀缺与对齐、模态、任务能力缺口，以及分阶段实现专精的设计。",
+    "paper.fbaMethodAlt":
+      "FBA 三阶段方法：遥感语义锚定、利用目标与相关场景进行领域桥接收敛，以及有证据支撑的场景调优。",
+    "paper.gfMotivationAlt":
+      "一张港口图像中的两处岸线：Base 示例依赖宽泛线索选择左侧，G&F 示例依据车辆、铺装空间与邻近泊位选择右侧。",
+    "paper.gfMethodAlt":
+      "G&F 训练概览：监督学习观察、分析与回答；Anchor 和 Bridging 独立采样；分视角验证；相加的配对奖励、共享优势与冻结参考模型。",
+    "background.label": "01 / 研究问题的变化",
+    "background.title": "从补充领域知识，<br><em>到组织已有能力。</em>",
+    "background.body1":
+      "前一阶段，我们关注能力覆盖：通过广泛、结构化的领域监督，为模型补足场景专精所需的遥感知识与技能。随着基座能力增强，我们的研究重点转向一个新问题：如何让模型组织已经具备的能力，完成更复杂的任务？",
+    "background.body2":
+      "能识别船舶、车辆和设施，只是起点。有效的判断还需要筛选与问题相关的观察，将其联系到任务条件，并随局部证据变化调整结论。这构成了从 FBA 到 Gravity &amp; Flight 的研究推进。",
+    "background.fbaTitle": "建立场景专精的能力基础。",
+    "background.gfTitle": "让已有能力服务具体判断。",
+    "background.bridge":
+      "看见图中有什么，是起点。<br><em>理解哪些观察与任务有关，是下一步。</em>",
+    "lineage.label": "与 FBA 的联系",
+    "figure.motivation": "研究动机图",
+    "figure.method": "论文方法图",
+    "figure.enlarge": "放大查看",
+    "figure.pdf": "原始 PDF",
+    "figure.detail": "查看原始尺寸",
+    "figure.fit": "适应窗口",
+    "figure.close": "关闭",
+    "figure.pan": "放大后可滚动查看图中细节。",
+    "figure.reading": "如何阅读 G&F 方法图",
   },
 };

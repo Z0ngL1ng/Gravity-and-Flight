@@ -18,6 +18,8 @@ This public showcase contains the project website, method overview, and selected
 
 ## From scene transfer to context transfer
 
+As the backbone becomes more capable, our research shifts from building domain coverage toward organizing existing abilities for demanding tasks. FBA develops the capabilities needed for scene specialization; G&F studies how a strong base can connect local observations to task-specific judgments. The website brings this progression together with both projects’ [motivation and method figures](docs/FIGURES.md).
+
 The research starts from [Filling Before Advancing (FBA)](https://github.com/Z0ngL1ng/filling-before-advancing). FBA's second stage, **Bridging-Conv**, learns shared priors from target and related scenes. This inspired a finer question for G&F: **within one scene domain, how should judgments adapt when local attributes, spatial relations, or visibility change?**
 
 G&F makes this question explicit with **Anchor–Bridging image pairs under a shared task**. Each image receives an independent response. Paired feedback then assesses the relation between the judgments. The pair can contain two different harbor images; it need not show the same geographic location or a temporal change. G&F starts from **Qwen3.5-4B**, followed by EoT-SFT and RTPO.

@@ -6,15 +6,8 @@
     Array.from(root.querySelectorAll(selector));
   const dictionaries = window.GF_I18N || {};
   const research = window.GF_RESEARCH;
-  let language = navigator.language?.toLowerCase().startsWith("zh")
-    ? "zh"
-    : "en";
-  try {
-    const saved = localStorage.getItem("gf-lang");
-    if (saved === "en" || saved === "zh") language = saved;
-  } catch {
-    /* Language switching also works when storage is blocked. */
-  }
+  // Every visit opens the public research narrative in English.
+  let language = "en";
   const translate = (key) =>
     dictionaries[language]?.[key] || dictionaries.en?.[key] || "";
   const element = (tag, className, text) => {
@@ -182,11 +175,6 @@
     $("#copy-status").textContent = "";
     renderChart();
     renderAblations();
-    try {
-      localStorage.setItem("gf-lang", next);
-    } catch {
-      /* Optional preference. */
-    }
   }
 
   function setupMenu() {
@@ -266,6 +254,7 @@
     function update() {
       pending = false;
       const header = $("#topbar").getBoundingClientRect().height;
+      $("#topbar").classList.toggle("is-scrolled", window.scrollY > 24);
       const headerValue = `${header}px`;
       if (
         document.documentElement.style.getPropertyValue("--header-height") !==
@@ -330,6 +319,146 @@
     });
   }
 
+  function setupFigures() {
+    const viewer = $("#figure-viewer");
+    if (!viewer || typeof viewer.showModal !== "function") return;
+    const image = $("#figure-viewer-image");
+    const stage = $(".figure-viewer-stage", viewer);
+    const zoom = $("#figure-zoom");
+    let trigger;
+    let previousOverflow = "";
+    const resetZoom = () => {
+      stage.classList.remove("is-zoomed");
+      zoom.setAttribute("aria-pressed", "false");
+      zoom.textContent = translate("figure.detail");
+      stage.scrollTo(0, 0);
+    };
+    $$("[data-figure]").forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (
+          event.button !== 0 ||
+          event.metaKey ||
+          event.ctrlKey ||
+          event.shiftKey ||
+          event.altKey
+        )
+          return;
+        event.preventDefault();
+        trigger = link;
+        const preview = $("img", link);
+        const figure = link.closest("figure");
+        image.src = link.href;
+        image.alt = preview.alt;
+        image.width = Number(link.dataset.figureWidth);
+        image.height = Number(link.dataset.figureHeight);
+        image.style.setProperty("--figure-width", `${image.width}px`);
+        $("#figure-viewer-title").textContent = $(
+          "[data-figure-title]",
+          figure,
+        ).textContent;
+        $("#figure-viewer-caption").textContent = $(
+          ".paper-caption",
+          figure,
+        ).textContent;
+        $("#figure-original").href = link.dataset.pdf;
+        resetZoom();
+        previousOverflow = document.body.style.overflow;
+        viewer.showModal();
+        document.body.style.overflow = "hidden";
+      });
+    });
+    zoom.addEventListener("click", () => {
+      const enlarged = stage.classList.toggle("is-zoomed");
+      zoom.setAttribute("aria-pressed", String(enlarged));
+      zoom.textContent = translate(enlarged ? "figure.fit" : "figure.detail");
+      stage.scrollTo(0, 0);
+    });
+    $("#figure-close").addEventListener("click", () => viewer.close());
+    viewer.addEventListener("click", (event) => {
+      if (event.target === viewer) {
+        const box = viewer.getBoundingClientRect();
+        if (
+          event.clientX < box.left ||
+          event.clientX > box.right ||
+          event.clientY < box.top ||
+          event.clientY > box.bottom
+        )
+          viewer.close();
+      }
+    });
+    viewer.addEventListener("close", () => {
+      document.body.style.overflow = previousOverflow;
+      resetZoom();
+      trigger?.focus({ preventScroll: true });
+    });
+  }
+
+  function setupMotion() {
+    // Content is visible by default; animation is never required to reveal it.
+    if (!("IntersectionObserver" in window) || !Element.prototype.animate)
+      return;
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const seen = new WeakSet();
+    const running = new Map();
+    const targets = $$("[data-reveal]");
+    const finish = (node) => {
+      seen.add(node);
+      running.get(node)?.cancel();
+      running.delete(node);
+    };
+    let observer;
+    try {
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(({ target, isIntersecting }) => {
+            if (!isIntersecting) return;
+            observer.unobserve(target);
+            if (seen.has(target)) return;
+            seen.add(target);
+            if (preference.matches || target.contains(document.activeElement))
+              return;
+            const animation = target.animate(
+              [
+                { opacity: 0.15, transform: "translateY(24px)" },
+                { opacity: 1, transform: "translateY(0)" },
+              ],
+              {
+                duration: 800,
+                easing: "cubic-bezier(.16, 1, .3, 1)",
+                fill: "none",
+              },
+            );
+            running.set(target, animation);
+            animation.onfinish = () => running.delete(target);
+            animation.oncancel = () => running.delete(target);
+          });
+        },
+        { threshold: 0, rootMargin: "0px 0px -24px 0px" },
+      );
+      targets.forEach((node) => {
+        if (node.getBoundingClientRect().top < window.innerHeight)
+          seen.add(node);
+        else observer.observe(node);
+      });
+    } catch {
+      return;
+    }
+    document.addEventListener("focusin", (event) => {
+      targets.forEach((node) => {
+        if (node.contains(event.target)) finish(node);
+      });
+    });
+    const cancelMotion = () => {
+      if (preference.matches)
+        running.forEach((animation, node) => finish(node));
+    };
+    preference.addEventListener?.("change", cancelMotion);
+    window.addEventListener("beforeprint", () => {
+      targets.forEach(finish);
+      observer.disconnect();
+    });
+  }
+
   if (research) {
     const select = $("#benchmark-select");
     research.benchmarks.forEach(({ id, label }) => {
@@ -354,4 +483,6 @@
   setupExample();
   setupScroll();
   setupCopy();
+  setupFigures();
+  setupMotion();
 })();

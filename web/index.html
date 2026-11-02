@@ -53,7 +53,7 @@
         ></a
       >
       <nav aria-label="Sections" class="desktop-nav">
-        <a href="#story"><span data-i18n="nav.story">From FBA</span></a
+        <a href="#story"><span data-i18n="nav.story">The story</span></a
         ><a href="#example"><span data-i18n="nav.example">The evidence</span></a
         ><a href="#method"><span data-i18n="nav.method">The method</span></a
         ><a href="#results"><span data-i18n="nav.results">The results</span></a>
@@ -92,7 +92,7 @@
         </button>
       </div>
       <nav aria-label="Sections" class="mobile-nav" hidden="" id="mobile-nav">
-        <a href="#story"><span data-i18n="nav.story">From FBA</span></a
+        <a href="#story"><span data-i18n="nav.story">The story</span></a
         ><a href="#example"><span data-i18n="nav.example">The evidence</span></a
         ><a href="#aero"><span data-i18n="nav.aero">Design inspiration</span></a
         ><a href="#method"><span data-i18n="nav.method">The method</span></a
@@ -144,44 +144,197 @@
       </section>
       <section
         aria-labelledby="story-title"
-        class="section wrap question-section"
+        class="section wrap story-section"
         id="story"
       >
-        <div class="section-margin">
-          <span class="eyebrow" data-i18n="index.label">In this study</span>
-          <nav aria-label="Study chapters" class="chapter-nav">
-            <a href="#story"
-              ><span class="chapter-number">01</span
-              ><span data-i18n="index.story">Research lineage</span
-              ><span aria-hidden="true" class="chapter-arrow">↗</span></a
-            ><a href="#example"
-              ><span class="chapter-number">02</span
-              ><span data-i18n="index.example">Evidence</span
-              ><span aria-hidden="true" class="chapter-arrow">↗</span></a
-            ><a href="#aero"
-              ><span class="chapter-number">03</span
-              ><span data-i18n="index.aero">Inspiration</span
-              ><span aria-hidden="true" class="chapter-arrow">↗</span></a
-            ><a href="#method"
-              ><span class="chapter-number">04</span
-              ><span data-i18n="index.method">Training</span
-              ><span aria-hidden="true" class="chapter-arrow">↗</span></a
-            ><a href="#results"
-              ><span class="chapter-number">05</span
-              ><span data-i18n="index.results">Results</span
-              ><span aria-hidden="true" class="chapter-arrow">↗</span></a
-            ><a href="#analysis"
-              ><span class="chapter-number">06</span
-              ><span data-i18n="index.analysis">Analysis</span
-              ><span aria-hidden="true" class="chapter-arrow">↗</span></a
-            >
-          </nav>
+        <div class="story-opening">
+          <div class="section-margin">
+            <span class="eyebrow" data-i18n="index.label">In this study</span>
+            <nav aria-label="Study chapters" class="chapter-nav">
+              <a href="#story"
+                ><span class="chapter-number">01</span
+                ><span data-i18n="index.story">Background &amp; lineage</span
+                ><span aria-hidden="true" class="chapter-arrow">↗</span></a
+              ><a href="#example"
+                ><span class="chapter-number">02</span
+                ><span data-i18n="index.example">Evidence</span
+                ><span aria-hidden="true" class="chapter-arrow">↗</span></a
+              ><a href="#aero"
+                ><span class="chapter-number">03</span
+                ><span data-i18n="index.aero">Inspiration</span
+                ><span aria-hidden="true" class="chapter-arrow">↗</span></a
+              ><a href="#method"
+                ><span class="chapter-number">04</span
+                ><span data-i18n="index.method">Training</span
+                ><span aria-hidden="true" class="chapter-arrow">↗</span></a
+              ><a href="#results"
+                ><span class="chapter-number">05</span
+                ><span data-i18n="index.results">Results</span
+                ><span aria-hidden="true" class="chapter-arrow">↗</span></a
+              ><a href="#analysis"
+                ><span class="chapter-number">06</span
+                ><span data-i18n="index.analysis">Analysis</span
+                ><span aria-hidden="true" class="chapter-arrow">↗</span></a
+              >
+            </nav>
+          </div>
+          <div class="section-body">
+            <p class="eyebrow story-kicker" data-i18n="background.label">
+              01 / A changing research question
+            </p>
+            <h2 data-i18n="background.title" data-reveal="" id="story-title">
+              From adding knowledge<br /><em>to organizing capability.</em>
+            </h2>
+            <div class="prose-columns" data-reveal="">
+              <p data-i18n="background.body1">
+                Our earlier work focused on capability coverage: giving a model
+                the remote-sensing knowledge and skills it needed before
+                specialization. As the backbone grows stronger, our research
+                shifts toward a new question: how can it organize what it
+                already knows to solve more demanding tasks?
+              </p>
+              <p data-i18n="background.body2">
+                Recognizing ships, vehicles, and facilities is a starting point.
+                A useful judgment must select the observations that matter,
+                connect them to the task, and adapt when the local evidence
+                changes. This is the step from FBA to Gravity &amp; Flight.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="section-body">
-          <h2 id="story-title">
-            <span data-i18n="story.title"
-              >From scene transfer<br /><em>to context transfer.</em></span
+        <div class="paper-grid motivation-figures">
+          <figure
+            aria-labelledby="fba-motivation-title"
+            class="paper-card paper-fba"
+            data-reveal=""
+          >
+            <header class="paper-card-head">
+              <div class="paper-meta">
+                <span class="eyebrow">FBA</span
+                ><span data-i18n="figure.motivation">Motivation figure</span>
+              </div>
+              <h3
+                data-figure-title=""
+                data-i18n="background.fbaTitle"
+                id="fba-motivation-title"
+              >
+                Build the capability base.
+              </h3>
+            </header>
+            <a
+              class="paper-frame"
+              data-figure=""
+              data-figure-height="1107"
+              data-figure-width="2800"
+              data-pdf="assets/papers/fba-motivation.pdf"
+              href="assets/papers/fba-motivation.webp"
+              rel="noopener noreferrer"
+              target="_blank"
             >
+              <img
+                alt="FBA motivation showing scenario-data scarcity and gaps in alignment, modality, and task capability, followed by a staged specialization design."
+                data-i18n-alt="paper.fbaMotivationAlt"
+                decoding="async"
+                height="1107"
+                loading="lazy"
+                src="assets/papers/fba-motivation-1400.webp"
+                width="2800"
+              />
+              <span class="paper-zoom-hint"
+                ><span data-i18n="figure.enlarge">Explore figure</span
+                ><span aria-hidden="true">↗</span></span
+              ></a
+            >
+            <figcaption>
+              <p class="paper-caption" data-i18n="paper.fbaMotivationCaption">
+                FBA's original motivation: acquire the alignment, modality, and
+                task capabilities needed for scenario specialization. This is
+                the earlier work's framing, illustrated with a harbor report.
+              </p>
+              <a
+                class="paper-pdf"
+                href="assets/papers/fba-motivation.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><span data-i18n="figure.pdf">Original PDF</span
+                ><span aria-hidden="true">↓</span></a
+              >
+            </figcaption>
+          </figure>
+          <figure
+            aria-labelledby="gf-motivation-title"
+            class="paper-card paper-gf"
+            data-reveal=""
+          >
+            <header class="paper-card-head">
+              <div class="paper-meta">
+                <span class="eyebrow">G&amp;F</span
+                ><span data-i18n="figure.motivation">Motivation figure</span>
+              </div>
+              <h3
+                data-figure-title=""
+                data-i18n="background.gfTitle"
+                id="gf-motivation-title"
+              >
+                Put existing capabilities to work.
+              </h3>
+            </header>
+            <a
+              class="paper-frame"
+              data-figure=""
+              data-figure-height="944"
+              data-figure-width="2800"
+              data-pdf="assets/papers/gf-motivation.pdf"
+              href="assets/papers/gf-motivation.webp"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="One harbor image with two waterfronts: a Base response favors the left using broad cues, while the G&amp;F example favors the right using vehicles, paved space, and nearby berths."
+                data-i18n-alt="paper.gfMotivationAlt"
+                decoding="async"
+                height="944"
+                loading="lazy"
+                src="assets/papers/gf-motivation-1400.webp"
+                width="2800"
+              />
+              <span class="paper-zoom-hint"
+                ><span data-i18n="figure.enlarge">Explore figure</span
+                ><span aria-hidden="true">↗</span></span
+              ></a
+            >
+            <figcaption>
+              <p class="paper-caption" data-i18n="paper.gfMotivationCaption">
+                An illustrative harbor case: recognizing ships and facilities
+                does not by itself resolve vehicle-staging suitability. The
+                G&amp;F response connects vehicle rows, paved space, and nearby
+                berths to the task. Both waterfronts are in one input image.
+              </p>
+              <a
+                class="paper-pdf"
+                href="assets/papers/gf-motivation.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><span data-i18n="figure.pdf">Original PDF</span
+                ><span aria-hidden="true">↓</span></a
+              >
+            </figcaption>
+          </figure>
+        </div>
+        <div class="story-interlude" data-reveal="">
+          <span aria-hidden="true" class="story-connector">↓</span>
+          <p data-i18n="background.bridge">
+            Knowing what is there is the beginning.<br /><em
+              >Knowing what matters is the next step.</em
+            >
+          </p>
+        </div>
+        <div class="lineage-intro" data-reveal="">
+          <p class="eyebrow story-kicker" data-i18n="lineage.label">
+            The connection to FBA
+          </p>
+          <h2 data-i18n="story.title" id="lineage-title">
+            From scene transfer<br /><em>to context transfer.</em>
           </h2>
           <div class="prose-columns">
             <p data-i18n="story.body1">
@@ -198,110 +351,161 @@
               shared task.
             </p>
           </div>
-          <figure aria-labelledby="lineage-caption" class="lineage-figure">
-            <div class="lineage-path">
-              <article class="lineage-step lineage-fba">
-                <div class="lineage-step-head">
-                  <span class="eyebrow">FBA</span
-                  ><span data-i18n="lineage.stage"
-                    >Stage 2 · Bridging-Conv</span
-                  >
-                </div>
-                <h3 data-i18n="lineage.fbaTitle">Across scene domains</h3>
-                <div class="domain-bridge">
-                  <div class="bridge-scenes">
-                    <span data-i18n="lineage.related">Related scenes</span
-                    ><small data-i18n="lineage.examples"
-                      >Coast · water · ships</small
-                    >
-                  </div>
-                  <span aria-hidden="true" class="bridge-arrow">→</span>
-                  <div class="target-scene">
-                    <span data-i18n="lineage.target">Target scene</span
-                    ><small data-i18n="lineage.harbor">Harbor</small>
-                  </div>
-                </div>
-                <p class="lineage-principle" data-i18n="lineage.priors">
-                  Learn shared priors for scenario specialization.
-                </p>
-              </article>
-              <div aria-hidden="true" class="lineage-transition">
-                <span>→</span>
+        </div>
+        <div class="paper-grid method-figures">
+          <figure
+            aria-labelledby="fba-method-title"
+            class="paper-card paper-fba"
+            data-reveal=""
+          >
+            <header class="paper-card-head">
+              <div class="paper-meta">
+                <span class="eyebrow">FBA</span
+                ><span data-i18n="figure.method">Method figure</span>
               </div>
-              <article class="lineage-step lineage-gf">
-                <div class="lineage-step-head">
-                  <span class="eyebrow">G&amp;F</span
-                  ><span data-i18n="lineage.current">This work</span>
-                </div>
-                <h3 data-i18n="lineage.gfTitle">Within one scene domain</h3>
-                <div class="context-pair">
-                  <div class="context-domain" data-i18n="lineage.shared">
-                    Harbor scenes · shared task q
-                  </div>
-                  <div class="context-images">
-                    <div class="context-image">
-                      <img
-                        alt=""
-                        height="720"
-                        loading="lazy"
-                        src="assets/pair_a.jpg"
-                        width="720"
-                      /><span data-i18n="lineage.contextA"
-                        >Image A · context A</span
-                      >
-                    </div>
-                    <span aria-hidden="true" class="context-relation">↔</span>
-                    <div class="context-image">
-                      <img
-                        alt=""
-                        height="720"
-                        loading="lazy"
-                        src="assets/pair_b.jpg"
-                        width="720"
-                      /><span data-i18n="lineage.contextB"
-                        >Image B · context B</span
-                      >
-                    </div>
-                  </div>
-                </div>
-                <p class="lineage-principle" data-i18n="lineage.adaptation">
-                  Adapt judgments to fine-grained changes in evidence.
-                </p>
-              </article>
-            </div>
-            <figcaption id="lineage-caption">
-              <span class="eyebrow" data-i18n="lineage.shift"
-                >A finer scale of transfer</span
+              <h3
+                data-figure-title=""
+                data-i18n="lineage.fbaTitle"
+                id="fba-method-title"
               >
-              <p data-i18n="lineage.question">
-                When local evidence changes, what should stay, change, or become
-                less specific?
+                Across scene domains
+              </h3>
+            </header>
+            <a
+              class="paper-frame"
+              data-figure=""
+              data-figure-height="1205"
+              data-figure-width="2800"
+              data-pdf="assets/papers/fba-method.pdf"
+              href="assets/papers/fba-method.webp"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="FBA three-stage method: remote-sensing semantic anchoring, domain-bridge convergence using target and related scenes, and evidence-grounded scenario tuning."
+                data-i18n-alt="paper.fbaMethodAlt"
+                decoding="async"
+                height="1205"
+                loading="lazy"
+                src="assets/papers/fba-method-1400.webp"
+                width="2800"
+              />
+              <span class="paper-zoom-hint"
+                ><span data-i18n="figure.enlarge">Explore figure</span
+                ><span aria-hidden="true">↗</span></span
+              ></a
+            >
+            <figcaption>
+              <p class="paper-caption" data-i18n="paper.fbaMethodCaption">
+                FBA's three-stage training design. Stage 2 learns shared priors
+                from target and related bridging scenes; this transfer idea
+                later motivated G&amp;F's focus on contextual variations within
+                one scene domain.
               </p>
+              <a
+                class="paper-pdf"
+                href="assets/papers/fba-method.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><span data-i18n="figure.pdf">Original PDF</span
+                ><span aria-hidden="true">↓</span></a
+              >
             </figcaption>
-            <div class="lineage-sources">
-              <div>
-                <a
-                  href="https://github.com/Z0ngL1ng/filling-before-advancing"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  ><span data-i18n="lineage.project">FBA project</span> ↗</a
-                ><a
-                  href="https://arxiv.org/abs/2607.22205"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  ><span data-i18n="lineage.paper">FBA paper</span> ↗</a
-                >
-              </div>
-              <p data-i18n="lineage.route">
-                Research lineage. G&amp;F itself starts from Qwen3.5-4B and
-                trains through EoT-SFT → RTPO.
-              </p>
-            </div>
           </figure>
+          <figure
+            aria-labelledby="gf-method-title"
+            class="paper-card paper-gf"
+            data-reveal=""
+          >
+            <header class="paper-card-head">
+              <div class="paper-meta">
+                <span class="eyebrow">G&amp;F</span
+                ><span data-i18n="figure.method">Method figure</span>
+              </div>
+              <h3
+                data-figure-title=""
+                data-i18n="lineage.gfTitle"
+                id="gf-method-title"
+              >
+                Within one scene domain
+              </h3>
+            </header>
+            <a
+              class="paper-frame"
+              data-figure=""
+              data-figure-height="1392"
+              data-figure-width="2800"
+              data-pdf="assets/papers/gf-method.pdf"
+              href="assets/papers/gf-method.webp"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              <img
+                alt="G&amp;F training overview: supervised observation, analysis, and answer; independent Anchor and Bridging rollouts; separate verification views; additive pair rewards, shared advantages, and a frozen reference."
+                data-i18n-alt="paper.gfMethodAlt"
+                decoding="async"
+                height="1392"
+                loading="lazy"
+                src="assets/papers/gf-method-1400.webp"
+                width="2800"
+              />
+              <span class="paper-zoom-hint"
+                ><span data-i18n="figure.enlarge">Explore figure</span
+                ><span aria-hidden="true">↗</span></span
+              ></a
+            >
+            <figcaption>
+              <p class="paper-caption" data-i18n="paper.gfMethodCaption">
+                EoT-SFT initializes observation → analysis → answer. RTPO then
+                samples responses independently for two task-matched images,
+                evaluates matched pairs with separate Gravity and Flight views,
+                and combines these scores with task correctness into an additive
+                reward and shared advantage. Inference uses one image.
+              </p>
+              <a
+                class="paper-pdf"
+                href="assets/papers/gf-method.pdf"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><span data-i18n="figure.pdf">Original PDF</span
+                ><span aria-hidden="true">↓</span></a
+              >
+            </figcaption>
+          </figure>
+        </div>
+        <details class="figure-reading">
+          <summary data-i18n="figure.reading">
+            Reading the G&amp;F method figure
+          </summary>
+          <p data-i18n="paper.gfMethodInputDetail">
+            Gravity checks visual truth against images and Evidence Cards.
+            Flight evaluates descriptions and analyses using the public task and
+            permitted comparison metadata; it receives no answer contract or
+            reference judgment, and is not gated by Gravity.
+          </p>
+        </details>
+        <div class="lineage-sources">
+          <div>
+            <a
+              href="https://github.com/Z0ngL1ng/filling-before-advancing"
+              rel="noopener noreferrer"
+              target="_blank"
+              ><span data-i18n="lineage.project">FBA project</span> ↗</a
+            ><a
+              href="https://arxiv.org/abs/2607.22205"
+              rel="noopener noreferrer"
+              target="_blank"
+              ><span data-i18n="lineage.paper">FBA paper</span> ↗</a
+            >
+          </div>
+          <p data-i18n="lineage.route">
+            Research lineage. G&amp;F itself starts from Qwen3.5-4B and trains
+            through EoT-SFT → RTPO.
+          </p>
         </div>
       </section>
       <section aria-label="Research at a glance" class="numbers-strip">
-        <div class="wrap numbers-grid">
+        <div class="wrap numbers-grid" data-reveal="">
           <div>
             <strong>1,008</strong
             ><span data-i18n="stats.demos">EoT demonstrations</span
@@ -342,7 +546,7 @@
         id="example"
       >
         <div class="wrap">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="">
             <div>
               <div class="eyebrow">
                 <span data-i18n="example.label">02 / The evidence</span>
@@ -367,7 +571,7 @@
               How are the vessels positioned relative to the waterfront?
             </p>
           </div>
-          <div class="image-pair">
+          <div class="image-pair" data-reveal="">
             <figure>
               <div class="image-heading">
                 <span><b>A</b> Anchor</span
@@ -471,7 +675,7 @@
               ><span aria-hidden="true">↗</span>
             </button>
           </div>
-          <div class="interpretations">
+          <div class="interpretations" data-reveal="">
             <article class="interpretation" id="panel-preserve">
               <span aria-hidden="true" class="relation-symbol">=</span>
               <div>
@@ -533,7 +737,7 @@
           <div class="eyebrow">
             <span data-i18n="forces.label">03 / The design inspiration</span>
           </div>
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="">
             <h2 id="forces-title">
               <span data-i18n="forces.title"
                 >An idea borrowed from aerodynamics.</span
@@ -544,7 +748,7 @@
               physical intuition becomes two complementary verification views.
             </p>
           </div>
-          <div class="aero-inspiration">
+          <div class="aero-inspiration" data-reveal="">
             <figure aria-labelledby="aero-sketch-caption" class="aero-sketch">
               <div class="aero-drawing">
                 <img
@@ -573,7 +777,7 @@
               </p>
             </div>
           </div>
-          <div class="forces-grid">
+          <div class="forces-grid" data-reveal="">
             <article>
               <div class="force-name">
                 <h3>Gravity</h3>
@@ -652,7 +856,7 @@
         class="section wrap method-section"
         id="method"
       >
-        <div class="section-heading">
+        <div class="section-heading" data-reveal="">
           <div>
             <div class="eyebrow">
               <span data-i18n="method.label">04 / The learning process</span>
@@ -668,7 +872,7 @@
             shapes learning without adding a second image at inference.
           </p>
         </div>
-        <div class="training-stages">
+        <div class="training-stages" data-reveal="">
           <div class="stage-one">
             <div>
               <span class="eyebrow">Stage 01</span>
@@ -873,7 +1077,7 @@
         id="results"
       >
         <div class="wrap">
-          <div class="section-heading">
+          <div class="section-heading" data-reveal="">
             <div>
               <div class="eyebrow">
                 <span data-i18n="results.label">05 / The results</span>
@@ -890,7 +1094,7 @@
               0–100 scale.
             </p>
           </div>
-          <div class="results-layout">
+          <div class="results-layout" data-reveal="">
             <div class="result-callout">
               <span class="eyebrow" id="score-context">Harbor · Overall</span>
               <div class="big-score" id="selected-score">
@@ -966,7 +1170,7 @@
               <p class="caption" id="chart-note">
                 <span data-i18n="results.chartNote"
                   >Overall: reported means from Tables 1–2. Per-benchmark views
-                  compare Base and G&amp;F; Stage 1 breakdowns are not
+                  compare Base and G&amp;F Stage 1 breakdowns are not
                   reported.</span
                 >
               </p>
@@ -1059,7 +1263,7 @@
               subsets, not full-benchmark rankings.
             </p>
           </details>
-          <div class="secondary-results">
+          <div class="secondary-results" data-reveal="">
             <article>
               <div class="eyebrow">
                 <span data-i18n="results.ablationLabel"
@@ -1080,9 +1284,7 @@
                 <span
                   ><span data-i18n="ablation.scale">Overall / 100</span></span
                 ><span
-                  ><span data-i18n="ablation.delta"
-                    >Δ vs. full G&amp;F</span
-                  ></span
+                  ><span data-i18n="ablation.delta">Δ vs. full GF</span></span
                 >
               </div>
               <div class="mini-bars" id="ablation-bars"></div>
@@ -1132,7 +1334,7 @@
         class="section wrap token-section"
         id="analysis"
       >
-        <div class="section-heading">
+        <div class="section-heading" data-reveal="">
           <div>
             <div class="eyebrow">
               <span data-i18n="token.label">06 / Inside the response</span>
@@ -1160,7 +1362,7 @@
             >
           </p>
         </div>
-        <div class="token-comparison">
+        <div class="token-comparison" data-reveal="">
           <article class="token-base">
             <div class="token-heading">
               <span class="eyebrow">Base</span><span>Qwen3.5-4B</span>
@@ -1238,10 +1440,10 @@
           <div class="eyebrow">
             <span data-i18n="resources.label">Continue the inquiry</span>
           </div>
-          <h2 id="resources-title">
+          <h2 id="resources-title" data-reveal>
             <span data-i18n="resources.title">Take a closer look.</span>
           </h2>
-          <div class="resource-links">
+          <div class="resource-links" data-reveal>
             <a
               href="https://github.com/Z0ngL1ng/Gravity-and-Flight/blob/main/docs/RESEARCH.md"
               rel="noopener noreferrer"
@@ -1315,5 +1517,43 @@
         · 2026-10-30
       </div>
     </footer>
+    <dialog
+      aria-describedby="figure-viewer-caption"
+      aria-labelledby="figure-viewer-title"
+      id="figure-viewer"
+    >
+      <div class="figure-viewer-head">
+        <h2 id="figure-viewer-title"></h2>
+        <div class="figure-viewer-actions">
+          <button
+            aria-pressed="false"
+            data-i18n="figure.detail"
+            id="figure-zoom"
+            type="button"
+          >
+            View at 1:1</button
+          ><a
+            data-i18n="figure.pdf"
+            href="assets/papers/gf-method.pdf"
+            id="figure-original"
+            rel="noopener noreferrer"
+            target="_blank"
+            >Original PDF</a
+          ><button autofocus="" id="figure-close" type="button">
+            <span data-i18n="figure.close">Close</span
+            ><span aria-hidden="true">×</span>
+          </button>
+        </div>
+      </div>
+      <div
+        aria-label="Scroll to explore the enlarged figure."
+        class="figure-viewer-stage"
+        data-i18n-aria="figure.pan"
+        tabindex="0"
+      >
+        <img alt="" height="1392" id="figure-viewer-image" width="2800" />
+      </div>
+      <p id="figure-viewer-caption"></p>
+    </dialog>
   </body>
 </html>
