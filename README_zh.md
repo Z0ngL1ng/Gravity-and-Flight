@@ -1,91 +1,69 @@
-<div align="center">
-
 # Gravity & Flight
 
-**面向遥感视觉语言模型的细粒度证据化推理**
+**面向遥感视觉语言模型的细粒度证据化推理。**
 
-*让判断有据，让推理随证据变化。*
+[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [研究说明](docs/RESEARCH.md) · [Filling Before Advancing](https://github.com/Z0ngL1ng/filling-before-advancing) · [English](README.md)
 
-[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [研究说明](docs/RESEARCH.md) · [发布状态](RELEASE_STATUS.md) · [English](README.md)
+Gravity and Flight（G&F）以 **Qwen3.5-4B** 为基座，通过两阶段后训练，让模型将细致观察连接到具体任务下的判断，并在证据变化时相应调整判断。
 
-</div>
+![G&F 动机：将物体识别与局部证据连接到车辆集结任务的判断。](web/assets/papers/gf-motivation.webp)
 
-![Gravity and Flight：让视觉陈述立足图像，让推理随证据适应变化。](assets/project-cover.svg)
+*识别船舶与设施只是起点。这个示例要求模型把车辆排列、铺装空间和邻近泊位联系到任务；图中的两处岸线位于同一张输入图像中。* [原始 PDF](web/assets/papers/gf-motivation.pdf)
 
-**Gravity and Flight（G&F）** 是一个两阶段后训练框架，旨在让视觉语言模型将细致观察连接到具体任务下的判断。相关场景提供进一步的学习信号：哪些判断应保持一致，哪些应随证据改变，哪些应在支持不足时降低具体程度。
+## 研究思路
 
-本公开仓库提供项目网站、方法概览与部分已报告的研究结果。**[访问已上线的网站 →](https://z0ngl1ng.github.io/Gravity-and-Flight/)** 完整论文、训练与评测实现、模型权重及数据集尚未在本仓库发布，具体见[资源状态表](RELEASE_STATUS.md)。
+[Filling Before Advancing（FBA）](https://github.com/Z0ngL1ng/filling-before-advancing) 建立遥感场景专精所需的能力，其第二阶段 **Bridging-Conv** 从目标场景与相关场景中学习共享先验。G&F 将这一思路推进到**同一场景领域内部**的细粒度上下文变化：当局部属性、空间关系或可见性改变，哪些判断应随之改变，哪些应保持一致，哪些应降低具体程度？
 
-## 从场景间迁移，到场景内迁移
+命名灵感来自重力与气动升力。**Gravity** 让视觉陈述立足图像；**Flight** 检验推理如何从已描述的观察出发。这一类比启发了互补验证设计，不是奖励函数的物理模型。
 
-随着基座能力增强，我们的研究重点从建立领域能力覆盖，转向组织已有能力以完成更复杂的任务。FBA 逐步建立场景专精所需的能力；G&F 则研究如何让强基座将局部观察连接到具体任务下的判断。网站通过两项工作的[研究动机图与方法图](docs/FIGURES.md)展示这一推进过程。
+## 方法
 
-研究起点来自 [Filling Before Advancing（FBA）](https://github.com/Z0ngL1ng/filling-before-advancing)。FBA 的第二阶段 **Bridging-Conv** 从目标场景与相关场景中学习共享先验。这启发我们进一步追问：**在同一场景领域中，当局部属性、空间关系或可见性变化，判断应当如何随之调整？**
+![G&F 两阶段方法：Evidence-of-Thought 监督微调与 Relational Transfer Policy Optimization。](web/assets/papers/gf-method.webp)
 
-G&F 通过**共同任务下的 Anchor–Bridging 图像对**将这一问题具体化。每张图像独立生成回答，再以成对反馈评估两侧判断之间的关系。图像对可以由两张不同的港口图像组成，并不要求同一地理位置或时序变化。G&F 从 **Qwen3.5-4B** 出发，依次进行 EoT-SFT 与 RTPO 训练。
+*论文中的完整方法图。* [原始 PDF](web/assets/papers/gf-method.pdf)
 
-命名灵感来自飞行中重力与气动升力的共同作用。**Gravity** 让视觉陈述立足图像；**Flight** 检验推理如何从已描述的观察出发。这是互补验证设计的概念性启发，不是训练目标的物理模型。
+1. **EoT-SFT** 通过覆盖 888 张港口图像的 1,008 条示范，初始化“描述 → 分析 → 回答”的过程。
+2. **RTPO** 使用共同任务下的 500 对 Anchor–Bridging 图像细化这一过程。每张图像独立生成回答，再随机一对一匹配，进行成对验证。
 
-## 两个训练阶段，一个单图策略
+Gravity 检查视觉忠实性与描述覆盖度，Flight 检查证据使用及两侧判断的调整是否有据，Task Check 检查最终答案正确性。各项分数组成**相加的成对奖励与共享优势信号**；Gravity 不对 Flight 设置门控，Flight 不读取图像或答案约定。[验证定义](docs/RESEARCH.md#complementary-verification)
 
-![G&F 方法概览：EoT 监督初始化之后，独立采样回答，经互补验证获得共享的成对优势信号。](assets/method-overview.svg)
+**推理时只需一张图像与一个问题。** 成对监督与验证卡片用于训练，不是部署时的策略输入。
 
-| 阶段 | 学习目标 | 港口监督规模 |
-| --- | --- | ---: |
-| **1 · EoT-SFT** | 通过 Evidence-of-Thought 示范连接场景描述、任务分析与有依据的答案。 | 1,008 条示范，覆盖 888 张图像 |
-| **2 · RTPO** | 通过 Relational Transfer Policy Optimization，在任务匹配的场景间细化证据使用方式。 | 500 对图像，包含 1,000 张不同图像 |
+## 已报告结果
 
-RTPO 独立采样回答，进行一对一匹配，并组合三项检验：
+G&F 的 **Overall 为 69.12**，相较 **Base 提升 9.76 分**，相较 **EoT-SFT 再提升 4.56 分**。
 
-| 检验 | 评估内容 |
-| --- | --- |
-| **Gravity** | 结合图像与 Evidence Card，检查回答各部分的视觉忠实性，以及初始描述的观察覆盖度。 |
-| **Flight** | 检查单条回答中的证据使用，以及两侧判断的一致、改变或降低具体程度是否有据可依。它有条件地接受已描述的前提，不读取图像或 Evidence Card。 |
-| **Task Check** | 按各侧的答案约定检查最终答案正确性。 |
-
-各项分数组成相加的成对奖励，再将同一个组内归一化优势信号分配给两侧回答，两侧损失等权。**推理时，策略只需一张图像与一个问题。** 验证卡片仅用于训练监督，不进入策略输入。[查看方法说明 →](docs/RESEARCH.md)
-
-## 已报告的港口实验结果
-
-主要实验以 Qwen3.5-4B 为基座。EoT-SFT 提升了 Overall 得分，RTPO 在该监督初始化之上进一步带来 **4.56 分**的提升。
-
-| 训练状态 | Overall | 相较 Base 提升 |
+| 模型阶段 | Overall | 相较 Base 提升 |
 | --- | ---: | ---: |
 | Qwen3.5-4B Base | 59.36 | — |
-| 阶段一 · EoT-SFT | 64.56 | +5.20 |
-| **G&F · EoT-SFT + RTPO** | **69.12** | **+9.76** |
+| EoT-SFT | 64.56 | +5.20 |
+| **G&F** | **69.12** | **+9.76** |
 
-| 模型 | HarborEval | VRSBench | RSVQA | OpenEval | OmniEarth | VLRS-Bench |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| Qwen3.5-4B Base | 73.15 | 37.21 | 58.69 | 67.34 | 80.39 | 39.39 |
-| **G&F** | **82.57** | **54.19** | **67.18** | **82.07** | **80.99** | **47.73** |
+Overall 是 HarborEval、VRSBench、RSVQA、OpenEval、OmniEarth 与 VLRS-Bench 六个港口评测集得分的等权均值。各集保留自身评分协议，因此这是本研究的汇总指标，不是合并准确率或完整基准排行榜。[完整比较、消融与独立城市场景实验](docs/RESEARCH.md#harbor-evaluation)
 
-**请结合评测范围解读。** Overall 是六个港口评测集分数在 0–100 标度上的等权均值。各评测集保留自身评分协议，因此它不是合并准确率，也不代表完整基准的排行榜。G&F 在六项评测中均优于其基座；更广的模型比较中，RSThinker 的 VRSBench 得分仍更高。研究未报告 Stage 1 的逐项分数。这里展示的是研究稿中报告的结果，评测实现不属于本次公开内容。
+<details>
+<summary><strong>两个定性案例</strong>：局部证据与空间关系</summary>
 
-[研究说明](docs/RESEARCH.md) 还列出奖励消融与匹配对照：**移除 Flight 为 65.11**、**移除 Gravity 为 66.32**、**单图 RL 为 65.12**、**联合输入 RL 为 66.49**，均为 Overall 分数。
+![论文中的两个案例：对比 Base 与 G&F 对车辆区域支撑作用、船舶与封闭船坞相对位置的判断。](web/assets/papers/gf-qualitative-cases.webp)
 
-## 主实验之外
+两个案例展示局部观察如何支撑具体结论：第一个案例关注有组织的车辆停放与道路通达，第二个案例区分封闭船坞内部与船坞外的沿岸靠泊。这些是定性示例，不是总体准确率估计。[原始 PDF](web/assets/papers/gf-qualitative-cases.pdf)
 
-- **独立的城市场景专精。** 城市模型使用 160 条示范与 60 对训练图像完成两阶段训练，相较城市 Stage 1，在固定的 EarthVQA Urban、VRSBench Urban 和 RSVQA HR 子集上分别提升 **1.93 / 2.08 / 4.67 分**。该实验考察框架复用，并非港口模型的零样本迁移。
-- **六组采样回答的内部变化。** 平均完整回答长度为 **355.50 → 179.50 tokens**，平均任务相关内容密度为 **22.35% → 39.91%**。这是一项覆盖六个图像—问题案例的描述性分析，每个模型在每个案例上各生成一条回答，不能据此推断整个基准的效率或准确率。
+</details>
 
-## 浏览仓库
+<details>
+<summary><strong>六案例回答分析</strong>：证据与推理 token 的位置</summary>
 
-| 路径 | 内容 |
-| --- | --- |
-| [`web/`](web/) | 双语静态网站、可切换的评测对比、本地字体与原创插图 |
-| [`assets/`](assets/) | 仓库封面与方法概览图 |
-| [`docs/RESEARCH.md`](docs/RESEARCH.md) | 公开的方法说明、已报告表格及解读范围 |
-| [`docs/WEBSITE.md`](docs/WEBSITE.md) | 网站上线状态与本地预览说明 |
-| [`RELEASE_STATUS.md`](RELEASE_STATUS.md) | 论文、代码、权重与数据的可用状态 |
-| [`LICENSE_SCOPE.md`](LICENSE_SCOPE.md) | 使用权限范围与第三方素材许可证 |
+![六个采样案例中，Base 与 G&F 回答的证据 token 和推理 token 位置。](web/assets/papers/gf-token-analysis.webp)
 
-在仓库根目录运行以下命令，即可预览网站：
+**E** 表示证据 token，**I** 表示推理 token；暖色对应 Base，冷色对应 G&F。**NA** 表示该条 Base 回答没有分析 token，不代表推理密度为零。
 
-```sh
-python3 -m http.server 8765
-```
+横轴按内容 token 计数，不含格式专用 token。在六个采样图像—问题案例中，平均内容长度为 **350.83 → 156.33 tokens**，平均任务相关内容密度为 **22.35% → 39.91%**。这项描述性分析不能用于推断整个基准的效率或准确率。[分析定义](docs/RESEARCH.md#response-analysis) · [原始 PDF](web/assets/papers/gf-token-analysis.pdf)
 
-打开 [localhost:8765/web/](http://localhost:8765/web/)。无需构建步骤、模型下载、GPU 或 API 密钥。关闭 JavaScript 仍可阅读主要英文内容；JavaScript 提供中文切换、证据关系选项卡与评测项选择。
+</details>
 
-后续资源发布及论文链接将记录在 [RELEASE_STATUS.md](RELEASE_STATUS.md)。
+## 资源
+
+- **已公开：**[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/)、[网站源码](web/)、[研究说明](docs/RESEARCH.md)及[四幅原始论文插图](docs/FIGURES.md)。
+- **尚未发布：**完整论文、训练与评测实现、模型权重和数据集。后续更新见[发布状态](RELEASE_STATUS.md)。
+
+[本地预览网站](docs/WEBSITE.md#view-the-website) · [插图来源](docs/FIGURES.md) · [授权范围](LICENSE_SCOPE.md)
