@@ -17,10 +17,10 @@
     />
     <meta content="website" property="og:type" />
     <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="styles.css?v=c4cbc7cf84a7" rel="stylesheet" />
     <script defer="" src="research-data.js"></script>
-    <script defer="" src="i18n.js"></script>
-    <script defer="" src="main.js"></script>
+    <script defer="" src="i18n.js?v=5c61aa5e7964"></script>
+    <script defer="" src="main.js?v=874e98df3a8c"></script>
     <link
       as="font"
       crossorigin=""
@@ -282,10 +282,10 @@
             <a
               class="paper-frame"
               data-figure=""
-              data-figure-height="944"
+              data-figure-height="953"
               data-figure-width="2800"
-              data-pdf="assets/papers/gf-motivation.pdf"
-              href="assets/papers/gf-motivation.webp"
+              data-pdf="assets/papers/gf-motivation.pdf?v=ff343d2a27d7"
+              href="assets/papers/gf-motivation.webp?v=6280b2c6c352"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -293,9 +293,9 @@
                 alt="One harbor image with two waterfronts: a Base response favors the left using broad cues, while the G&amp;F example favors the right using vehicles, paved space, and nearby berths."
                 data-i18n-alt="paper.gfMotivationAlt"
                 decoding="async"
-                height="944"
+                height="953"
                 loading="lazy"
-                src="assets/papers/gf-motivation-1400.webp"
+                src="assets/papers/gf-motivation-1400.webp?v=707c1138803c"
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -312,7 +312,7 @@
               </p>
               <a
                 class="paper-pdf"
-                href="assets/papers/gf-motivation.pdf"
+                href="assets/papers/gf-motivation.pdf?v=ff343d2a27d7"
                 rel="noopener noreferrer"
                 target="_blank"
                 ><span data-i18n="figure.pdf">Original PDF</span
@@ -435,8 +435,8 @@
               data-figure=""
               data-figure-height="1392"
               data-figure-width="2800"
-              data-pdf="assets/papers/gf-method.pdf"
-              href="assets/papers/gf-method.webp"
+              data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
+              href="assets/papers/gf-method.webp?v=9d4e760d8953"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -446,7 +446,7 @@
                 decoding="async"
                 height="1392"
                 loading="lazy"
-                src="assets/papers/gf-method-1400.webp"
+                src="assets/papers/gf-method-1400.webp?v=553935c42859"
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -464,7 +464,7 @@
               </p>
               <a
                 class="paper-pdf"
-                href="assets/papers/gf-method.pdf"
+                href="assets/papers/gf-method.pdf?v=4420d814e569"
                 rel="noopener noreferrer"
                 target="_blank"
                 ><span data-i18n="figure.pdf">Original PDF</span
@@ -856,136 +856,86 @@
         class="section wrap method-section"
         id="method"
       >
-        <div class="section-heading" data-reveal="">
+        <div class="section-heading method-heading" data-reveal="">
           <div>
             <div class="eyebrow">
               <span data-i18n="method.label">04 / The learning process</span>
             </div>
             <h2 id="method-title">
-              <span data-i18n="method.title"
-                >A paired lesson.<br /><em>A single-image policy.</em></span
-              >
+              <span data-i18n="method.title">How G&amp;F learns.</span>
             </h2>
           </div>
           <p class="section-lead" data-i18n="method.lead">
-            Two training stages. One single-image policy. Relational supervision
-            shapes learning without adding a second image at inference.
+            Read the framework from top to bottom: supervised initialization,
+            then relational policy optimization.
           </p>
         </div>
-        <div class="training-stages" data-reveal="">
-          <div class="stage-one">
-            <div>
-              <span class="eyebrow">Stage 01</span>
-              <h3>EoT-SFT</h3>
-            </div>
-            <div>
-              <h4 data-i18n="method.s1">
-                Evidence-of-Thought supervised initialization
-              </h4>
-              <p data-i18n="method.s1Body">
-                1,008 demonstrations connect detailed scene observation, task
-                interpretation, and a supported answer. The resulting checkpoint
-                initializes RTPO and remains its frozen KL reference.
-              </p>
-              <div class="trace">
-                <span
-                  ><span data-i18n="method.description">Description</span></span
-                ><i aria-hidden="true">→</i
-                ><span><span data-i18n="method.analysis">Analysis</span></span
-                ><i aria-hidden="true">→</i
-                ><span><span data-i18n="method.answer">Answer</span></span>
-              </div>
-            </div>
-          </div>
-          <div class="stage-two">
-            <div class="stage-two-heading">
-              <div>
-                <span class="eyebrow">Stage 02</span>
-                <h3>RTPO</h3>
-              </div>
-              <span class="stage-expansion"
-                >Relational Transfer<br />Policy Optimization</span
+        <figure
+          aria-labelledby="method-figure-title"
+          class="method-plate"
+          data-reveal=""
+        >
+          <span
+            class="visually-hidden"
+            data-figure-title=""
+            data-i18n="method.figureTitle"
+            id="method-figure-title"
+            >The G&amp;F training framework</span
+          >
+          <a
+            class="method-plate-link"
+            data-figure=""
+            data-figure-height="1392"
+            data-figure-width="2800"
+            data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
+            href="assets/papers/gf-method.webp?v=9d4e760d8953"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img
+              alt="G&amp;F training overview: supervised observation, analysis, and answer; independent Anchor and Bridging rollouts; separate verification views; additive pair rewards, shared advantages, and a frozen reference."
+              data-i18n-alt="paper.gfMethodAlt"
+              decoding="async"
+              height="1392"
+              loading="lazy"
+              sizes="(min-width: 1440px) 1320px, 92vw"
+              src="assets/papers/gf-method-1400.webp?v=553935c42859"
+              srcset="
+                assets/papers/gf-method-1400.webp?v=553935c42859 1400w,
+                assets/papers/gf-method.webp?v=9d4e760d8953      2800w
+              "
+              width="2800"
+            />
+          </a>
+          <figcaption class="method-plate-caption">
+            <p class="paper-caption" data-i18n="method.figureCaption">
+              EoT-SFT teaches observation → analysis → answer. RTPO uses
+              independently sampled responses, additive pair rewards, and shared
+              advantages. At inference, the model still sees one image.
+            </p>
+            <div class="method-plate-actions">
+              <a
+                class="method-view"
+                data-figure=""
+                data-figure-height="1392"
+                data-figure-width="2800"
+                data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
+                href="assets/papers/gf-method.webp?v=9d4e760d8953"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><span data-i18n="figure.enlarge">Explore figure</span
+                ><span aria-hidden="true">↗</span></a
+              ><a
+                class="method-original"
+                href="assets/papers/gf-method.pdf?v=4420d814e569"
+                rel="noopener noreferrer"
+                target="_blank"
+                ><span data-i18n="figure.pdf">Original PDF</span
+                ><span aria-hidden="true">↓</span></a
               >
             </div>
-            <figure class="method-flow">
-              <div class="flow-heading">
-                <span class="eyebrow"
-                  ><span data-i18n="flow.label"
-                    >One matched response pair</span
-                  ></span
-                ><span class="flow-task"
-                  ><span data-i18n="flow.task"
-                    >Shared task q · independent generation</span
-                  ></span
-                >
-              </div>
-              <div class="flow-grid">
-                <div class="response-lanes">
-                  <div class="response-lane">
-                    <span class="image-token">x<sub>A</sub></span
-                    ><span class="flow-plus">+ q</span
-                    ><span aria-hidden="true" class="flow-arrow">→</span
-                    ><span class="response-token">y<sub>A,k</sub></span>
-                  </div>
-                  <div class="response-lane">
-                    <span class="image-token">x<sub>B</sub></span
-                    ><span class="flow-plus">+ q</span
-                    ><span aria-hidden="true" class="flow-arrow">→</span
-                    ><span class="response-token">y<sub>B,k</sub></span>
-                  </div>
-                </div>
-                <span aria-hidden="true" class="flow-connector">→</span>
-                <div class="verification-node">
-                  <div aria-hidden="true" class="verifier-symbols">
-                    <span>G</span><span>F</span><span>C</span>
-                  </div>
-                  <strong
-                    ><span data-i18n="flow.verify"
-                      >Complementary verification</span
-                    ></strong
-                  ><span
-                    ><span data-i18n="flow.views"
-                      >Gravity · Flight · Task Check</span
-                    ></span
-                  >
-                </div>
-                <span aria-hidden="true" class="flow-connector">→</span>
-                <div class="advantage-node">
-                  <div class="advantage-equation">
-                    R<sub>k</sub><span aria-hidden="true">→</span>Â<sub>k</sub>
-                  </div>
-                  <strong
-                    ><span data-i18n="flow.shared"
-                      >One shared advantage</span
-                    ></strong
-                  ><span
-                    ><span data-i18n="flow.update"
-                      >Weights both sides equally</span
-                    ></span
-                  >
-                </div>
-              </div>
-              <figcaption>
-                <span data-i18n="flow.note"
-                  >Each response sees only its own image and q. The matched pair
-                  is evaluated jointly; the same advantage is assigned to both
-                  sides.</span
-                >
-              </figcaption>
-            </figure>
-            <div class="inference-line">
-              <span class="eyebrow"
-                ><span data-i18n="method.inference">At inference</span></span
-              ><span
-                ><span data-i18n="method.single">One image + one question</span>
-                <i aria-hidden="true">→</i>
-                <span data-i18n="method.singleAnswer"
-                  >One evidence-grounded answer</span
-                ></span
-              >
-            </div>
-          </div>
-        </div>
+          </figcaption>
+        </figure>
         <details class="technical-details">
           <summary>
             <span data-i18n="method.details"
@@ -1440,10 +1390,10 @@
           <div class="eyebrow">
             <span data-i18n="resources.label">Continue the inquiry</span>
           </div>
-          <h2 id="resources-title" data-reveal>
+          <h2 data-reveal="" id="resources-title">
             <span data-i18n="resources.title">Take a closer look.</span>
           </h2>
-          <div class="resource-links" data-reveal>
+          <div class="resource-links" data-reveal="">
             <a
               href="https://github.com/Z0ngL1ng/Gravity-and-Flight/blob/main/docs/RESEARCH.md"
               rel="noopener noreferrer"
@@ -1534,7 +1484,7 @@
             View at 1:1</button
           ><a
             data-i18n="figure.pdf"
-            href="assets/papers/gf-method.pdf"
+            href="assets/papers/gf-method.pdf?v=4420d814e569"
             id="figure-original"
             rel="noopener noreferrer"
             target="_blank"

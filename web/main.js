@@ -345,8 +345,8 @@
           return;
         event.preventDefault();
         trigger = link;
-        const preview = $("img", link);
         const figure = link.closest("figure");
+        const preview = $("img", figure);
         image.src = link.href;
         image.alt = preview.alt;
         image.width = Number(link.dataset.figureWidth);

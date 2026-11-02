@@ -77,15 +77,9 @@ window.GF_I18N = {
     "forces.note":
       "Flight accepts described premises conditionally. It does not inspect images or Evidence Cards. Gravity checks visual truth; a separate Task Check assesses final answers.",
     "method.label": "04 / The learning process",
-    "method.title": "A paired lesson.<br><em>A single-image policy.</em>",
+    "method.title": "How G&amp;F learns.",
     "method.lead":
-      "Two training stages. One single-image policy. Relational supervision shapes learning without adding a second image at inference.",
-    "method.s1": "Evidence-of-Thought supervised initialization",
-    "method.s1Body":
-      "1,008 demonstrations connect detailed scene observation, task interpretation, and a supported answer. The resulting checkpoint initializes RTPO and remains its frozen KL reference.",
-    "method.description": "Description",
-    "method.analysis": "Analysis",
-    "method.answer": "Answer",
+      "Read the framework from top to bottom: supervised initialization, then relational policy optimization.",
     "method.step0": "Sample independently",
     "method.body0":
       "The same policy generates K = 6 responses per image from that image and the shared question.",
@@ -98,9 +92,6 @@ window.GF_I18N = {
     "method.step3": "Update one policy",
     "method.body3":
       "Both sides receive equal loss weight. KL regularization uses the frozen Stage-1 reference, outside the reward.",
-    "method.inference": "At inference",
-    "method.single": "One image + one question",
-    "method.singleAnswer": "One evidence-grounded answer",
     "method.details": "Training details & objective",
     "method.reward":
       "The pair reward adds task correctness and weighted Gravity and Flight scores. The validity indicator v checks the description → analysis → answer structure. There is no Gravity gate on Flight in this formulation.",
@@ -179,14 +170,6 @@ window.GF_I18N = {
     "index.method": "Training",
     "index.results": "Results",
     "index.analysis": "Analysis",
-    "flow.label": "One matched response pair",
-    "flow.task": "Shared task q · independent generation",
-    "flow.verify": "Complementary verification",
-    "flow.views": "Gravity · Flight · Task Check",
-    "flow.shared": "One shared advantage",
-    "flow.update": "Weights both sides equally",
-    "flow.note":
-      "Each response sees only its own image and q. The matched pair is evaluated jointly; the same advantage is assigned to both sides.",
     "results.scoreUnit": "Score / 100 · higher is better",
     "ablation.scale": "Overall / 100",
     "ablation.delta": "Δ vs. full G&F",
@@ -268,6 +251,9 @@ window.GF_I18N = {
     "figure.close": "Close",
     "figure.pan": "Scroll to explore the enlarged figure.",
     "figure.reading": "Reading the G&F method figure",
+    "method.figureTitle": "The G&F training framework",
+    "method.figureCaption":
+      "EoT-SFT teaches observation → analysis → answer. RTPO uses independently sampled responses, additive pair rewards, and shared advantages. At inference, the model still sees one image.",
   },
   zh: {
     "nav.story": "研究起点",
@@ -341,15 +327,9 @@ window.GF_I18N = {
     "forces.note":
       "Flight 在条件成立的前提下接受描述内容，不读取图像或 Evidence Card。Gravity 检查视觉真实性，独立的 Task Check 评估最终答案。",
     "method.label": "04 / 学习过程",
-    "method.title": "从成对证据中学习，<br><em>在单幅图像上推理。</em>",
+    "method.title": "G&amp;F 如何学习。",
     "method.lead":
-      "两个训练阶段，一个单图策略。关系监督作用于训练，推理时仍只需一张图像。",
-    "method.s1": "Evidence-of-Thought 监督初始化",
-    "method.s1Body":
-      "1,008 条示范将细致场景观察、任务解释与有依据的答案连接起来。所得模型用于初始化 RTPO，并作为冻结的 KL 参考。",
-    "method.description": "描述",
-    "method.analysis": "分析",
-    "method.answer": "答案",
+      "从上到下阅读这张图：先以监督学习初始化，再通过关系迁移优化策略。",
     "method.step0": "独立采样",
     "method.body0": "同一策略根据各自图像与共同问题，每侧生成 K = 6 条回答。",
     "method.step1": "匹配与验证",
@@ -361,9 +341,6 @@ window.GF_I18N = {
     "method.step3": "更新单图策略",
     "method.body3":
       "两侧损失等权；KL 正则使用冻结的 Stage-1 参考，并位于奖励之外。",
-    "method.inference": "推理时",
-    "method.single": "一张图像 + 一个问题",
-    "method.singleAnswer": "一个有证据支撑的答案",
     "method.details": "训练细节与优化目标",
     "method.reward":
       "成对奖励由任务正确性与加权 Gravity、Flight 分数组成。有效性指示量 v 检查描述 → 分析 → 答案结构。当前公式不使用 Gravity 对 Flight 进行门控。",
@@ -438,14 +415,6 @@ window.GF_I18N = {
     "index.method": "训练方法",
     "index.results": "实验结果",
     "index.analysis": "回答分析",
-    "flow.label": "一组成对回答",
-    "flow.task": "共同任务 q · 独立生成",
-    "flow.verify": "互补验证",
-    "flow.views": "Gravity · Flight · Task Check",
-    "flow.shared": "一个共享优势",
-    "flow.update": "两侧回答等权更新",
-    "flow.note":
-      "每条回答只看到自身图像与 q。匹配后的回答对接受联合评估，同一个优势信号分配给两侧。",
     "results.scoreUnit": "得分 / 100 · 越高越好",
     "ablation.scale": "综合得分 / 100",
     "ablation.delta": "Δ 相较完整 G&F",
@@ -522,5 +491,8 @@ window.GF_I18N = {
     "figure.close": "关闭",
     "figure.pan": "放大后可滚动查看图中细节。",
     "figure.reading": "如何阅读 G&F 方法图",
+    "method.figureTitle": "G&F 完整训练框架",
+    "method.figureCaption":
+      "EoT-SFT 学习观察 → 分析 → 回答。RTPO 使用独立采样的回答、相加的配对奖励与共享优势。推理时，模型仍只输入一张图像。",
   },
 };
