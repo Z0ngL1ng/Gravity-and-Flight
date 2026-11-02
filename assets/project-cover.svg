@@ -1,0 +1,123 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="520" viewBox="0 0 1600 520" role="img" aria-labelledby="cover-title cover-description">
+<title id="cover-title">Gravity and Flight</title>
+<desc id="cover-description">Evidence-grounded reasoning for fine-grained remote sensing. Heavy circular contours on warm paper open into rising blue trajectories.</desc>
+<rect width="1600" height="520" fill="#FCF1EB"/>
+<g fill="#242d2b">
+<text x="72" y="57" font-family="Arial, Helvetica, sans-serif" font-size="18" letter-spacing="2.6">G&amp;F / RESEARCH</text>
+<text x="1528" y="57" text-anchor="end" font-family="Arial, Helvetica, sans-serif" font-size="20">EoT-SFT → RTPO</text>
+<text x="66" y="187" font-family="Georgia, 'Times New Roman', serif" font-size="120" letter-spacing="-4">Gravity <tspan font-size="100" letter-spacing="-2">&amp;</tspan><tspan dx="15" font-style="italic">Flight.</tspan></text>
+<text x="72" y="252" font-family="Arial, Helvetica, sans-serif" font-size="29" letter-spacing="-.3">Evidence-grounded reasoning for fine-grained remote sensing.</text>
+</g>
+<g transform="translate(0 300) scale(1.111111111 .5)" fill="none">
+<defs>
+  <clipPath id="plate"><path d="M0 0H1440V440H0z"/></clipPath>
+  <clipPath id="warm-field"><path d="M0 0H620V440H0z"/></clipPath>
+  <clipPath id="cool-field"><path d="M620 0H1440V440H620z"/></clipPath>
+</defs>
+<g clip-path="url(#plate)">
+<path fill="#FCF1EB" d="M0 0H620V440H0z"/>
+<path fill="#EFF5FB" d="M620 0H1440V440H620z"/>
+<!-- A weighted field. Its concentric contours share one centre below the plate. -->
+<g clip-path="url(#warm-field)" stroke="#242d2b">
+
+<ellipse cx="298" cy="448" rx="126" ry="118.4" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="140" ry="131.6" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="154" ry="144.8" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="168" ry="157.9" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="182" ry="171.1" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="196" ry="184.2" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="210" ry="197.4" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="224" ry="210.6" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="238" ry="223.7" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="252" ry="236.9" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="266" ry="250.0" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="280" ry="263.2" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="294" ry="276.4" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="308" ry="289.5" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="322" ry="302.7" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="336" ry="315.8" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="350" ry="329.0" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="364" ry="342.2" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="378" ry="355.3" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="392" ry="368.5" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="406" ry="381.6" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="420" ry="394.8" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="434" ry="408.0" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="448" ry="421.1" stroke-width=".75" opacity=".52"/>
+
+<ellipse cx="298" cy="448" rx="462" ry="434.3" stroke-width=".75" opacity=".52"/>
+<ellipse cx="298" cy="448" rx="134" ry="126" fill="#242d2b" stroke="none"/>
+<ellipse cx="298" cy="448" rx="219" ry="206" stroke-width="42"/>
+<ellipse cx="298" cy="448" rx="308" ry="290" stroke-width="22"/>
+<ellipse cx="298" cy="448" rx="400" ry="376" stroke-width="8"/>
+</g>
+<!-- One broad trajectory carries the field through the seam and upward. -->
+<path fill="#7F9FB6" d="M543 440C662 402 744 365 828 310C985 208 1081 67 1214-54L1455-54C1280 92 1174 226 990 336C840 426 696 452 543 440Z"/>
+<!-- Fine parallel traces leave the same anchored contour and open into flight. -->
+<g stroke="#242d2b" stroke-width="1.15">
+
+<path d="M503.0 455.0C725.0 432.0 1060.0 70.0 1240.0 -55.0" opacity=".76"/>
+
+
+<path d="M518.6 461.0C735.2 426.3 1075.3 53.8 1276.0 -61.0" opacity=".76"/>
+
+
+<path d="M534.2 467.0C745.4 420.6 1090.6 37.6 1312.0 -67.0" opacity=".76"/>
+
+
+<path d="M549.8 473.0C755.6 414.9 1105.9 21.4 1348.0 -73.0" opacity=".76"/>
+
+
+<path d="M565.4 479.0C765.8 409.2 1121.2 5.2 1384.0 -79.0" opacity=".76"/>
+
+
+<path d="M581.0 485.0C776.0 403.5 1136.5 -11.0 1420.0 -85.0" opacity=".76"/>
+
+
+<path d="M596.6 491.0C786.2 397.8 1151.8 -27.2 1456.0 -91.0" opacity=".76"/>
+
+
+<path d="M612.2 497.0C796.4 392.1 1167.1 -43.4 1492.0 -97.0" opacity=".76"/>
+
+</g>
+<!-- A single dark, tapering gesture describes release rather than an aircraft. -->
+<path fill="#242d2b" d="M514 440C734 448 886 372 1020 247C1144 131 1228 18 1315-69C1238 46 1166 165 1050 282C912 420 752 478 514 440Z"/>
+<!-- Pale filaments preserve space around the rising gesture. -->
+<g stroke="#EFF5FB" stroke-width="1.3" opacity=".85">
+<path d="M631 442C877 408 1035 223 1230-29"/>
+
+<path d="M670 442C908 399 1069 215 1269-42"/>
+
+</g>
+<!-- Quiet isolated arcs repeat the same trajectory after it leaves the dense field. -->
+<g stroke="#36566E" stroke-width="1.25" opacity=".72">
+<path d="M851 445C1099 402 1284 212 1505 54"/>
+<path d="M952 450C1171 390 1350 244 1510 152"/>
+<path d="M1105 447C1275 401 1407 327 1511 287"/>
+</g>
+</g>
+</g>
+</svg>

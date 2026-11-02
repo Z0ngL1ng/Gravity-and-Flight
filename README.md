@@ -1,57 +1,89 @@
 <div align="center">
 
-# Gravity and Flight
+# Gravity & Flight
 
-**Fine-Grained Evidence-Grounded Reasoning in Remote Sensing**
+**Fine-grained evidence-grounded reasoning in remote sensing**
 
-*Ground each judgment. Reassess when evidence changes.*
+*Ground each judgment. Adapt when evidence changes.*
 
-English · [中文](README_zh.md)
+[Website launch & preview](docs/WEBSITE.md#view-the-website) · [Research notes](docs/RESEARCH.md) · [Release status](RELEASE_STATUS.md) · [中文](README_zh.md)
 
 </div>
 
-![Gravity anchors judgments in visible evidence; Flight recalibrates them as evidence and context change.](assets/gravity-and-flight.svg)
+![Gravity and Flight: visual grounding and reasoning that adapts to evidence.](assets/project-cover.svg)
 
-> This repository introduces the motivation and research direction of **Gravity and Flight (G&F)**. The manuscript has not yet been posted on arXiv; this public showcase presents the conceptual overview ahead of the full paper.
+**Gravity and Flight (G&F)** is a two-stage post-training framework that teaches vision-language models how to connect detailed observations to task-specific judgments. Related scenes provide a further lesson: which judgments should remain consistent, which should change, and which should become less specific when evidence is limited.
 
-## 01 · Background
+This public showcase contains the project website, method overview, and selected reported results. **GitHub Pages activation is pending.** The full manuscript, training/evaluation implementation, model weights, and datasets are not released in this repository; see the [availability table](RELEASE_STATUS.md).
 
-Vision-language models can recognize many objects and describe complex scenes. In remote sensing, however, recognizing visible elements is only part of understanding an image. Visually similar scenes may differ in function because of a few critical objects, their spatial relationships, or the way they are arranged.
+## From scene transfer to context transfer
 
-Fine-grained harbor understanding illustrates this challenge. Ships, waterfront structures, storage areas, and industrial facilities can appear in several related environments. Their presence alone does not settle what a particular scene supports. Reliable interpretation requires connecting the relevant evidence to relationships, and those relationships to a justified conclusion.
+The research starts from [Filling Before Advancing (FBA)](https://github.com/Z0ngL1ng/filling-before-advancing). FBA's second stage, **Bridging-Conv**, learns shared priors from target and related scenes. This inspired a finer question for G&F: **within one scene domain, how should judgments adapt when local attributes, spatial relations, or visibility change?**
 
-## 02 · The problem we investigate
+G&F makes this question explicit with **Anchor–Bridging image pairs under a shared task**. Each image receives an independent response. Paired feedback then assesses the relation between the judgments. The pair can contain two different harbor images; it need not show the same geographic location or a temporal change. G&F starts from **Qwen3.5-4B**, followed by EoT-SFT and RTPO.
 
-Our starting observation is that a capable model can produce a plausible answer while using the available visual evidence inconsistently. We focus on three recurring difficulties:
+The name draws inspiration from gravity and aerodynamic lift. **Gravity** anchors visual claims to the image; **Flight** evaluates reasoning from described observations. This is a conceptual motivation for complementary verification, rather than a physical model of the training objective.
 
-- **Premature conclusions.** Familiar objects can trigger a scene interpretation before the decisive relationships have been established.
-- **Missed differences.** Highly similar scenes can invite the same explanation even when a small evidence change should alter the judgment.
-- **Unclear judgment boundaries.** When an image leaves a key relationship unresolved, the answer may be more specific or certain than the evidence permits.
+## Two stages, one single-image policy
 
-This motivates a question: **How can we organize existing visual capabilities into reasoning that follows fine-grained evidence reliably, including when the context changes?**
+![G&F method overview: EoT supervised initialization followed by independent sampling, complementary verification, and a shared pair advantage.](assets/method-overview.svg)
 
-## 03 · The idea: Gravity and Flight
+| Stage | What it learns | Harbor supervision |
+| --- | --- | ---: |
+| **1 · EoT-SFT** | Connect scene description, task analysis, and a supported answer through Evidence-of-Thought demonstrations. | 1,008 demonstrations over 888 images |
+| **2 · RTPO** | Refine evidence use through Relational Transfer Policy Optimization on task-matched scenes. | 500 pairs containing 1,000 distinct images |
 
-G&F explores two complementary principles for remote-sensing vision-language post-training.
+RTPO samples responses independently, matches them one-to-one, and combines three verification views:
 
-| Principle | Guiding question | Intended behavior |
-| :--- | :--- | :--- |
-| **Gravity** | What in this image supports the judgment? | Anchor the conclusion in observable evidence and valid relationships. |
-| **Flight** | What should remain, change, or become less certain in a related context? | Preserve relevant shared reasoning and reassess the judgment in response to decisive differences. |
+| View | Assessment |
+| --- | --- |
+| **Gravity** | Visual fidelity throughout the response and coverage in the initial description, checked against the image and its Evidence Card. |
+| **Flight** | Evidence use within each response and warranted consistency, change, or reduced specificity across the pair. Described premises are accepted conditionally; Flight does not inspect images or Evidence Cards. |
+| **Task Check** | Final-answer correctness against the side-specific answer contract. |
 
-The intuition is to learn both from an individual scene and from the relationship between closely related scenes. A useful comparison makes clear which evidence is shared and which change matters for the task. The appropriate response may be to preserve a conclusion, revise it, or qualify its certainty.
+The scores form an additive pair reward. One group-normalized advantage is assigned to both responses, with equal loss weight for the two sides. **At inference, the policy needs only one image and one question.** Verification cards are training supervision and do not enter the policy prompt. [Read the method notes →](docs/RESEARCH.md)
 
-**Gravity keeps reasoning grounded. Flight helps it respond to change.** Together, they frame a research direction in which conclusions and confidence follow the evidence.
+## Reported harbor results
 
-## 04 · Research goals
+The main study adapts Qwen3.5-4B. EoT-SFT improves the reported Overall score, and RTPO adds **4.56 points** beyond that supervised initialization.
 
-- **Strengthen evidence-grounded reasoning:** connect observations, spatial or functional relationships, and conclusions more reliably.
-- **Distinguish similar scenes:** respond to task-relevant differences while retaining the reasoning that remains supported.
-- **Calibrate judgment boundaries:** recognize when the image supports a specific conclusion and when a more qualified answer is appropriate.
-- **Examine broader applicability:** use fine-grained harbor understanding as the primary setting and investigate the approach in additional remote-sensing contexts.
+| Training state | Overall | Gain over Base |
+| --- | ---: | ---: |
+| Qwen3.5-4B Base | 59.36 | — |
+| Stage 1 · EoT-SFT | 64.56 | +5.20 |
+| **G&F · EoT-SFT + RTPO** | **69.12** | **+9.76** |
 
-These are research goals; their effectiveness and scope will be assessed through experiments reported in the full paper.
+| Model | HarborEval | VRSBench | RSVQA | OpenEval | OmniEarth | VLRS-Bench |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Qwen3.5-4B Base | 73.15 | 37.21 | 58.69 | 67.34 | 80.39 | 39.39 |
+| **G&F** | **82.57** | **54.19** | **67.18** | **82.07** | **80.99** | **47.73** |
 
----
+**Scope matters.** Overall is the unweighted mean of these six harbor-set scores on a 0–100 scale. Each set retains its own scoring protocol; the aggregate is not pooled accuracy or a full-benchmark leaderboard. G&F improves over its backbone on all six sets, while RSThinker has a higher VRSBench score in the broader comparison. Per-benchmark Stage-1 scores are not reported. These are results reported in the research draft; the evaluation implementation is not part of this release.
 
-*Current scope: project introduction. Method details, experimental results, and research artifacts are reserved for a later research release.*
+The [research notes](docs/RESEARCH.md) also cover reward ablations and matched controls, including Overall scores of **65.11 without Flight**, **66.32 without Gravity**, **65.12 for single-image RL**, and **66.49 for joint-input RL**.
+
+## Beyond the main comparison
+
+- **Separate urban specialization.** An urban model trained through both stages with 160 demonstrations and 60 training pairs improves over urban Stage 1 by **1.93 / 2.08 / 4.67 points** on fixed EarthVQA Urban, VRSBench Urban, and RSVQA HR subsets. This tests reuse of the framework, not zero-shot transfer of the harbor checkpoint.
+- **Inside six sampled response pairs.** Mean full-response length is **355.50 → 179.50 tokens**, while mean task-related content density is **22.35% → 39.91%**. This descriptive analysis covers six image–question cases, with one response per model per case; it does not establish benchmark-wide efficiency or accuracy.
+
+## Explore this repository
+
+| Path | Contents |
+| --- | --- |
+| [`web/`](web/) | Bilingual static website, interactive benchmark comparisons, local fonts, and original illustrations |
+| [`assets/`](assets/) | Project cover and method overview for this repository |
+| [`docs/RESEARCH.md`](docs/RESEARCH.md) | Public method explanation, reported tables, and interpretation limits |
+| [`docs/WEBSITE.md`](docs/WEBSITE.md) | Website launch status and preview instructions |
+| [`RELEASE_STATUS.md`](RELEASE_STATUS.md) | Availability of the manuscript, code, weights, and data |
+| [`LICENSE_SCOPE.md`](LICENSE_SCOPE.md) | Scope of permissions and third-party asset licenses |
+
+To preview the website, run this command from the repository root:
+
+```sh
+python3 -m http.server 8765
+```
+
+Open [localhost:8765/web/](http://localhost:8765/web/). No build step, model download, GPU, or API key is needed. The primary English content remains readable without JavaScript; JavaScript adds Chinese switching, evidence tabs, and benchmark selection.
+
+Resource releases and any future manuscript link will be recorded in [RELEASE_STATUS.md](RELEASE_STATUS.md).

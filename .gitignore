@@ -1,0 +1,17 @@
+# Local preview and editor files
+.DS_Store
+Thumbs.db
+__pycache__/
+*.py[cod]
+.venv/
+node_modules/
+.playwright/
+coverage/
+# Research artifacts are released separately.
+model_weights/
+outputs/
+benchmark/
+data/
+# Local agent instructions and scratch files
+AGENTS.md
+.codex/
