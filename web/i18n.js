@@ -1,6 +1,8 @@
 /* Repository-owned bilingual research copy. */
 window.GF_I18N = {
   en: {
+    "hero.philosophy":
+      "“Flight is not the absence of gravity, but the art of working within its constraints.”",
     "nav.story": "The story",
     "nav.example": "The evidence",
     "nav.method": "The method",
@@ -236,6 +238,7 @@ window.GF_I18N = {
     "fba.dataset": "HF dataset",
   },
   zh: {
+    "hero.philosophy": "“飞行并非摆脱重力，而是与其约束相处的艺术。”",
     "nav.story": "研究起点",
     "nav.example": "视觉证据",
     "nav.method": "训练方法",

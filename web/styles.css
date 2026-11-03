@@ -309,6 +309,22 @@ p {
 .hero h1 em {
   letter-spacing: -0.04em;
 }
+.hero-philosophy {
+  max-width: 980px;
+  margin: 0 0 32px;
+  font-family: var(--italic);
+  font-size: clamp(22px, 2.2vw, 30px);
+  font-style: italic;
+  line-height: 1.4;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+html:lang(zh-CN) .hero-philosophy {
+  font-family: var(--display);
+  font-size: clamp(19px, 1.8vw, 25px);
+  font-style: normal;
+  line-height: 1.7;
+}
 .cover-deck {
   display: grid;
   grid-template-columns: 1.15fr 1fr;
