@@ -2,7 +2,7 @@
 
 **面向遥感视觉语言模型的细粒度证据化推理。**
 
-[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [研究说明](docs/RESEARCH.md) · [Filling Before Advancing](https://github.com/Z0ngL1ng/filling-before-advancing) · [English](README.md)
+[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [模型页](https://huggingface.co/zongling/Gravity_and_Flight-4B) · [数据集样例](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [研究说明](docs/RESEARCH.md) · [Filling Before Advancing](https://github.com/Z0ngL1ng/filling-before-advancing) · [English](README.md)
 
 Gravity and Flight（G&F）以 **Qwen3.5-4B** 为基座，通过两阶段后训练，让模型将细致观察连接到具体任务下的判断，并在证据变化时相应调整判断。
 
@@ -84,6 +84,7 @@ Overall 是 HarborEval、VRSBench、RSVQA、OpenEval、OmniEarth 与 VLRS-Bench 
 ## 资源
 
 - **已公开：**[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/)、[网站源码](web/)、[研究说明](docs/RESEARCH.md)及[四幅原始论文插图](docs/FIGURES.md)。
-- **尚未发布：**完整论文、训练与评测实现、模型权重和数据集。后续更新见[发布状态](RELEASE_STATUS.md)。
+- **预览入口：**[模型介绍](https://huggingface.co/zongling/Gravity_and_Flight-4B)与[数据集页面](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K)。数据集当前包含 3 个 [Stage 1 示范](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1)和 3 个 [Stage 2 图像对](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2)，附原图与标注。
+- **开放计划：**模型权重与完整数据集计划在论文中稿后逐步开放；完整论文、训练与评测实现尚未发布。后续更新见[发布状态](RELEASE_STATUS.md)。
 
 [本地预览网站](docs/WEBSITE.md#view-the-website) · [插图来源](docs/FIGURES.md) · [授权范围](LICENSE_SCOPE.md)

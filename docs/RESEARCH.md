@@ -2,7 +2,7 @@
 
 [Project overview](../README.md) · [中文概览](../README_zh.md) · [Release status](../RELEASE_STATUS.md)
 
-These notes explain the method and reproduce reported results used by the public project showcase. They accompany the website; they are not a release of the full manuscript, evaluation implementation, model weights, or datasets. The [source-of-truth section](#source-of-truth) records the research snapshot and how the numbers should be maintained.
+These notes explain the method and reproduce reported results used by the public project showcase. They accompany the website. The [model card](https://huggingface.co/zongling/Gravity_and_Flight-4B) and [six-record dataset preview](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) are public; model weights and the full dataset are planned for staged release after paper acceptance. The full manuscript and evaluation implementation remain unreleased. The [source-of-truth section](#source-of-truth) records the research snapshot and how the numbers should be maintained.
 
 ## Research lineage
 

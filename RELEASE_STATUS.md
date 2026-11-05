@@ -1,8 +1,8 @@
 # Release status · 发布状态
 
-This repository is the public home of **Gravity and Flight**. It currently releases the project website, research summaries, and author-provided paper figures. The reported experiments are documented here; the artifacts required to reproduce them are not yet released.
+This repository is the public home of **Gravity and Flight**. It currently publishes the project website, research summaries, author-provided paper figures, a Hugging Face model card, and a small dataset preview. Model weights and the full dataset are planned for staged release after paper acceptance.
 
-本仓库是 **Gravity and Flight** 的公开项目入口。目前公开网站源码、研究介绍及作者提供的论文插图；实验结果已整理展示，复现实验所需的完整研究资源尚未发布。
+本仓库是 **Gravity and Flight** 的公开项目入口。目前公开网站源码、研究介绍、作者提供的论文插图，以及 Hugging Face 模型介绍和少量数据样例。模型权重与完整数据集计划在论文中稿后逐步开放。
 
 | Resource / 资源 | Availability / 状态 | Entry / 入口 |
 | --- | --- | --- |
@@ -13,9 +13,9 @@ This repository is the public home of **Gravity and Flight**. It currently relea
 | Author-provided paper figures / 作者提供的论文插图 | Available: four G&F figures and two FBA figures, with original PDFs / 已公开：四幅 G&F 图与两幅 FBA 图，均含原始 PDF | [Figure provenance and files](docs/FIGURES.md) |
 | Full manuscript / 完整论文 | Not released / 尚未发布 | A public manuscript link will be added here when available. |
 | Training & evaluation implementation / 训练与评测实现 | Not released / 尚未发布 | Website JavaScript is presentation code, not the research implementation. |
-| Model checkpoints / 模型权重 | Not released / 尚未发布 | No model download is provided in this repository. |
-| Training & evaluation data / 训练与评测数据 | Not released / 尚未发布 | The two website photographs are illustrative examples, not a dataset release. |
+| Model repository / 模型发布页 | Model card available; weights planned after acceptance / 已公开模型介绍，权重待论文中稿后开放 | [Gravity_and_Flight-4B](https://huggingface.co/zongling/Gravity_and_Flight-4B) |
+| Dataset / 数据集 | Preview: 3 Stage-1 demonstrations + 3 Stage-2 pairs, with 9 original images; full release planned after acceptance / 预览：每阶段 3 个样例，共 9 张原图；完整数据待中稿后开放 | [Gravity_and_Flight-2K](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [Stage 1](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) · [Stage 2](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2) |
 
-There is no announced release date for the unreleased resources. Future availability and usage terms will be recorded here. See [license scope](LICENSE_SCOPE.md) for the distinction between access and reuse permissions.
+The model and full dataset are planned to open in stages after paper acceptance; no calendar release date has been announced. Future availability and usage terms will be recorded here. See [license scope](LICENSE_SCOPE.md) for the distinction between access and reuse permissions.
 
-未发布资源暂未公布发布日期；后续资源链接与使用条款会在此更新。公开展示与使用授权的范围见[授权说明](LICENSE_SCOPE.md)。
+模型与完整数据集计划在论文中稿后逐步开放，目前未公布具体日期；后续资源状态与使用条款会在此更新。公开展示与使用授权的范围见[授权说明](LICENSE_SCOPE.md)。

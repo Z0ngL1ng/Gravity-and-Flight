@@ -2,7 +2,7 @@
 
 **Evidence-grounded reasoning for fine-grained remote sensing.**
 
-[Website](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [Research notes](docs/RESEARCH.md) · [Filling Before Advancing](https://github.com/Z0ngL1ng/filling-before-advancing) · [中文](README_zh.md)
+[Website](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [Model](https://huggingface.co/zongling/Gravity_and_Flight-4B) · [Dataset preview](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [Research notes](docs/RESEARCH.md) · [Filling Before Advancing](https://github.com/Z0ngL1ng/filling-before-advancing) · [中文](README_zh.md)
 
 Gravity and Flight (G&F) adapts **Qwen3.5-4B** through two stages of post-training. It teaches the model to connect detailed observations to task-specific judgments, then refine those judgments when the evidence changes.
 
@@ -84,6 +84,7 @@ The horizontal axis counts content tokens, excluding format-only tokens. Across 
 ## Resources
 
 - **Available:** the [project website](https://z0ngl1ng.github.io/Gravity-and-Flight/), [website source](web/), [research notes](docs/RESEARCH.md), and [four original paper figures](docs/FIGURES.md).
-- **Not yet released:** the full manuscript, training/evaluation implementation, checkpoints, and datasets. Updates will appear in [release status](RELEASE_STATUS.md).
+- **Preview resources:** the [model card](https://huggingface.co/zongling/Gravity_and_Flight-4B) and [dataset page](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K). The dataset includes three [Stage-1 demonstrations](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) and three [Stage-2 image pairs](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2), with original images and annotations.
+- **Planned release:** model weights and the full dataset will be opened in stages after paper acceptance. The full manuscript and training/evaluation implementation remain unreleased; follow [release status](RELEASE_STATUS.md) for updates.
 
 [Local website preview](docs/WEBSITE.md#view-the-website) · [Figure provenance](docs/FIGURES.md) · [License scope](LICENSE_SCOPE.md)

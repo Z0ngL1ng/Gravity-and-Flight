@@ -127,7 +127,7 @@ window.GF_I18N = {
     "resources.source": "Follow the research release",
     "resources.sourceDetail": "Manuscript, training code, models & data",
     "resources.access":
-      "The website and research summaries are public. The manuscript, training code, model weights, and datasets have not yet been released.",
+      "Model weights and the full dataset are planned for staged release after paper acceptance. The dataset page currently provides three Stage-1 demonstrations and three Stage-2 image pairs.",
     "resources.copy": "Copy project link",
     "footer.note": "Faithful to the image. Responsive to the evidence.",
     "footer.top": "Back to top",
@@ -261,6 +261,11 @@ window.GF_I18N = {
     "control.shuffled-f2": "Shuffled F2 feedback",
     "control.joint-input": "Joint-input RL",
     "control.gf": "Full G&F",
+    "resources.model": "Visit the model repository",
+    "resources.modelDetail":
+      "Model card available · weights planned after paper acceptance",
+    "resources.dataset": "Explore the dataset preview",
+    "resources.datasetDetail": "Stage 1 and Stage 2 · three examples each",
   },
   zh: {
     "hero.philosophy": "“飞行并非摆脱重力，而是与其约束相处的艺术。”",
@@ -383,7 +388,7 @@ window.GF_I18N = {
     "resources.source": "查看资源发布状态",
     "resources.sourceDetail": "论文、训练代码、模型与数据",
     "resources.access":
-      "网站与研究介绍已公开。论文、训练代码、模型权重和数据集尚未发布。",
+      "模型权重与完整数据集计划在论文中稿后逐步开放。数据集页面目前提供 3 个 Stage 1 示范和 3 个 Stage 2 图像对，供预览数据与监督格式。",
     "resources.copy": "复制项目链接",
     "footer.note": "忠实于图像，响应于证据。",
     "footer.top": "返回顶部",
@@ -508,5 +513,9 @@ window.GF_I18N = {
     "control.shuffled-f2": "打乱 F2 反馈",
     "control.joint-input": "联合输入 RL",
     "control.gf": "完整 G&F",
+    "resources.model": "访问模型发布页",
+    "resources.modelDetail": "已公开模型介绍 · 权重计划在论文中稿后开放",
+    "resources.dataset": "浏览数据集样例",
+    "resources.datasetDetail": "Stage 1、Stage 2 · 每阶段 3 个精选样例",
   },
 };
