@@ -1,11 +1,11 @@
 /*
- * Research data transcribed from manuscript revision b51cf1882030d8008983c71ef829d0221b0690ce.
+ * Research data transcribed from manuscript revision e44bf1e5853cf60fbcbf9cb8ca27ed230c84f3dc.
  * Sources: paper/1_main.tex, paper/preamble.tex, paper/appendix_token_analysis.tex,
- * and paper/X_suppl.tex. Values are reported scores, not live model evaluations.
+ * paper/X_suppl.tex, and paper/appendix_verifier_reliability.tex. Values are reported scores, not live model evaluations.
  * Scores preserve the manuscript's benchmark order; null means not reported.
  */
 window.GF_RESEARCH = {
-  revision: "b51cf1882030d8008983c71ef829d0221b0690ce",
+  revision: "e44bf1e5853cf60fbcbf9cb8ca27ed230c84f3dc",
   source:
     "https://github.com/Z0ngL1ng/Gravity-and-Flight/blob/main/docs/RESEARCH.md#source-of-truth",
   // Table 1 (tab:model_comparison); all six evaluations use single-image harbor inputs.
@@ -69,8 +69,8 @@ window.GF_RESEARCH = {
       overall: 69.12,
     },
   ],
-  // Table 2 (tab:ablation). Cost is estimated cumulative training wall time, including
-  // Stage 1 and verifier waiting, normalized to Stage-1 SFT. Dagger = projected cost.
+  // Table 2 (tab:ablation). Measured cumulative wall time under the optimized
+  // implementation, including Stage 1 and verifier waiting; Stage 1 = 1.00x.
   ablations: [
     {
       id: "base",
@@ -94,7 +94,7 @@ window.GF_RESEARCH = {
       overall: 63.34,
       delta: 3.98,
       relativeCost: 8.15,
-      costProjected: true,
+      costProjected: false,
     },
     {
       id: "without-flight",
@@ -102,15 +102,15 @@ window.GF_RESEARCH = {
       overall: 65.11,
       delta: 5.75,
       relativeCost: 10.13,
-      costProjected: true,
+      costProjected: false,
     },
     {
       id: "without-gravity",
       label: "Without Gravity",
       overall: 66.32,
       delta: 6.96,
-      relativeCost: 19.53,
-      costProjected: true,
+      relativeCost: 15.83,
+      costProjected: false,
     },
     {
       id: "single-image",
@@ -118,25 +118,73 @@ window.GF_RESEARCH = {
       overall: 65.12,
       delta: 5.76,
       relativeCost: 13.38,
-      costProjected: true,
+      costProjected: false,
+    },
+    {
+      id: "paired-no-f2",
+      label: "Paired RL without F2",
+      overall: 66.79,
+      delta: 7.43,
+      relativeCost: 13.57,
+      costProjected: false,
+    },
+    {
+      id: "shuffled-f2",
+      label: "Shuffled F2 feedback",
+      overall: 64.71,
+      delta: 5.35,
+      relativeCost: 17.2,
+      costProjected: false,
     },
     {
       id: "joint-input",
       label: "Joint-input RL",
       overall: 66.49,
       delta: 7.13,
-      relativeCost: 20.64,
-      costProjected: true,
+      relativeCost: 16.86,
+      costProjected: false,
     },
     {
       id: "gf",
       label: "Gravity & Flight",
       overall: 69.12,
       delta: 9.76,
-      relativeCost: 20.48,
+      relativeCost: 16.69,
       costProjected: false,
     },
   ],
+  // Appendix: a small audit of judge reliability, not rubric validity.
+  verifierReliability: {
+    trainingUnits: 24,
+    reference:
+      "Two independent annotators with adjudication; first judge call within one point of the human reference.",
+    dimensions: [
+      {
+        id: "G1",
+        items: 48,
+        withinOnePointPercent: 91.67,
+        repeatChangePercent: 22.92,
+      },
+      {
+        id: "G2",
+        items: 48,
+        withinOnePointPercent: 100,
+        repeatChangePercent: 12.5,
+      },
+      {
+        id: "F1",
+        items: 48,
+        withinOnePointPercent: 89.58,
+        repeatChangePercent: 27.08,
+      },
+      {
+        id: "F2",
+        items: 24,
+        withinOnePointPercent: 83.33,
+        repeatChangePercent: 29.17,
+      },
+    ],
+  },
   highlights: {
     overall: 69.12,
     gainOverBase: 9.76,

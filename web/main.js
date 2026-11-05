@@ -91,6 +91,8 @@
       "without-flight": ["Without Flight", "移除 Flight"],
       "without-gravity": ["Without Gravity", "移除 Gravity"],
       "single-image": ["Single-image RL", "单图 RL"],
+      "paired-no-f2": ["Paired RL w/o F2", "成对 RL 无 F2"],
+      "shuffled-f2": ["Shuffled F2", "打乱 F2 反馈"],
       "joint-input": ["Joint-input RL", "联合输入 RL"],
       gf: ["Full G&F", "完整 G&F"],
     };
@@ -98,6 +100,8 @@
       "without-flight",
       "without-gravity",
       "single-image",
+      "paired-no-f2",
+      "shuffled-f2",
       "joint-input",
       "gf",
     ].map((id) => {

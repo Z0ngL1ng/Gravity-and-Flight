@@ -3033,3 +3033,8 @@ details[open] > summary > span:last-child {
     font-size: 9px;
   }
 }
+
+/* Compact experimental tables use the existing results disclosure. */
+.experiment-updates table {
+  min-width: 600px;
+}

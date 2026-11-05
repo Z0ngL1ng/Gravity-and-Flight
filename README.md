@@ -39,9 +39,27 @@ G&F reaches **69.12 Overall**, gaining **9.76 points over Base** and **4.56 poin
 | --- | ---: | ---: |
 | Qwen3.5-4B Base | 59.36 | — |
 | EoT-SFT | 64.56 | +5.20 |
+| Single-image RL | 65.12 | +5.76 |
+| Paired RL without F2 | 66.79 | +7.43 |
 | **G&F** | **69.12** | **+9.76** |
 
 Overall is the unweighted mean of six harbor evaluation-set scores: HarborEval, VRSBench, RSVQA, OpenEval, OmniEarth, and VLRS-Bench. Each retains its own scoring protocol; this is a study-specific aggregate, not pooled accuracy or a full-benchmark leaderboard. [Full comparison, ablations, and separate urban study](docs/RESEARCH.md#harbor-evaluation)
+
+The paired formulation without F2 gains **1.67 points** over single-image RL; adding aligned F2 feedback adds **2.33 points**. Shuffling computed F2 scores among the six candidate pairs within each training unit gives **64.71**, while joint-input RL gives **66.49**. Full G&F uses **16.69×** the measured Stage-1 wall time, including initialization and verifier waiting. [All controls and measured costs](docs/RESEARCH.md#ablations-and-controls)
+
+<details>
+<summary><strong>Verifier reliability</strong> — 24 sampled training units</summary>
+
+| Dimension | Items | Within one point of humans (%) | Repeat-change rate (%) |
+| --- | ---: | ---: | ---: |
+| G1 | 48 | 91.67 | 22.92 |
+| G2 | 48 | 100.00 | 12.50 |
+| F1 | 48 | 89.58 | 27.08 |
+| F2 | 24 | 83.33 | 29.17 |
+
+24 sampled training units; two independent annotators with adjudication. Agreement compares the first judge call with the human reference. Repeat-change counts any score difference across two identical calls. This small audit indicates reliability; it does not validate the rubric itself. [Audit protocol](docs/RESEARCH.md#verifier-reliability)
+
+</details>
 
 <details>
 <summary><strong>Two qualitative cases</strong> — local evidence and spatial relations</summary>

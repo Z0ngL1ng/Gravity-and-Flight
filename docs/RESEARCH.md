@@ -109,25 +109,41 @@ G&F improves over its backbone on all six reported sets and ranks first on five 
 
 All harbor RL variants start from the same Stage-1 checkpoint $M_1$ and share image–question exposure, generation limits, and optimization settings. Removing a reward component leaves the remaining coefficients fixed. Every checkpoint is evaluated with single-image inputs.
 
-| Setting | Overall | Δ vs. Base | Estimated relative training time |
+| Setting | Overall | Δ vs. Base | Measured relative training time |
 | --- | ---: | ---: | ---: |
-| Base $M_0$ | 59.36 | 0.00 | — |
-| Stage 1 $M_1$ | 64.56 | +5.20 | 1.00× |
-| Without Gravity and Flight | 63.34 | +3.98 | 8.15× † |
-| Without Flight | 65.11 | +5.75 | 10.13× † |
-| Without Gravity | 66.32 | +6.96 | 19.53× † |
-| Single-image RL | 65.12 | +5.76 | 13.38× † |
-| Joint-input RL | 66.49 | +7.13 | 20.64× † |
-| **Full G&F** | **69.12** | **+9.76** | **20.48×** |
+| Base | 59.36 | +0.00 | — |
+| EoT-SFT | 64.56 | +5.20 | 1.00× |
+| Without Gravity & Flight | 63.34 | +3.98 | 8.15× |
+| Without Flight | 65.11 | +5.75 | 10.13× |
+| Without Gravity | 66.32 | +6.96 | 15.83× |
+| Single-image RL | 65.12 | +5.76 | 13.38× |
+| Paired RL without F2 | 66.79 | +7.43 | 13.57× |
+| Shuffled F2 feedback | 64.71 | +5.35 | 17.20× |
+| Joint-input RL | 66.49 | +7.13 | 16.86× |
+| Full G&F | 69.12 | +9.76 | 16.69× |
 
-The time estimates include Stage-1 initialization and subsequent training, including online-verifier waiting, normalized to Stage-1 SFT. **† marks a projected cost entry**, not a projected evaluation score. The estimates combine rollout logs, update profiling, verifier latency, concurrency, and synchronization; residual system overhead is only partly reconstructed. These are elapsed-time estimates, not GPU-hours or API expenditure.
+End-to-end wall time includes Stage 1 and verifier waiting, normalized to Stage 1 = 1.00× on the same two-GPU machine. One run per setting; small time differences can reflect run-to-run variation. These are measured wall-clock times under the optimized implementation, not GPU-hours or API expenditure. Evaluation and manual pauses are excluded.
 
 - **Supervised initialization and RTPO:** Stage 1 adds 5.20 Overall points over Base; full RTPO adds another 4.56.
 - **Reward components:** removing Flight lowers Overall by 4.01; removing Gravity lowers it by 2.80. Task-only training scores 63.34, below Stage 1's 64.56.
 - **Single-image RL:** retains local Gravity, evidence-use, and correctness rewards, with per-image advantages and no F2 paired-adaptation term. It gains 0.56 over Stage 1 and remains 4.00 below full G&F. This comparison tests the combined organization of relational feedback and shared pair updates, rather than isolating only one mechanism.
 - **Joint-input RL:** retains the full criteria and reward weights but generates both responses in one context. Its 66.49 Overall is 2.63 below G&F. Scene-evidence mixing is a proposed explanation, not directly established by the aggregate score.
 
+- **Paired RL without F2:** retains paired rewards, a shared pair-level advantage, and joint validity handling while removing paired adaptation. Its 66.79 Overall is 1.67 above single-image RL; adding F2 gives a further 2.33 points. This comparison includes the corresponding reward and validity protocols and does not isolate shared advantages alone.
+- **Shuffled F2 feedback:** keeps the image pairs and local scoring intact, but permutes the computed F2 scores among the six candidate pairs within each training unit before rewards and shared advantages are formed. Its 64.71 is 4.41 below full G&F and 2.08 below paired RL without F2. Image pairs are not shuffled across training units.
+
 Per-benchmark scores for Stage 1 and these controls are not reported. The website therefore shows them only in the Overall view and records missing breakdowns as `null`.
+
+## Verifier reliability
+
+| Dimension | Items | Within one point of humans (%) | Repeat-change rate (%) |
+| --- | ---: | ---: | ---: |
+| G1 | 48 | 91.67 | 22.92 |
+| G2 | 48 | 100.00 | 12.50 |
+| F1 | 48 | 89.58 | 27.08 |
+| F2 | 24 | 83.33 | 29.17 |
+
+24 sampled training units; two independent annotators with adjudication. Agreement compares the first judge call with the human reference. Repeat-change counts any score difference across two identical calls. This small audit indicates reliability; it does not validate the rubric itself. G1/G2 use a 0–3 scale and F1/F2 a 0–5 scale. Unscorable items are excluded from both rates.
 
 ## Urban specialization
 
@@ -172,13 +188,14 @@ The sample illustrates more concentrated task-related content in shorter G&F res
 
 ## Source of truth
 
-The reported method and results correspond to the manuscript snapshot dated **2026-10-30**, revision **`b51cf1882030d8008983c71ef829d0221b0690ce`**. This identifier records provenance; it is not a public paper URL or a released research artifact.
+Experimental results were reconciled with the manuscript snapshot dated **2026-11-04**, revision **`e44bf1e5853cf60fbcbf9cb8ca27ed230c84f3dc`**. The main harbor, urban, and token-analysis values are unchanged; this update adds two matched controls and a verifier audit, and replaces estimated costs with measured wall time. This identifier records provenance; it is not a public paper URL or a released research artifact.
 
 | Material in these notes | Source within the manuscript snapshot |
 | --- | --- |
 | Two-stage method, verification, and RTPO | Method section, including Anchor–Bridging supervision and the pair objective |
 | Main harbor comparison | Table 1 |
 | Ablations, matched controls, and relative training time | Table 2 and supplementary control/cost definitions |
+| Verifier reliability audit | `appendix_verifier_reliability.tex` |
 | Separate urban study | Table 3 and supplementary urban protocol |
 | Six-case response analysis | Section 4.4 and the token-analysis appendix |
 | Demonstration count and supervision units | Manuscript definitions and supplementary inventory |

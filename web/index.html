@@ -17,10 +17,10 @@
     />
     <meta content="website" property="og:type" />
     <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="styles.css?v=521ae10af5ca" rel="stylesheet" />
-    <script defer="" src="research-data.js"></script>
-    <script defer="" src="i18n.js?v=33b13006d127"></script>
-    <script defer="" src="main.js?v=874e98df3a8c"></script>
+    <link href="styles.css?v=67968b06af8d" rel="stylesheet" />
+    <script defer="" src="research-data.js?v=7959934d274e"></script>
+    <script defer="" src="i18n.js?v=6b016a57d78d"></script>
+    <script defer="" src="main.js?v=a1ad66430462"></script>
     <link
       as="font"
       crossorigin=""
@@ -1171,9 +1171,9 @@
                 >
               </h3>
               <p data-i18n="results.ablationBody">
-                Full G&amp;F has a higher Overall score than either reward
-                ablation and the matched controls. Removing Flight gives 65.11;
-                removing Gravity gives 66.32.
+                Paired RL without F2 reaches 66.79, compared with 65.12 for
+                single-image RL. Full G&amp;F reaches 69.12; shuffling F2
+                feedback within each training unit gives 64.71.
               </p>
               <div class="ablation-heading">
                 <span
@@ -1222,6 +1222,209 @@
               </p>
             </article>
           </div>
+          <details
+            class="results-table-details experiment-updates"
+            id="experiment-updates"
+          >
+            <summary>
+              <span data-i18n="experiments.toggle"
+                >Training controls &amp; verifier reliability</span
+              ><span aria-hidden="true">＋</span>
+            </summary>
+            <div
+              aria-label="Training controls"
+              class="table-scroll"
+              data-i18n-aria="experiments.controls"
+              role="region"
+              tabindex="0"
+            >
+              <table>
+                <caption>
+                  <span data-i18n="experiments.controls"
+                    >Training controls</span
+                  >
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <span data-i18n="experiments.setting">Setting</span>
+                    </th>
+                    <th scope="col">Overall</th>
+                    <th scope="col">
+                      <span data-i18n="experiments.cost"
+                        >Measured relative training time</span
+                      >
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.base">Base</span>
+                    </th>
+                    <td>59.36</td>
+                    <td>—</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.stage1">EoT-SFT</span>
+                    </th>
+                    <td>64.56</td>
+                    <td>1.00×</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.without-both"
+                        >Without Gravity &amp; Flight</span
+                      >
+                    </th>
+                    <td>63.34</td>
+                    <td>8.15×</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.without-flight"
+                        >Without Flight</span
+                      >
+                    </th>
+                    <td>65.11</td>
+                    <td>10.13×</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.without-gravity"
+                        >Without Gravity</span
+                      >
+                    </th>
+                    <td>66.32</td>
+                    <td>15.83×</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.single-image"
+                        >Single-image RL</span
+                      >
+                    </th>
+                    <td>65.12</td>
+                    <td>13.38×</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.paired-no-f2"
+                        >Paired RL without F2</span
+                      >
+                    </th>
+                    <td>66.79</td>
+                    <td>13.57×</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.shuffled-f2"
+                        >Shuffled F2 feedback</span
+                      >
+                    </th>
+                    <td>64.71</td>
+                    <td>17.20×</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">
+                      <span data-i18n="control.joint-input"
+                        >Joint-input RL</span
+                      >
+                    </th>
+                    <td>66.49</td>
+                    <td>16.86×</td>
+                  </tr>
+                  <tr class="ours">
+                    <th scope="row">
+                      <span data-i18n="control.gf">Full G&amp;F</span>
+                    </th>
+                    <td>69.12</td>
+                    <td>16.69×</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="caption" data-i18n="experiments.costNote">
+              End-to-end wall time includes Stage 1 and verifier waiting,
+              normalized to Stage 1 = 1.00× on the same two-GPU machine. One run
+              per setting; small time differences can reflect run-to-run
+              variation.
+            </p>
+            <p class="caption" data-i18n="experiments.alignment">
+              The shuffled control keeps the image pairs intact and permutes
+              computed F2 scores among the six candidate pairs within each
+              training unit. It tests feedback alignment.
+            </p>
+            <div
+              aria-label="Verifier reliability audit"
+              class="table-scroll"
+              data-i18n-aria="experiments.reliability"
+              role="region"
+              tabindex="0"
+            >
+              <table>
+                <caption>
+                  <span data-i18n="experiments.reliability"
+                    >Verifier reliability audit</span
+                  >
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">
+                      <span data-i18n="experiments.dimension">Dimension</span>
+                    </th>
+                    <th scope="col">
+                      <span data-i18n="experiments.items">Items</span>
+                    </th>
+                    <th scope="col">
+                      <span data-i18n="experiments.agreement"
+                        >Within one point of humans (%)</span
+                      >
+                    </th>
+                    <th scope="col">
+                      <span data-i18n="experiments.repeat"
+                        >Repeat-change rate (%)</span
+                      >
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">G1</th>
+                    <td>48</td>
+                    <td>91.67</td>
+                    <td>22.92</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">G2</th>
+                    <td>48</td>
+                    <td>100.00</td>
+                    <td>12.50</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">F1</th>
+                    <td>48</td>
+                    <td>89.58</td>
+                    <td>27.08</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">F2</th>
+                    <td>24</td>
+                    <td>83.33</td>
+                    <td>29.17</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="caption" data-i18n="experiments.auditNote">
+              24 sampled training units; two independent annotators with
+              adjudication. Agreement compares the first judge call with the
+              human reference. Repeat-change counts any score difference across
+              two identical calls. This small audit indicates reliability; it
+              does not validate the rubric itself.
+            </p>
+          </details>
         </div>
       </section>
       <section
