@@ -1,20 +1,53 @@
+<div align="center">
+
 # Gravity & Flight
 
-**面向遥感视觉语言模型的细粒度证据化推理。**
+### 面向遥感视觉语言模型的细粒度证据化推理
 
-[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [模型页](https://huggingface.co/zongling/Gravity_and_Flight-4B) · [数据集样例](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [研究说明](docs/RESEARCH.md) · [Filling Before Advancing](https://github.com/Z0ngL1ng/filling-before-advancing) · [English](README.md)
+<p align="center"><em>“飞行并非摆脱重力，而是与其约束相处的艺术。”</em></p>
 
-Gravity and Flight（G&F）以 **Qwen3.5-4B** 为基座，通过两阶段后训练，让模型将细致观察连接到具体任务下的判断，并在证据变化时相应调整判断。
+<p align="center">
+  <a href="https://z0ngl1ng.github.io/Gravity-and-Flight/"><img src="https://img.shields.io/badge/Project-Website-3d637c.svg?style=flat-square" alt="Project website" height="24"></a>
+  &nbsp;
+  <a href="https://huggingface.co/zongling/Gravity_and_Flight-4B"><img src="https://img.shields.io/badge/HF_Model-Preview-80613b.svg?logo=huggingface&amp;style=flat-square" alt="Hugging Face model preview" height="24"></a>
+  &nbsp;
+  <a href="https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K"><img src="https://img.shields.io/badge/HF_Dataset-Samples-39766b.svg?logo=huggingface&amp;style=flat-square" alt="Hugging Face dataset samples" height="24"></a>
+  &nbsp;
+  <a href="docs/RESEARCH.md"><img src="https://img.shields.io/badge/Research-Notes-59636b.svg?style=flat-square" alt="Research notes" height="24"></a>
+</p>
+
+<p align="center"><a href="README.md">English</a> · <strong>简体中文</strong></p>
+
+<p align="center"><a href="#概览">概览</a> &nbsp;·&nbsp; <a href="#方法">方法</a> &nbsp;·&nbsp; <a href="#已报告结果">实验结果</a> &nbsp;·&nbsp; <a href="#资源">资源与样例</a></p>
+
+</div>
 
 ![G&F 动机：将物体识别与局部证据连接到车辆集结任务的判断。](web/assets/papers/gf-motivation.webp)
 
 *识别船舶与设施只是起点。这个示例要求模型把车辆排列、铺装空间和邻近泊位联系到任务；图中的两处岸线位于同一张输入图像中。* [原始 PDF](web/assets/papers/gf-motivation.pdf)
 
+## 概览
+
+Gravity and Flight（G&F）以 **Qwen3.5-4B** 为基座，通过两阶段后训练，让模型将细致观察连接到具体任务下的判断，并在证据变化时相应调整判断。
+
+| 基座 | 监督规模 | Overall |
+| :---: | :---: | :---: |
+| **4B**<br>Qwen3.5<br>单图推理 | **1,008 条示范**<br>**500 对图像**<br>两个训练阶段 | **69.12**<br>+9.76<br>相较 Base |
+
 ## 研究思路
 
 [Filling Before Advancing（FBA）](https://github.com/Z0ngL1ng/filling-before-advancing) 建立遥感场景专精所需的能力，其第二阶段 **Bridging-Conv** 从目标场景与相关场景中学习共享先验。G&F 将这一思路推进到**同一场景领域内部**的细粒度上下文变化：当局部属性、空间关系或可见性改变，哪些判断应随之改变，哪些应保持一致，哪些应降低具体程度？
 
-前作引用：[Zong 等（2026），*Filling Before Advancing*](https://arxiv.org/abs/2607.22205) · [项目网站](https://z0ngl1ng.github.io/filling-before-advancing/) · [模型预览页](https://huggingface.co/zongling/FBA) · [数据集预览页](https://huggingface.co/datasets/zongling/CPRS)。
+<details>
+<summary><strong>前作引用与资源 · Filling Before Advancing</strong></summary>
+
+[Zong 等（2026），*Filling Before Advancing*](https://arxiv.org/abs/2607.22205)
+
+| 论文 | 项目 | 模型 | 数据集 |
+| :---: | :---: | :---: | :---: |
+| [arXiv](https://arxiv.org/abs/2607.22205) | [项目官网](https://z0ngl1ng.github.io/filling-before-advancing/) | [HF 预览](https://huggingface.co/zongling/FBA) | [CPRS 预览](https://huggingface.co/datasets/zongling/CPRS) |
+
+</details>
 
 命名灵感来自重力与气动升力。**Gravity** 让视觉陈述立足图像；**Flight** 检验推理如何从已描述的观察出发。这一类比启发了互补验证设计，不是奖励函数的物理模型。
 
@@ -29,7 +62,7 @@ Gravity and Flight（G&F）以 **Qwen3.5-4B** 为基座，通过两阶段后训�
 
 Gravity 检查视觉忠实性与描述覆盖度，Flight 检查证据使用及两侧判断的调整是否有据，Task Check 检查最终答案正确性。各项分数组成**相加的成对奖励与共享优势信号**；Gravity 不对 Flight 设置门控，Flight 不读取图像或答案约定。[验证定义](docs/RESEARCH.md#complementary-verification)
 
-**推理时只需一张图像与一个问题。** 成对监督与验证卡片用于训练，不是部署时的策略输入。
+> **推理时只需一张图像与一个问题。** 成对监督与验证卡片用于训练，不是部署时的策略输入。
 
 ## 已报告结果
 
@@ -83,8 +116,21 @@ Overall 是 HarborEval、VRSBench、RSVQA、OpenEval、OmniEarth 与 VLRS-Bench 
 
 ## 资源
 
-- **已公开：**[项目网站](https://z0ngl1ng.github.io/Gravity-and-Flight/)、[网站源码](web/)、[研究说明](docs/RESEARCH.md)及[四幅原始论文插图](docs/FIGURES.md)。
-- **预览入口：**[模型介绍](https://huggingface.co/zongling/Gravity_and_Flight-4B)与[数据集页面](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K)。数据集当前包含 3 个 [Stage 1 示范](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1)和 3 个 [Stage 2 图像对](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2)，附原图与标注。
-- **开放计划：**模型权重与完整数据集计划在论文中稿后逐步开放；完整论文、训练与评测实现尚未发布。后续更新见[发布状态](RELEASE_STATUS.md)。
+| 资源 | 入口 | 当前状态 |
+| --- | --- | --- |
+| **项目官网** | [浏览 G&F](https://z0ngl1ng.github.io/Gravity-and-Flight/) | 研究脉络、论文插图与实验结果 |
+| **4B 模型** | [Hugging Face 模型页](https://huggingface.co/zongling/Gravity_and_Flight-4B) | 已公开模型介绍 |
+| **数据集样例** | [概览](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [Stage 1](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) · [Stage 2](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2) | 3 条示范 + 3 个图像对 |
+| **研究说明** | [方法与已报告实验](docs/RESEARCH.md) | 定义、对照与适用范围 |
+| **发布状态** | [查看资源开放进展](RELEASE_STATUS.md) | 资源状态与后续更新 |
 
-[本地预览网站](docs/WEBSITE.md#view-the-website) · [插图来源](docs/FIGURES.md) · [授权范围](LICENSE_SCOPE.md)
+**模型权重与完整数据集计划在论文中稿后逐步开放。** 完整论文、训练与评测实现尚未发布。
+
+<details>
+<summary>网站源码、插图来源与仓库文档</summary>
+
+- [网站源码](web/)与[本地预览方法](docs/WEBSITE.md#view-the-website)
+- [四幅原始论文插图及来源说明](docs/FIGURES.md)
+- [授权范围](LICENSE_SCOPE.md)
+
+</details>

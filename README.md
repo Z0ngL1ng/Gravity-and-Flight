@@ -1,20 +1,53 @@
+<div align="center">
+
 # Gravity & Flight
 
-**Evidence-grounded reasoning for fine-grained remote sensing.**
+### Evidence-grounded reasoning for fine-grained remote sensing.
 
-[Website](https://z0ngl1ng.github.io/Gravity-and-Flight/) · [Model](https://huggingface.co/zongling/Gravity_and_Flight-4B) · [Dataset preview](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [Research notes](docs/RESEARCH.md) · [Filling Before Advancing](https://github.com/Z0ngL1ng/filling-before-advancing) · [中文](README_zh.md)
+<p align="center"><em>“Flight is not the absence of gravity, but the art of working within its constraints.”</em></p>
 
-Gravity and Flight (G&F) adapts **Qwen3.5-4B** through two stages of post-training. It teaches the model to connect detailed observations to task-specific judgments, then refine those judgments when the evidence changes.
+<p align="center">
+  <a href="https://z0ngl1ng.github.io/Gravity-and-Flight/"><img src="https://img.shields.io/badge/Project-Website-3d637c.svg?style=flat-square" alt="Project website" height="24"></a>
+  &nbsp;
+  <a href="https://huggingface.co/zongling/Gravity_and_Flight-4B"><img src="https://img.shields.io/badge/HF_Model-Preview-80613b.svg?logo=huggingface&amp;style=flat-square" alt="Hugging Face model preview" height="24"></a>
+  &nbsp;
+  <a href="https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K"><img src="https://img.shields.io/badge/HF_Dataset-Samples-39766b.svg?logo=huggingface&amp;style=flat-square" alt="Hugging Face dataset samples" height="24"></a>
+  &nbsp;
+  <a href="docs/RESEARCH.md"><img src="https://img.shields.io/badge/Research-Notes-59636b.svg?style=flat-square" alt="Research notes" height="24"></a>
+</p>
+
+<p align="center"><strong>English</strong> · <a href="README_zh.md">简体中文</a></p>
+
+<p align="center"><a href="#overview">Overview</a> &nbsp;·&nbsp; <a href="#method">Method</a> &nbsp;·&nbsp; <a href="#reported-results">Results</a> &nbsp;·&nbsp; <a href="#resources">Resources</a></p>
+
+</div>
 
 ![G&F motivation: connect recognized objects and local evidence to a vehicle-staging judgment.](web/assets/papers/gf-motivation.webp)
 
 *Recognizing ships and facilities is a starting point. This illustrative example asks the model to connect vehicle rows, paved space, and nearby berths to the task. Both waterfronts are in one input image.* [Original PDF](web/assets/papers/gf-motivation.pdf)
 
+## Overview
+
+Gravity and Flight (G&F) adapts **Qwen3.5-4B** through two stages of post-training. It teaches the model to connect detailed observations to task-specific judgments, then refine those judgments when the evidence changes.
+
+| Backbone | Supervision | Overall |
+| :---: | :---: | :---: |
+| **4B**<br>Qwen3.5<br>One image | **1,008 demos**<br>**500 pairs**<br>Two stages | **69.12**<br>+9.76<br>vs. Base |
+
 ## Research idea
 
 [Filling Before Advancing (FBA)](https://github.com/Z0ngL1ng/filling-before-advancing) develops capabilities for remote-sensing scenario specialization. Its second stage, **Bridging-Conv**, learns shared priors across target and related scenes. G&F takes that idea into finer contextual changes **within one scene domain**: which judgments should change, stay consistent, or become less specific as local attributes, spatial relations, and visibility vary?
 
-Prior work: [Zong et al. (2026), *Filling Before Advancing*](https://arxiv.org/abs/2607.22205) · [Project website](https://z0ngl1ng.github.io/filling-before-advancing/) · [Hugging Face model preview](https://huggingface.co/zongling/FBA) · [Hugging Face dataset preview](https://huggingface.co/datasets/zongling/CPRS).
+<details>
+<summary><strong>Related work · Filling Before Advancing</strong></summary>
+
+[Zong et al. (2026), *Filling Before Advancing*](https://arxiv.org/abs/2607.22205)
+
+| Paper | Project | Model | Dataset |
+| :---: | :---: | :---: | :---: |
+| [arXiv](https://arxiv.org/abs/2607.22205) | [Website](https://z0ngl1ng.github.io/filling-before-advancing/) | [HF preview](https://huggingface.co/zongling/FBA) | [CPRS preview](https://huggingface.co/datasets/zongling/CPRS) |
+
+</details>
 
 The name draws on gravity and aerodynamic lift. **Gravity** anchors visual claims to the image; **Flight** evaluates reasoning from described observations. The analogy motivates complementary verification, not a physical reward model.
 
@@ -29,7 +62,7 @@ The name draws on gravity and aerodynamic lift. **Gravity** anchors visual claim
 
 Gravity checks visual fidelity and descriptive coverage. Flight checks evidence use and justified adaptation across the pair. Task Check evaluates final-answer correctness. Their scores form an **additive pair reward and a shared advantage**; Gravity does not gate Flight. Flight does not inspect images or receive answer contracts. [Verification details](docs/RESEARCH.md#complementary-verification)
 
-**Inference uses one image and one question.** Paired supervision and verification cards are training machinery, not policy inputs at deployment.
+> **Inference uses one image and one question.** Paired supervision and verification cards are training machinery, not policy inputs at deployment.
 
 ## Reported results
 
@@ -83,8 +116,21 @@ The horizontal axis counts content tokens, excluding format-only tokens. Across 
 
 ## Resources
 
-- **Available:** the [project website](https://z0ngl1ng.github.io/Gravity-and-Flight/), [website source](web/), [research notes](docs/RESEARCH.md), and [four original paper figures](docs/FIGURES.md).
-- **Preview resources:** the [model card](https://huggingface.co/zongling/Gravity_and_Flight-4B) and [dataset page](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K). The dataset includes three [Stage-1 demonstrations](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) and three [Stage-2 image pairs](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2), with original images and annotations.
-- **Planned release:** model weights and the full dataset will be opened in stages after paper acceptance. The full manuscript and training/evaluation implementation remain unreleased; follow [release status](RELEASE_STATUS.md) for updates.
+| Resource | Entry | Current availability |
+| --- | --- | --- |
+| **Project website** | [Explore G&F](https://z0ngl1ng.github.io/Gravity-and-Flight/) | Research story, figures & results |
+| **4B model** | [Hugging Face model page](https://huggingface.co/zongling/Gravity_and_Flight-4B) | Model card published |
+| **Dataset preview** | [Overview](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [Stage 1](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) · [Stage 2](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2) | 3 demonstrations + 3 image pairs |
+| **Research notes** | [Method & reported experiments](docs/RESEARCH.md) | Definitions, controls & study scope |
+| **Release status** | [Follow artifact releases](RELEASE_STATUS.md) | Availability and planned updates |
 
-[Local website preview](docs/WEBSITE.md#view-the-website) · [Figure provenance](docs/FIGURES.md) · [License scope](LICENSE_SCOPE.md)
+**Model weights and the full dataset are planned for staged release after paper acceptance.** The full manuscript and training/evaluation implementation remain unreleased.
+
+<details>
+<summary>Website source, figure provenance & documentation</summary>
+
+- [Website source](web/) and [local preview instructions](docs/WEBSITE.md#view-the-website)
+- [Four original paper figures and source mapping](docs/FIGURES.md)
+- [License scope](LICENSE_SCOPE.md)
+
+</details>
