@@ -24,7 +24,11 @@
   --italic: "Times New Roman", Times, "Liberation Serif", "Noto Serif", serif;
   --sans: "DM Sans", "PingFang SC", "Microsoft YaHei", sans-serif;
   --header-height: 78px;
-  --gutter: clamp(22px, 4.2vw, 72px);
+  --gutter: clamp(22px, 3.4vw, 96px);
+  --content-width: 2200px;
+  --heading:
+    "Times New Roman", Times, "Liberation Serif", "Songti SC",
+    "Noto Serif CJK SC", SimSun, serif;
 }
 * {
   box-sizing: border-box;
@@ -100,10 +104,10 @@ em {
   letter-spacing: -0.02em;
 }
 h2 {
-  font-family: var(--display);
-  font-size: clamp(48px, 5.1vw, 76px);
-  line-height: 1.02;
-  letter-spacing: -0.025em;
+  font-family: var(--heading);
+  font-size: clamp(48px, 5.1vw, 96px);
+  line-height: 1.1;
+  letter-spacing: -0.012em;
 }
 h3 {
   line-height: 1.2;
@@ -123,7 +127,7 @@ p {
   color: var(--ink);
 }
 .wrap {
-  width: min(100% - var(--gutter) * 2, 1320px);
+  width: min(100% - var(--gutter) * 2, var(--content-width));
   margin-inline: auto;
 }
 .section {
@@ -208,7 +212,7 @@ p {
   justify-content: space-between;
   gap: 24px;
   min-height: 78px;
-  padding: 12px var(--gutter);
+  padding: 12px max(var(--gutter), calc((100vw - var(--content-width)) / 2));
   background: var(--paper);
   border-bottom: 1px solid var(--line);
 }
@@ -238,11 +242,11 @@ p {
 }
 .desktop-nav {
   display: flex;
-  gap: 28px;
-  font-size: 13px;
+  gap: clamp(24px, 2.2vw, 56px);
+  font-size: clamp(16px, 0.8vw, 19px);
 }
 .desktop-nav a {
-  padding: 10px 0;
+  padding: 10px 4px;
 }
 .desktop-nav a[aria-current] {
   text-decoration: underline;
@@ -251,8 +255,8 @@ p {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 22px;
-  font-size: 13px;
+  gap: 28px;
+  font-size: clamp(15px, 0.8vw, 18px);
 }
 .language-button {
   min-width: 44px;
@@ -376,11 +380,11 @@ html:lang(zh-CN) .hero-philosophy {
   grid-template-columns: 25px 1fr 12px;
   gap: 8px;
   align-items: center;
-  font-size: 13px;
-  min-height: 38px;
+  font-size: 15px;
+  min-height: 44px;
 }
 .chapter-number {
-  font-size: 10px;
+  font-size: 12px;
   color: var(--muted);
 }
 .chapter-arrow {
@@ -398,9 +402,9 @@ html:lang(zh-CN) .hero-philosophy {
 .prose-columns {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 42px;
-  font-size: 16px;
-  line-height: 1.8;
+  gap: clamp(32px, 4.4vw, 96px);
+  font-size: clamp(17px, 0.85vw, 21px);
+  line-height: 1.85;
 }
 
 /* A small physical sketch introduces the metaphor before the actual rubrics. */
@@ -2281,21 +2285,21 @@ details[open] > summary > span:last-child {
 }
 .story-opening {
   display: grid;
-  grid-template-columns: 180px minmax(0, 1fr);
-  gap: 7%;
+  grid-template-columns: clamp(150px, 8.5vw, 216px) minmax(0, 1fr);
+  gap: clamp(32px, 3.6vw, 88px);
 }
 .story-kicker {
   color: var(--accent);
   margin-bottom: 20px;
 }
 .story-opening .section-body h2 {
-  font-size: clamp(48px, 4.9vw, 72px);
-  line-height: 1.08;
+  font-size: clamp(48px, 4.6vw, 96px);
+  line-height: 1.12;
 }
 .paper-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 32px;
+  gap: clamp(28px, 2.4vw, 64px);
   margin-top: 44px;
 }
 .paper-card {
@@ -2326,9 +2330,9 @@ details[open] > summary > span:last-child {
 }
 .paper-card h3 {
   margin-top: 14px;
-  font-family: var(--display);
-  font-size: 35px;
-  letter-spacing: -0.015em;
+  font-family: var(--heading);
+  font-size: clamp(32px, 2.4vw, 46px);
+  letter-spacing: -0.01em;
 }
 .paper-frame {
   display: block;
@@ -2388,17 +2392,6 @@ details[open] > summary > span:last-child {
   font-size: 14px;
   line-height: 1.75;
 }
-.paper-pdf {
-  display: inline-flex;
-  gap: 16px;
-  align-items: center;
-  font-size: 12px;
-  min-height: 44px;
-  padding-top: 12px;
-  margin-top: auto;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
 .story-interlude {
   padding-block: 64px 72px;
   text-align: center;
@@ -2424,67 +2417,95 @@ details[open] > summary > span:last-child {
 }
 .lineage-intro h2 {
   margin-bottom: 32px;
-  max-width: 1000px;
+  max-width: none;
 }
 /* A quiet reference to the earlier work and its official resources. */
 .fba-resources {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 24px 64px;
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+  gap: 28px clamp(32px, 4vw, 80px);
   align-items: center;
-  margin-top: 36px;
-  padding-top: 28px;
+  margin-top: 44px;
+  padding-top: 36px;
   border-top: 1px solid var(--line);
 }
 .fba-resource-intro h3 {
-  margin: 10px 0 8px;
-  font-family: var(--italic);
-  font-size: clamp(26px, 2.6vw, 34px);
+  margin: 12px 0;
+  font-family: var(--heading);
+  font-size: clamp(30px, 1.8vw, 46px);
   line-height: 1.2;
   letter-spacing: 0;
 }
 .fba-resource-intro > p:not(.eyebrow) {
-  max-width: 52ch;
-  font-size: 13px;
-  line-height: 1.7;
+  max-width: 56ch;
+  font-size: clamp(15px, 0.7vw, 18px);
+  line-height: 1.75;
   color: var(--muted);
 }
 .fba-resource-intro .fba-citation {
-  margin-top: 6px;
-  font-size: 11px;
+  margin-top: 10px;
+  font-size: 14px;
+}
+.fba-resource-intro > p.fba-submission {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 6px 12px;
+  border: 1px solid #b6c6cf;
+  background: var(--blue);
+  color: var(--accent);
+  font-size: clamp(14px, 0.65vw, 16px);
+  line-height: 1.5;
 }
 .fba-resource-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 28px;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  align-items: stretch;
 }
 .fba-resource-links a {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 44px;
-  font-size: 13px;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-color: var(--line);
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 54px;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  font-size: clamp(16px, 0.75vw, 19px);
+  line-height: 1.4;
+  text-decoration: none;
+  transition:
+    background-color 0.2s,
+    border-color 0.2s;
 }
 .fba-resource-links a:hover {
-  text-decoration-color: currentColor;
+  background: var(--blue);
+  border-color: var(--accent);
+}
+@media (min-width: 761px) {
+  .fba-resource-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (min-width: 1800px) {
+  .fba-resource-links {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1100px) {
+  .fba-resources {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
 }
 @media (max-width: 760px) {
   .fba-resources {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 16px;
     margin-top: 28px;
     padding-top: 24px;
   }
-  .fba-resource-links {
-    gap: 2px 24px;
-  }
 }
 #figure-viewer {
-  width: min(1440px, calc(100vw - 40px));
+  width: min(1920px, calc(100vw - 48px));
   max-width: none;
   max-height: calc(100dvh - 40px);
   padding: 0;
@@ -2522,8 +2543,7 @@ details[open] > summary > span:last-child {
   gap: 10px;
   flex-shrink: 0;
 }
-.figure-viewer-actions button,
-.figure-viewer-actions a {
+.figure-viewer-actions button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -2686,8 +2706,7 @@ details[open] > summary > span:last-child {
     margin-top: 12px;
     justify-content: space-between;
   }
-  .figure-viewer-actions button,
-  .figure-viewer-actions a {
+  .figure-viewer-actions button {
     font-size: 11px;
     padding: 8px 10px;
   }
@@ -2789,7 +2808,7 @@ details[open] > summary > span:last-child {
 }
 .method-plate-caption {
   display: grid;
-  grid-template-columns: minmax(0, 900px) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 20px 48px;
   justify-content: space-between;
   align-items: start;
@@ -2800,16 +2819,6 @@ details[open] > summary > span:last-child {
   line-height: 1.8;
   color: var(--muted);
 }
-.method-original {
-  display: inline-flex;
-  align-items: center;
-  gap: 18px;
-  min-height: 44px;
-  font-size: 12px;
-  white-space: nowrap;
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
 /* A wider classical serif and looser spacing give the brand room to breathe. */
 .hero h1,
 .force-name h3,
@@ -2818,7 +2827,7 @@ details[open] > summary > span:last-child {
   font-family: var(--italic);
 }
 .hero h1 {
-  font-size: clamp(84px, 13.2vw, 190px);
+  font-size: clamp(84px, 13.2vw, 300px);
   line-height: 1.04;
   letter-spacing: -0.018em;
 }
@@ -2860,9 +2869,6 @@ details[open] > summary > span:last-child {
   }
   .method-plate-caption .paper-caption {
     font-size: 13px;
-  }
-  .method-original {
-    justify-self: start;
   }
   :lang(zh-CN) .method-heading h2 {
     font-size: 34px;
@@ -2944,6 +2950,197 @@ details[open] > summary > span:last-child {
   }
   .method-plate-actions {
     gap: 24px;
+  }
+}
+
+@media screen and (min-width: 901px) {
+  .site-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+  .wordmark {
+    justify-self: start;
+    font-size: clamp(34px, 1.7vw, 46px);
+  }
+  .header-actions {
+    justify-self: end;
+  }
+}
+
+/* Let large screens use their width while keeping text and controls readable. */
+@media screen and (min-width: 1200px) {
+  .cover-deck {
+    gap: clamp(48px, 8vw, 180px);
+  }
+  .hero-subtitle {
+    font-size: clamp(28px, 2vw, 44px);
+  }
+  .hero-lead {
+    max-width: 740px;
+    font-size: clamp(17px, 0.85vw, 21px);
+  }
+  .hero-philosophy {
+    max-width: 1280px;
+    font-size: clamp(28px, 1.5vw, 36px);
+  }
+  .section-lead,
+  .method-heading .section-lead {
+    max-width: 580px;
+    font-size: clamp(17px, 0.8vw, 21px);
+  }
+  .section-lead {
+    flex-basis: 34%;
+  }
+  .paper-card-head {
+    padding: 28px 30px 24px;
+  }
+  .paper-card figcaption {
+    padding: 24px 30px;
+  }
+  .paper-caption,
+  .method-plate-caption .paper-caption {
+    font-size: clamp(16px, 0.72vw, 18px);
+    line-height: 1.85;
+  }
+  .paper-meta {
+    font-size: 14px;
+  }
+  .paper-zoom-hint,
+  .method-view {
+    font-size: 16px;
+  }
+  .method-heading h2 {
+    font-size: clamp(52px, 4.6vw, 92px);
+  }
+  .secondary-results h3 {
+    font-family: var(--heading);
+    font-size: clamp(40px, 2.6vw, 60px);
+  }
+  .secondary-results p {
+    max-width: 72ch;
+    font-size: clamp(17px, 0.8vw, 20px);
+  }
+  :lang(zh-CN) .paper-card h3 {
+    font-size: clamp(28px, 1.5vw, 38px);
+  }
+  :lang(zh-CN) .secondary-results h3 {
+    font-size: clamp(30px, 2vw, 46px);
+  }
+  .mini-row {
+    grid-template-columns: 180px 1fr 56px 60px;
+    gap: 18px;
+    font-size: 16px;
+  }
+  .resource-links h3 {
+    font-size: clamp(22px, 1.1vw, 28px);
+  }
+  .resource-links p {
+    font-size: clamp(15px, 0.7vw, 18px);
+  }
+  .resources-section h2 {
+    max-width: none;
+    font-size: clamp(60px, 4.5vw, 96px);
+  }
+  .resource-note {
+    font-size: 15px;
+  }
+  .resource-note > p {
+    max-width: 72ch;
+  }
+  .interpretation p,
+  .forces-grid dd {
+    font-size: clamp(17px, 0.75vw, 19px);
+  }
+  .example-section .caption,
+  .image-pair figcaption {
+    font-size: 15px;
+  }
+  .reading-controls button {
+    font-size: 17px;
+  }
+  .forces-section h2 {
+    font-size: clamp(32px, 1.65vw, 42px);
+  }
+  .aero-copy > p:first-child {
+    max-width: 980px;
+    font-size: clamp(20px, 0.9vw, 24px);
+  }
+  .aero-sketch {
+    max-width: clamp(340px, 18vw, 460px);
+  }
+  .aero-lift,
+  .aero-weight {
+    font-size: 13px;
+  }
+  .aero-sketch figcaption,
+  .aero-copy > .caption {
+    font-size: 13px;
+  }
+  .forces-grid dl > div {
+    grid-template-columns: 180px 1fr;
+  }
+  .forces-grid dt,
+  .verification-note {
+    font-size: 16px;
+  }
+  .force-name > span {
+    font-size: 14px;
+  }
+  .chart-top h3 {
+    max-width: 460px;
+    font-size: 20px;
+  }
+  .bar-row {
+    grid-template-columns: 180px 1fr 56px;
+  }
+  .bar-label {
+    font-size: 16px;
+  }
+  .bar-label > span {
+    font-size: 14px;
+  }
+  .bar-row strong {
+    font-size: 18px;
+  }
+  .chart-axis {
+    margin-inline: 198px 74px;
+    font-size: 13px;
+  }
+  .metric-select {
+    font-size: 12px;
+  }
+  .metric-select select,
+  .legend {
+    font-size: 15px;
+  }
+  .chart-note,
+  .result-callout > p.score-unit {
+    font-size: 15px;
+  }
+  .table-scroll table {
+    font-size: 15px;
+  }
+  summary {
+    font-size: 17px;
+  }
+  .analysis-meta {
+    font-size: 15px;
+  }
+  .token-comparison article > p,
+  .token-comparison dl > div {
+    font-size: 17px;
+  }
+  .token-comparison small {
+    font-size: 13px;
+  }
+  .token-caption p,
+  .token-caption a,
+  .text-link,
+  .resource-note button {
+    font-size: 16px;
+  }
+  .token-caption p {
+    max-width: 1000px;
   }
 }
 

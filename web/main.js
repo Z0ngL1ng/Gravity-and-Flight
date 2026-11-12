@@ -364,7 +364,6 @@
           ".paper-caption",
           figure,
         ).textContent;
-        $("#figure-original").href = link.dataset.pdf;
         resetZoom();
         previousOverflow = document.body.style.overflow;
         viewer.showModal();

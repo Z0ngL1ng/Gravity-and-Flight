@@ -17,10 +17,10 @@
     />
     <meta content="website" property="og:type" />
     <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="styles.css?v=67968b06af8d" rel="stylesheet" />
+    <link href="styles.css?v=2a0e44a2cd29" rel="stylesheet" />
     <script defer="" src="research-data.js?v=7959934d274e"></script>
-    <script defer="" src="i18n.js?v=04baf47c6754"></script>
-    <script defer="" src="main.js?v=a1ad66430462"></script>
+    <script defer="" src="i18n.js?v=b2aaca408ab3"></script>
+    <script defer="" src="main.js?v=83619c453d80"></script>
     <link
       as="font"
       crossorigin=""
@@ -53,10 +53,10 @@
         ></a
       >
       <nav aria-label="Sections" class="desktop-nav">
-        <a href="#story"><span data-i18n="nav.story">The story</span></a
-        ><a href="#example"><span data-i18n="nav.example">The evidence</span></a
-        ><a href="#method"><span data-i18n="nav.method">The method</span></a
-        ><a href="#results"><span data-i18n="nav.results">The results</span></a>
+        <a href="#story"><span data-i18n="nav.story">Story</span></a
+        ><a href="#example"><span data-i18n="nav.example">Evidence</span></a
+        ><a href="#method"><span data-i18n="nav.method">Method</span></a
+        ><a href="#results"><span data-i18n="nav.results">Results</span></a>
       </nav>
       <div class="header-actions">
         <button
@@ -92,11 +92,11 @@
         </button>
       </div>
       <nav aria-label="Sections" class="mobile-nav" hidden="" id="mobile-nav">
-        <a href="#story"><span data-i18n="nav.story">The story</span></a
-        ><a href="#example"><span data-i18n="nav.example">The evidence</span></a
+        <a href="#story"><span data-i18n="nav.story">Story</span></a
+        ><a href="#example"><span data-i18n="nav.example">Evidence</span></a
         ><a href="#aero"><span data-i18n="nav.aero">Design inspiration</span></a
-        ><a href="#method"><span data-i18n="nav.method">The method</span></a
-        ><a href="#results"><span data-i18n="nav.results">The results</span></a
+        ><a href="#method"><span data-i18n="nav.method">Method</span></a
+        ><a href="#results"><span data-i18n="nav.results">Results</span></a
         ><a href="#analysis"
           ><span data-i18n="nav.analysis">Response analysis</span></a
         ><a href="#resources"
@@ -230,7 +230,6 @@
               data-figure=""
               data-figure-height="1107"
               data-figure-width="2800"
-              data-pdf="assets/papers/fba-motivation.pdf?v=a9c58054718b"
               href="assets/papers/fba-motivation.webp?v=9bd8e88c70dc"
               rel="noopener noreferrer"
               target="_blank"
@@ -241,7 +240,12 @@
                 decoding="async"
                 height="1107"
                 loading="lazy"
+                sizes="(min-width: 2400px) 1040px, (min-width: 761px) calc((100vw - 144px) / 2), calc(100vw - 72px)"
                 src="assets/papers/fba-motivation-1400.webp?v=a2efe401175c"
+                srcset="
+                  assets/papers/fba-motivation-1400.webp?v=a2efe401175c 1400w,
+                  assets/papers/fba-motivation.webp?v=9bd8e88c70dc      2800w
+                "
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -255,14 +259,6 @@
                 task capabilities needed for scenario specialization. This is
                 the earlier work's framing, illustrated with a harbor report.
               </p>
-              <a
-                class="paper-pdf"
-                href="assets/papers/fba-motivation.pdf?v=a9c58054718b"
-                rel="noopener noreferrer"
-                target="_blank"
-                ><span data-i18n="figure.pdf">Original PDF</span
-                ><span aria-hidden="true">↓</span></a
-              >
             </figcaption>
           </figure>
           <figure
@@ -288,7 +284,6 @@
               data-figure=""
               data-figure-height="953"
               data-figure-width="2800"
-              data-pdf="assets/papers/gf-motivation.pdf?v=ff343d2a27d7"
               href="assets/papers/gf-motivation.webp?v=f3a2dbfc7db3"
               rel="noopener noreferrer"
               target="_blank"
@@ -299,7 +294,12 @@
                 decoding="async"
                 height="953"
                 loading="lazy"
+                sizes="(min-width: 2400px) 1040px, (min-width: 761px) calc((100vw - 144px) / 2), calc(100vw - 72px)"
                 src="assets/papers/gf-motivation-1400.webp?v=a2605837b8df"
+                srcset="
+                  assets/papers/gf-motivation-1400.webp?v=a2605837b8df 1400w,
+                  assets/papers/gf-motivation.webp?v=f3a2dbfc7db3      2800w
+                "
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -314,14 +314,6 @@
                 G&amp;F response connects vehicle rows, paved space, and nearby
                 berths to the task. Both waterfronts are in one input image.
               </p>
-              <a
-                class="paper-pdf"
-                href="assets/papers/gf-motivation.pdf?v=ff343d2a27d7"
-                rel="noopener noreferrer"
-                target="_blank"
-                ><span data-i18n="figure.pdf">Original PDF</span
-                ><span aria-hidden="true">↓</span></a
-              >
             </figcaption>
           </figure>
         </div>
@@ -342,10 +334,11 @@
           </h2>
           <div class="prose-columns">
             <p data-i18n="story.body1">
-              Filling Before Advancing (FBA) prepares the capabilities needed
-              for scenario specialization. Its second stage, Bridging-Conv,
-              learns shared priors from target and related bridging scenes. This
-              scene-transfer idea is the starting point for G&amp;F.
+              Filling Before Advancing (FBA), currently submitted to ISPRS JPRS,
+              prepares the capabilities needed for scenario specialization. Its
+              second stage, Bridging-Conv, learns shared priors from target and
+              related bridging scenes. This scene-transfer idea is the starting
+              point for G&amp;F.
             </p>
             <p data-i18n="story.body2">
               We bring the transfer question inside a scene domain: when two
@@ -380,7 +373,6 @@
               data-figure=""
               data-figure-height="1205"
               data-figure-width="2800"
-              data-pdf="assets/papers/fba-method.pdf?v=c22a08dd3b46"
               href="assets/papers/fba-method.webp?v=c617c239b355"
               rel="noopener noreferrer"
               target="_blank"
@@ -391,7 +383,12 @@
                 decoding="async"
                 height="1205"
                 loading="lazy"
+                sizes="(min-width: 2400px) 1040px, (min-width: 761px) calc((100vw - 144px) / 2), calc(100vw - 72px)"
                 src="assets/papers/fba-method-1400.webp?v=868c22d85c01"
+                srcset="
+                  assets/papers/fba-method-1400.webp?v=868c22d85c01 1400w,
+                  assets/papers/fba-method.webp?v=c617c239b355      2800w
+                "
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -406,14 +403,6 @@
                 later motivated G&amp;F's focus on contextual variations within
                 one scene domain.
               </p>
-              <a
-                class="paper-pdf"
-                href="assets/papers/fba-method.pdf?v=c22a08dd3b46"
-                rel="noopener noreferrer"
-                target="_blank"
-                ><span data-i18n="figure.pdf">Original PDF</span
-                ><span aria-hidden="true">↓</span></a
-              >
             </figcaption>
           </figure>
           <figure
@@ -439,7 +428,6 @@
               data-figure=""
               data-figure-height="1392"
               data-figure-width="2800"
-              data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
               href="assets/papers/gf-method.webp?v=e5f2a7eee558"
               rel="noopener noreferrer"
               target="_blank"
@@ -450,7 +438,12 @@
                 decoding="async"
                 height="1392"
                 loading="lazy"
+                sizes="(min-width: 2400px) 1040px, (min-width: 761px) calc((100vw - 144px) / 2), calc(100vw - 72px)"
                 src="assets/papers/gf-method-1400.webp?v=75acef40ec96"
+                srcset="
+                  assets/papers/gf-method-1400.webp?v=75acef40ec96 1400w,
+                  assets/papers/gf-method.webp?v=e5f2a7eee558      2800w
+                "
                 width="2800"
               />
               <span class="paper-zoom-hint"
@@ -464,14 +457,6 @@
                 EoT-SFT establishes the process, and RTPO refines it through
                 feedback on task-matched image pairs. Inference uses one image.
               </p>
-              <a
-                class="paper-pdf"
-                href="assets/papers/gf-method.pdf?v=4420d814e569"
-                rel="noopener noreferrer"
-                target="_blank"
-                ><span data-i18n="figure.pdf">Original PDF</span
-                ><span aria-hidden="true">↓</span></a
-              >
             </figcaption>
           </figure>
         </div>
@@ -481,10 +466,11 @@
           data-reveal=""
         >
           <div class="fba-resource-intro">
-            <p class="eyebrow" data-i18n="fba.label">
-              The preceding work · 2026
-            </p>
+            <p class="eyebrow" data-i18n="fba.label">Preceding work · 2026</p>
             <h3 id="fba-resources-title">Filling Before Advancing</h3>
+            <p class="fba-submission" data-i18n="fba.submission">
+              Submitted to ISPRS JPRS
+            </p>
             <p>
               Capability-Gap-Driven Post-Training for Scenario-Specialized
               Remote Sensing MLLMs.
@@ -578,7 +564,7 @@
           <div class="section-heading" data-reveal="">
             <div>
               <div class="eyebrow">
-                <span data-i18n="example.label">02 / The evidence</span>
+                <span data-i18n="example.label">02 / Evidence</span>
               </div>
               <h2 id="example-title">
                 <span data-i18n="example.title"
@@ -764,7 +750,7 @@
       >
         <div class="wrap">
           <div class="eyebrow">
-            <span data-i18n="forces.label">03 / The design inspiration</span>
+            <span data-i18n="forces.label">03 / Design inspiration</span>
           </div>
           <div class="section-heading" data-reveal="">
             <h2 id="forces-title">
@@ -888,7 +874,7 @@
         <div class="section-heading method-heading" data-reveal="">
           <div>
             <div class="eyebrow">
-              <span data-i18n="method.label">04 / The learning process</span>
+              <span data-i18n="method.label">04 / Learning process</span>
             </div>
             <h2 id="method-title">
               <span data-i18n="method.title">How G&amp;F learns.</span>
@@ -916,7 +902,6 @@
             data-figure=""
             data-figure-height="1392"
             data-figure-width="2800"
-            data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
             href="assets/papers/gf-method.webp?v=e5f2a7eee558"
             rel="noopener noreferrer"
             target="_blank"
@@ -927,7 +912,7 @@
               decoding="async"
               height="1392"
               loading="lazy"
-              sizes="(min-width: 1440px) 1320px, 92vw"
+              sizes="(min-width: 2400px) 2200px, 94vw"
               src="assets/papers/gf-method-1400.webp?v=75acef40ec96"
               srcset="
                 assets/papers/gf-method-1400.webp?v=75acef40ec96 1400w,
@@ -948,19 +933,11 @@
                 data-figure=""
                 data-figure-height="1392"
                 data-figure-width="2800"
-                data-pdf="assets/papers/gf-method.pdf?v=4420d814e569"
                 href="assets/papers/gf-method.webp?v=e5f2a7eee558"
                 rel="noopener noreferrer"
                 target="_blank"
                 ><span data-i18n="figure.enlarge">Explore figure</span
                 ><span aria-hidden="true">↗</span></a
-              ><a
-                class="method-original"
-                href="assets/papers/gf-method.pdf?v=4420d814e569"
-                rel="noopener noreferrer"
-                target="_blank"
-                ><span data-i18n="figure.pdf">Original PDF</span
-                ><span aria-hidden="true">↓</span></a
               >
             </div>
           </figcaption>
@@ -975,7 +952,7 @@
           <div class="section-heading" data-reveal="">
             <div>
               <div class="eyebrow">
-                <span data-i18n="results.label">05 / The results</span>
+                <span data-i18n="results.label">05 / Results</span>
               </div>
               <h2 id="results-title">
                 <span data-i18n="results.title"
@@ -1656,13 +1633,6 @@
             type="button"
           >
             View at 1:1</button
-          ><a
-            data-i18n="figure.pdf"
-            href="assets/papers/gf-method.pdf?v=4420d814e569"
-            id="figure-original"
-            rel="noopener noreferrer"
-            target="_blank"
-            >Original PDF</a
           ><button autofocus="" id="figure-close" type="button">
             <span data-i18n="figure.close">Close</span
             ><span aria-hidden="true">×</span>

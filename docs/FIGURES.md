@@ -21,7 +21,7 @@ Each WebP renders the complete original page on white, with no cropping, relabel
 
 For source pages with an image soft mask, composite the embedded RGB pixels and their mask onto white at the original pixel resolution **before resizing**. Then preserve the full PDF page geometry when producing the display sizes. This prevents invisible black pixels in transparent margins from leaking into a gray edge during resampling; no artwork is cropped, and the source PDFs remain unchanged.
 
-The website's figure viewer loads the 2800-pixel version and permits scrolling at 1:1. Without JavaScript or dialog support, clicking a linked preview opens the full WebP directly; a separate Original PDF link remains available. Embedded figure labels retain their original language when the surrounding page switches between English and Chinese.
+The website's figure viewer loads the 2800-pixel version and permits scrolling at 1:1. Without JavaScript or dialog support, clicking a linked preview opens the full WebP directly; the original PDFs remain available from this document and the repository overview. The website itself omits PDF actions. Embedded figure labels retain their original language when the surrounding page switches between English and Chinese.
 
 ## Caption boundaries
 

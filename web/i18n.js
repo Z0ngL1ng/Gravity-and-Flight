@@ -3,10 +3,10 @@ window.GF_I18N = {
   en: {
     "hero.philosophy":
       "“Flight is not the absence of gravity, but the art of working within its constraints.”",
-    "nav.story": "The story",
-    "nav.example": "The evidence",
-    "nav.method": "The method",
-    "nav.results": "The results",
+    "nav.story": "Story",
+    "nav.example": "Evidence",
+    "nav.method": "Method",
+    "nav.results": "Results",
     skip: "Skip to content",
     "nav.paper": "Research notes",
     "nav.menu": "Menu",
@@ -31,10 +31,10 @@ window.GF_I18N = {
     "story.label": "The research lineage",
     "story.title": "From scene transfer<br><em>to context transfer.</em>",
     "story.body1":
-      "Filling Before Advancing (FBA) prepares the capabilities needed for scenario specialization. Its second stage, Bridging-Conv, learns shared priors from target and related bridging scenes. This scene-transfer idea is the starting point for G&amp;F.",
+      "Filling Before Advancing (FBA), currently submitted to ISPRS JPRS, prepares the capabilities needed for scenario specialization. Its second stage, Bridging-Conv, learns shared priors from target and related bridging scenes. This scene-transfer idea is the starting point for G&amp;F.",
     "story.body2":
       "We bring the transfer question inside a scene domain: when two images belong to the same broad category, how should judgments adapt to changes in local attributes, spatial relations, or visibility? G&amp;F studies these fine-grained contexts under a shared task.",
-    "example.label": "02 / The evidence",
+    "example.label": "02 / Evidence",
     "example.title": "Same question.<br><em>A different reading.</em>",
     "example.lead":
       "Two distinct harbor images, one shared question. Each image is answered independently; their local evidence determines what the judgments should preserve, change, or leave less specific.",
@@ -58,7 +58,7 @@ window.GF_I18N = {
       "These views alone do not establish active repair, facility throughput, or operational intensity. Describe the visible structure while leaving unsupported activity uncertain.",
     "example.note":
       "Illustrative reading of the repository images. These descriptions are not model outputs or benchmark results.",
-    "forces.label": "03 / The design inspiration",
+    "forces.label": "03 / Design inspiration",
     "forces.title": "An idea borrowed from aerodynamics.",
     "forces.lead":
       "From gravity and lift to visual grounding and reasoning: a physical intuition becomes two complementary verification views.",
@@ -78,11 +78,11 @@ window.GF_I18N = {
       "Checks task execution on both sides and whether the evidence supports consistency, change, or a narrower claim.",
     "forces.note":
       "Flight accepts described premises conditionally. It does not inspect images or Evidence Cards. Gravity checks visual truth; a separate Task Check assesses final answers.",
-    "method.label": "04 / The learning process",
+    "method.label": "04 / Learning process",
     "method.title": "How G&amp;F learns.",
     "method.lead":
       "Read the framework from top to bottom: supervised initialization, then relational policy optimization.",
-    "results.label": "05 / The results",
+    "results.label": "05 / Results",
     "results.title": "The difference,<br><em>measured.</em>",
     "results.lead":
       "Harbor specialization on six evaluation sets. Each benchmark keeps its own scoring protocol; Overall is their unweighted mean on a 0–100 scale.",
@@ -222,7 +222,6 @@ window.GF_I18N = {
     "figure.motivation": "Motivation figure",
     "figure.method": "Method figure",
     "figure.enlarge": "Explore figure",
-    "figure.pdf": "Original PDF",
     "figure.detail": "View at 1:1",
     "figure.fit": "Fit to window",
     "figure.close": "Close",
@@ -230,7 +229,7 @@ window.GF_I18N = {
     "method.figureTitle": "The G&F training framework",
     "method.figureCaption":
       "First, learn to observe, reason, and answer. Then refine those judgments across related contexts. Training uses image pairs; inference needs only one image.",
-    "fba.label": "The preceding work · 2026",
+    "fba.label": "Preceding work · 2026",
     "fba.resources": "FBA resources",
     "fba.paper": "arXiv paper",
     "fba.website": "Project website",
@@ -266,6 +265,7 @@ window.GF_I18N = {
       "Model card available · weights planned after paper acceptance",
     "resources.dataset": "Explore the dataset preview",
     "resources.datasetDetail": "Stage 1 and Stage 2 · three examples each",
+    "fba.submission": "Submitted to ISPRS JPRS",
   },
   zh: {
     "hero.philosophy": "“飞行并非摆脱重力，而是与其约束相处的艺术。”",
@@ -296,7 +296,7 @@ window.GF_I18N = {
     "story.label": "研究脉络",
     "story.title": "从场景间迁移，<br><em>到场景内迁移。</em>",
     "story.body1":
-      "Filling Before Advancing（FBA）先补足场景专精所需的能力。其第二阶段 Bridging-Conv 从目标场景与相关桥接场景中学习共享先验。这一场景迁移思路，是 G&amp;F 的研究起点。",
+      "Filling Before Advancing（FBA，目前在投 ISPRS JPRS）先补足场景专精所需的能力。其第二阶段 Bridging-Conv 从目标场景与相关桥接场景中学习共享先验。这一场景迁移思路，是 G&amp;F 的研究起点。",
     "story.body2":
       "我们进一步将迁移问题推进到同一场景领域内部：当两张图像属于同一大类场景，局部属性、空间关系或可见性发生变化，判断应如何随之调整？G&amp;F 在共同任务下研究这些细粒度上下文差异。",
     "example.label": "02 / 视觉证据",
@@ -474,7 +474,6 @@ window.GF_I18N = {
     "figure.motivation": "研究动机图",
     "figure.method": "论文方法图",
     "figure.enlarge": "放大查看",
-    "figure.pdf": "原始 PDF",
     "figure.detail": "查看原始尺寸",
     "figure.fit": "适应窗口",
     "figure.close": "关闭",
@@ -517,5 +516,6 @@ window.GF_I18N = {
     "resources.modelDetail": "已公开模型介绍 · 权重计划在论文中稿后开放",
     "resources.dataset": "浏览数据集样例",
     "resources.datasetDetail": "Stage 1、Stage 2 · 每阶段 3 个精选样例",
+    "fba.submission": "ISPRS JPRS 在投",
   },
 };
