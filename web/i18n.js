@@ -52,8 +52,6 @@ window.GF_I18N = {
       "Illustrative reading of the repository images. These descriptions are not model outputs or benchmark results.",
     "forces.label": "03 / Design inspiration",
     "forces.title": "An idea borrowed from aerodynamics.",
-    "forces.lead":
-      "From gravity and lift to visual grounding and reasoning: a physical intuition becomes two complementary verification views.",
     "forces.gQuestion": "“Does the image support what was said?”",
     "forces.g1": "Visual fidelity",
     "forces.g1Body":
@@ -119,11 +117,10 @@ window.GF_I18N = {
     "resources.source": "Follow the research release",
     "resources.sourceDetail": "Manuscript, training code, models & data",
     "resources.access":
-      "Model weights and the full dataset are planned for staged release after paper acceptance. The dataset page currently provides three Stage-1 demonstrations and three Stage-2 image pairs.",
+      "Model weights and the full dataset are planned for staged release after paper acceptance.",
     "resources.copy": "Copy project link",
     "footer.note": "Faithful to the image. Responsive to the evidence.",
     "footer.top": "Back to top",
-    "footer.version": "Research snapshot",
     "example.altA":
       "Overhead harbor image with a large vessel inside a narrow elongated enclosure",
     "example.altB":
@@ -149,9 +146,6 @@ window.GF_I18N = {
     "results.scoreUnit": "Score / 100 · higher is better",
     "ablation.scale": "Overall / 100",
     "ablation.delta": "Δ vs. full G&F",
-    "token.sampleCases": "paired cases",
-    "token.sampleScope":
-      "Same image–question inputs · one response per model per case",
     "chart.context": "Harbor",
     "chart.metricTitle": "Base and G&F on",
     "ablation.reference": "ref.",
@@ -167,7 +161,6 @@ window.GF_I18N = {
     "hero.artCaption": "Gravity anchors observation. Flight guides reasoning.",
     "hero.begin": "Enter the study",
     "lineage.fbaTitle": "Across scene domains",
-    "lineage.gfTitle": "Within one scene domain",
     "aero.lift": "Lift",
     "aero.weight": "Weight",
     "aero.sketch": "A conceptual inspiration for the two verification views.",
@@ -189,8 +182,6 @@ window.GF_I18N = {
       "FBA's three-stage training design. Stage 2 learns shared priors from target and related bridging scenes; this transfer idea later motivated G&F's focus on contextual variations within one scene domain.",
     "paper.gfMotivationCaption":
       "An illustrative harbor case: recognizing ships and facilities does not by itself resolve vehicle-staging suitability. The G&F response connects vehicle rows, paved space, and nearby berths to the task. Both waterfronts are in one input image.",
-    "paper.gfMethodCaption":
-      "Two stages connect careful observation to contextual reasoning: EoT-SFT establishes the process, and RTPO refines it through feedback on task-matched image pairs. Inference uses one image.",
     "paper.fbaMotivationAlt":
       "FBA motivation showing scenario-data scarcity and gaps in alignment, modality, and task capability, followed by a staged specialization design.",
     "paper.fbaMethodAlt":
@@ -208,8 +199,6 @@ window.GF_I18N = {
       "Recognizing ships, vehicles, and facilities is a starting point. A useful judgment must select the observations that matter, connect them to the task, and adapt when the local evidence changes. This is the step from FBA to Gravity &amp; Flight.",
     "background.fbaTitle": "Build the capability base.",
     "background.gfTitle": "Put existing capabilities to work.",
-    "background.bridge":
-      "Knowing what is there is the beginning.<br><em>Knowing what matters is the next step.</em>",
     "lineage.label": "The connection to FBA",
     "figure.motivation": "Motivation figure",
     "figure.method": "Method figure",
@@ -253,8 +242,7 @@ window.GF_I18N = {
     "control.joint-input": "Joint-input RL",
     "control.gf": "Full G&F",
     "resources.model": "Visit the model repository",
-    "resources.modelDetail":
-      "Model card available · weights planned after paper acceptance",
+    "resources.modelDetail": "Model card available",
     "resources.dataset": "Explore the dataset preview",
     "resources.datasetDetail": "Stage 1 and Stage 2 · three examples each",
     "fba.submission": "Submitted to ISPRS JPRS",
@@ -307,8 +295,6 @@ window.GF_I18N = {
     "example.note": "以上为仓库图像的原理性解读，非模型输出或基准测试结果。",
     "forces.label": "03 / 设计启发",
     "forces.title": "从空气动力学中获得启发。",
-    "forces.lead":
-      "从重力与升力，到视觉依据与推理过程：将飞行中的直觉，转化为两种互补的验证视角。",
     "forces.gQuestion": "“图像是否支持所陈述的内容？”",
     "forces.g1": "视觉忠实性",
     "forces.g1Body": "结合图像与 Evidence Card，检验回答各部分的视觉陈述。",
@@ -371,12 +357,10 @@ window.GF_I18N = {
     "resources.codeDetail": "网站源码与项目文档",
     "resources.source": "查看资源发布状态",
     "resources.sourceDetail": "论文、训练代码、模型与数据",
-    "resources.access":
-      "模型权重与完整数据集计划在论文中稿后逐步开放。数据集页面目前提供 3 个 Stage 1 示范和 3 个 Stage 2 图像对，供预览数据与监督格式。",
+    "resources.access": "模型权重与完整数据集计划在论文中稿后逐步开放。",
     "resources.copy": "复制项目链接",
     "footer.note": "忠实于图像，响应于证据。",
     "footer.top": "返回顶部",
-    "footer.version": "研究内容快照",
     "example.altA": "港口俯视图，一艘大型船舶位于狭长的围合区域内",
     "example.altB": "港口俯视图，船舶沿较为开阔的水域边缘分布",
     "resources.copied": "已复制项目链接。",
@@ -398,8 +382,6 @@ window.GF_I18N = {
     "results.scoreUnit": "得分 / 100 · 越高越好",
     "ablation.scale": "综合得分 / 100",
     "ablation.delta": "Δ 相较完整 G&F",
-    "token.sampleCases": "组配对案例",
-    "token.sampleScope": "相同图像—问题输入 · 每个案例、每个模型各一条回答",
     "chart.context": "港口",
     "chart.metricTitle": "Base 与 G&F ·",
     "ablation.reference": "参考项",
@@ -414,7 +396,6 @@ window.GF_I18N = {
     "hero.artCaption": "Gravity 让观察立足证据，Flight 让推理适应变化。",
     "hero.begin": "开始阅读",
     "lineage.fbaTitle": "场景间的迁移",
-    "lineage.gfTitle": "同类场景内的迁移",
     "aero.lift": "升力",
     "aero.weight": "重力",
     "aero.sketch": "两种验证视角的概念性启发。",
@@ -434,8 +415,6 @@ window.GF_I18N = {
       "FBA 的三阶段训练设计。第二阶段从目标场景与相关桥接场景学习共享先验；这一迁移思路随后启发了 G&F 对同类场景内部上下文变化的研究。",
     "paper.gfMotivationCaption":
       "一个港口示例：仅识别船舶与设施，还不足以判断车辆集结条件。G&F 的回答将车辆排列、铺装空间与邻近泊位联系到任务；图中两处岸线位于同一张输入图像中。",
-    "paper.gfMethodCaption":
-      "两个阶段将细致观察连接到上下文推理：EoT-SFT 建立这一过程，RTPO 利用共享任务下的成对图像反馈进一步优化。实际推理只需一张图。",
     "paper.fbaMotivationAlt":
       "FBA 动机图：场景数据稀缺与对齐、模态、任务能力缺口，以及分阶段实现专精的设计。",
     "paper.fbaMethodAlt":
@@ -452,8 +431,6 @@ window.GF_I18N = {
       "能识别船舶、车辆和设施，只是起点。有效的判断还需要筛选与问题相关的观察，将其联系到任务条件，并随局部证据变化调整结论。这构成了从 FBA 到 Gravity &amp; Flight 的研究推进。",
     "background.fbaTitle": "建立场景专精的能力基础。",
     "background.gfTitle": "让已有能力服务具体判断。",
-    "background.bridge":
-      "看见图中有什么，是起点。<br><em>理解哪些观察与任务有关，是下一步。</em>",
     "lineage.label": "与 FBA 的联系",
     "figure.motivation": "研究动机图",
     "figure.method": "论文方法图",
@@ -497,7 +474,7 @@ window.GF_I18N = {
     "control.joint-input": "联合输入 RL",
     "control.gf": "完整 G&F",
     "resources.model": "访问模型发布页",
-    "resources.modelDetail": "已公开模型介绍 · 权重计划在论文中稿后开放",
+    "resources.modelDetail": "已公开模型介绍",
     "resources.dataset": "浏览数据集样例",
     "resources.datasetDetail": "Stage 1、Stage 2 · 每阶段 3 个精选样例",
     "fba.submission": "ISPRS JPRS 在投",

@@ -17,9 +17,9 @@
     />
     <meta content="website" property="og:type" />
     <link href="favicon.svg" rel="icon" type="image/svg+xml" />
-    <link href="styles.css?v=26b5d8c980b6" rel="stylesheet" />
+    <link href="styles.css?v=abf7cdc8716a" rel="stylesheet" />
     <script defer="" src="research-data.js?v=7959934d274e"></script>
-    <script defer="" src="i18n.js?v=a22619cfc67f"></script>
+    <script defer="" src="i18n.js?v=ae287c4880eb"></script>
     <script defer="" src="main.js?v=83619c453d80"></script>
     <link
       as="font"
@@ -317,39 +317,31 @@
             </figcaption>
           </figure>
         </div>
-        <div class="story-interlude" data-reveal="">
-          <span aria-hidden="true" class="story-connector">↓</span>
-          <p data-i18n="background.bridge">
-            Knowing what is there is the beginning.<br /><em
-              >Knowing what matters is the next step.</em
-            >
-          </p>
-        </div>
-        <div class="lineage-intro" data-reveal="">
-          <p class="eyebrow story-kicker" data-i18n="lineage.label">
-            The connection to FBA
-          </p>
-          <h2 data-i18n="story.title" id="lineage-title">
-            From scene transfer<br /><em>to context transfer.</em>
-          </h2>
-          <div class="prose-columns">
-            <p data-i18n="story.body1">
-              Filling Before Advancing (FBA), currently submitted to ISPRS JPRS,
-              prepares the capabilities needed for scenario specialization. Its
-              second stage, Bridging-Conv, learns shared priors from target and
-              related bridging scenes. This scene-transfer idea is the starting
-              point for G&amp;F.
+        <div class="lineage-spread">
+          <div class="lineage-intro" data-reveal="">
+            <p class="eyebrow story-kicker" data-i18n="lineage.label">
+              The connection to FBA
             </p>
-            <p data-i18n="story.body2">
-              We bring the transfer question inside a scene domain: when two
-              images belong to the same broad category, how should judgments
-              adapt to changes in local attributes, spatial relations, or
-              visibility? G&amp;F studies these fine-grained contexts under a
-              shared task.
-            </p>
+            <h2 data-i18n="story.title" id="lineage-title">
+              From scene transfer<br /><em>to context transfer.</em>
+            </h2>
+            <div class="prose-columns">
+              <p data-i18n="story.body1">
+                Filling Before Advancing (FBA), currently submitted to ISPRS
+                JPRS, prepares the capabilities needed for scenario
+                specialization. Its second stage, Bridging-Conv, learns shared
+                priors from target and related bridging scenes. This
+                scene-transfer idea is the starting point for G&amp;F.
+              </p>
+              <p data-i18n="story.body2">
+                We bring the transfer question inside a scene domain: when two
+                images belong to the same broad category, how should judgments
+                adapt to changes in local attributes, spatial relations, or
+                visibility? G&amp;F studies these fine-grained contexts under a
+                shared task.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="paper-grid method-figures">
           <figure
             aria-labelledby="fba-method-title"
             class="paper-card paper-fba"
@@ -402,60 +394,6 @@
                 from target and related bridging scenes; this transfer idea
                 later motivated G&amp;F's focus on contextual variations within
                 one scene domain.
-              </p>
-            </figcaption>
-          </figure>
-          <figure
-            aria-labelledby="gf-method-title"
-            class="paper-card paper-gf"
-            data-reveal=""
-          >
-            <header class="paper-card-head">
-              <div class="paper-meta">
-                <span class="eyebrow">G&amp;F</span
-                ><span data-i18n="figure.method">Method figure</span>
-              </div>
-              <h3
-                data-figure-title=""
-                data-i18n="lineage.gfTitle"
-                id="gf-method-title"
-              >
-                Within one scene domain
-              </h3>
-            </header>
-            <a
-              class="paper-frame"
-              data-figure=""
-              data-figure-height="1392"
-              data-figure-width="2800"
-              href="assets/papers/gf-method.webp?v=e5f2a7eee558"
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <img
-                alt="G&amp;F training overview: supervised observation, analysis, and answer; independent Anchor and Bridging rollouts; separate verification views; additive pair rewards, shared advantages, and a frozen reference."
-                data-i18n-alt="paper.gfMethodAlt"
-                decoding="async"
-                height="1392"
-                loading="lazy"
-                sizes="(min-width: 2400px) 1040px, (min-width: 761px) calc((100vw - 144px) / 2), calc(100vw - 72px)"
-                src="assets/papers/gf-method-1400.webp?v=75acef40ec96"
-                srcset="
-                  assets/papers/gf-method-1400.webp?v=75acef40ec96 1400w,
-                  assets/papers/gf-method.webp?v=e5f2a7eee558      2800w
-                "
-                width="2800"
-              />
-              <span class="paper-zoom-hint"
-                ><span data-i18n="figure.enlarge">Explore figure</span
-                ><span aria-hidden="true">↗</span></span
-              ></a
-            >
-            <figcaption>
-              <p class="paper-caption" data-i18n="paper.gfMethodCaption">
-                Two stages connect careful observation to contextual reasoning:
-                EoT-SFT establishes the process, and RTPO refines it through
-                feedback on task-matched image pairs. Inference uses one image.
               </p>
             </figcaption>
           </figure>
@@ -722,10 +660,6 @@
                 >An idea borrowed from aerodynamics.</span
               >
             </h2>
-            <p class="section-lead" data-i18n="forces.lead">
-              From gravity and lift to visual grounding and reasoning: a
-              physical intuition becomes two complementary verification views.
-            </p>
           </div>
           <div class="aero-inspiration" data-reveal="">
             <figure aria-labelledby="aero-sketch-caption" class="aero-sketch">
@@ -1389,18 +1323,6 @@
             compares Base and G&amp;F responses to the same inputs.
           </p>
         </div>
-        <div class="analysis-meta">
-          <span class="sample-count"
-            ><strong>06</strong
-            ><span data-i18n="token.sampleCases">paired cases</span></span
-          >
-          <p>
-            <span data-i18n="token.sampleScope"
-              >Same image–question inputs · one response per model per
-              case</span
-            >
-          </p>
-        </div>
         <div class="token-comparison" data-reveal="">
           <article class="token-base">
             <div class="token-heading">
@@ -1428,8 +1350,7 @@
           </article>
           <article class="token-gf">
             <div class="token-heading">
-              <span class="eyebrow">Gravity &amp; Flight</span
-              ><span>G&amp;F</span>
+              <span class="eyebrow">Gravity &amp; Flight</span>
             </div>
             <div class="density-value">39.91<span>%</span></div>
             <p data-i18n="token.density">Mean task-related content density</p>
@@ -1516,9 +1437,7 @@
               ><span>03</span>
               <div>
                 <h3 data-i18n="resources.model">Visit the model repository</h3>
-                <p data-i18n="resources.modelDetail">
-                  Model card available · weights planned after paper acceptance
-                </p>
+                <p data-i18n="resources.modelDetail">Model card available</p>
               </div>
               <span aria-hidden="true">↗</span></a
             ><a
@@ -1554,8 +1473,7 @@
           <div class="resource-note">
             <p data-i18n="resources.access">
               Model weights and the full dataset are planned for staged release
-              after paper acceptance. The dataset page currently provides three
-              Stage-1 demonstrations and three Stage-2 image pairs.
+              after paper acceptance.
             </p>
             <button class="text-link" hidden="" id="copy-link" type="button">
               <span data-i18n="resources.copy">Copy project link</span>
@@ -1571,16 +1489,6 @@
         Faithful to the image. Responsive to the evidence.
       </p>
       <a href="#top"><span data-i18n="footer.top">Back to top</span> ↑</a>
-      <div class="version-note">
-        <span data-i18n="footer.version">Research snapshot</span>
-        <a
-          href="https://github.com/Z0ngL1ng/Gravity-and-Flight/blob/main/docs/RESEARCH.md#source-of-truth"
-          rel="noopener noreferrer"
-          target="_blank"
-          >b51cf18</a
-        >
-        · 2026-10-30
-      </div>
     </footer>
     <dialog
       aria-describedby="figure-viewer-caption"
