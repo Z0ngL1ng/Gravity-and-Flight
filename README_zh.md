@@ -73,3 +73,33 @@ Zong 等（2026），*Filling Before Advancing*。
 | [arXiv](https://arxiv.org/abs/2607.22205) | [项目官网](https://z0ngl1ng.github.io/filling-before-advancing/) | [HF 预览](https://huggingface.co/zongling/FBA) | [CPRS 预览](https://huggingface.co/datasets/zongling/CPRS) |
 
 </details>
+
+## 引用
+
+FBA 与 G&F 构成面向遥感场景专精的系列工作。两篇论文的 BibTeX 引用如下。
+
+### Filling Before Advancing (FBA)
+
+```bibtex
+@article{zong2026fba,
+  title   = {Filling Before Advancing: Capability-Gap-Driven Post-Training for Scenario-Specialized Remote Sensing {MLLMs}},
+  author  = {Zong, Yuheng and Wang, Minghua and Zhao, Xin and Zhan, Zhi-Hui and Plaza, Antonio and Benediktsson, Jon Atli},
+  journal = {arXiv preprint arXiv:2607.22205},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2607.22205},
+  url     = {https://arxiv.org/abs/2607.22205}
+}
+```
+
+### Gravity and Flight (G&F)
+
+```bibtex
+@article{zong2026gravityandflight,
+  title   = {Gravity and Flight: Learning to Navigate Fine-Grained Remote Sensing Scenes},
+  author  = {Zong, Yuheng and Wang, Minghua and Zhao, Xin and Liu, Xiaobin and Deng, Yongjian and Eom, Chanho},
+  journal = {arXiv preprint arXiv:2611.16408},
+  year    = {2026},
+  doi     = {10.48550/arXiv.2611.16408},
+  url     = {https://arxiv.org/abs/2611.16408}
+}
+```
