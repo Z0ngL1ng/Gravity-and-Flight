@@ -21,10 +21,10 @@ The website's [abstract field study](web/assets/field-study.svg), [airfoil sketc
 
 The six figures are published from the author's supplied attachments. [Figure provenance](docs/FIGURES.md) records all six source mappings, original PDF checksums, display derivatives, and interpretive boundaries. The four current G&F figures cover motivation, method, qualitative cases, and token-level response analysis; the two FBA figures document the preceding work's motivation and method.
 
-This publication does not add a separate reuse license for the figures or their embedded material; the font licenses above do not apply to them. The original figure PDFs are available, while the full G&F manuscript remains unreleased.
+This publication does not add a separate reuse license for the figures or their embedded material; the font licenses above do not apply to them. The figure PDFs are included here; the full paper is available on [arXiv](https://arxiv.org/abs/2611.16408).
 
 ## 中文说明
 
-本次公开的是网站、文档、展示素材，以及作者提供的六幅论文插图（两幅 FBA 图与四幅当前版本的 G&F 图，含原始 PDF 和 WebP 展示版本），未包含完整论文、训练与评测实现、模型权重或研究数据集。当前未新增覆盖整个仓库的统一复用许可；资源公开可见与允许再分发是不同的状态。
+本次公开的是网站、文档、展示素材，以及作者提供的六幅论文插图（两幅 FBA 图与四幅当前版本的 G&F 图，含原始 PDF 和 WebP 展示版本），完整论文见 [arXiv](https://arxiv.org/abs/2611.16408)。本仓库不包含训练与评测实现、模型权重或研究数据集。当前未新增覆盖整个仓库的统一复用许可；资源公开可见与允许再分发是不同的状态。
 
 网站保留原有抽象场景插画、翼型示意图与站点图标；项目 README 使用作者提供的论文图。随仓库提供的 Instrument Serif 与 DM Sans 字体遵循各自的 SIL OFL 1.1，完整许可与版权声明保存在字体目录。字体许可不覆盖网站正文、项目插图、照片或研究资源。后续研究资源将另行注明适用条款。

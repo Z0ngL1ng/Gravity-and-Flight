@@ -1,6 +1,6 @@
 # Paper figures
 
-Six author-provided figures are published as original PDFs and WebP display versions: two FBA figures retained from earlier uploads, and four G&F figures from the latest supplied set. The project READMEs use only the four G&F paper figures. These are individual figure PDFs, not a release of the full G&F manuscript. Availability and reuse scope are recorded in [release status](../RELEASE_STATUS.md) and [license scope](../LICENSE_SCOPE.md).
+Six author-provided figures are published as original PDFs and WebP display versions: two FBA figures retained from earlier uploads, and four G&F figures from the latest supplied set. The project READMEs use only the four G&F paper figures. The full G&F paper is available on [arXiv](https://arxiv.org/abs/2611.16408). Availability and reuse scope are recorded in [release status](../RELEASE_STATUS.md) and [license scope](../LICENSE_SCOPE.md).
 
 ## Source mapping and display files
 
@@ -15,7 +15,7 @@ Attachment filenames are local to each supplied set. In particular, the earlier 
 | G&F qualitative cases | Latest G&F set · `fig3.pdf` | [PDF](../web/assets/papers/gf-qualitative-cases.pdf) | [2800 × 1361](../web/assets/papers/gf-qualitative-cases.webp) | [1400 × 681](../web/assets/papers/gf-qualitative-cases-1400.webp) |
 | G&F token analysis | Latest G&F set · `fig4.pdf` | [PDF](../web/assets/papers/gf-token-analysis.pdf) | [2800 × 1659](../web/assets/papers/gf-token-analysis.webp) | [1400 × 830](../web/assets/papers/gf-token-analysis-1400.webp) |
 
-The four current G&F source PDFs are byte-identical to the corresponding figures in the manuscript snapshot dated **2026-10-30**, revision **`b51cf1882030d8008983c71ef829d0221b0690ce`**: motivation, method, qualitative comparison, and token-level analysis. This provenance does not imply publication of the full manuscript. The new G&F motivation and method files are the current editions used by both the website and READMEs.
+The four current G&F source PDFs are byte-identical to the corresponding figures in the manuscript snapshot dated **2026-10-30**, revision **`b51cf1882030d8008983c71ef829d0221b0690ce`**: motivation, method, qualitative comparison, and token-level analysis. The new G&F motivation and method files are the current editions used by both the website and READMEs.
 
 Each WebP renders the complete original page on white, with no cropping, relabeling, or content changes. The full version is 2800 pixels wide and the preview is 1400 pixels wide. WebP exports use quality 92–93; the corrected soft-mask exports use quality 93 at both sizes. These are display derivatives of the supplied PDFs, not reconstructions or newly generated research outputs. The PDFs are image-based; an enlarged rendering improves inspection but cannot recover detail absent from the source.
 
@@ -59,4 +59,4 @@ SHA-256 hashes identify the supplied source PDFs. Renaming a source to its publi
 
 当前共公开六份作者提供的原始插图 PDF：保留此前的两幅 FBA 图，并使用最新四幅 G&F 图。最新附件 `fig1` 至 `fig4` 依次为 G&F 动机、方法、两个定性案例和六案例 token 分析，均与上述论文快照对应图文件字节一致。两个项目 README 仅使用这四幅 G&F 论文图。
 
-WebP 仅做完整页面渲染与尺寸适配，未裁切、改写标签或改变图意。G&F 动机图中的两处岸线位于同一张输入图像中；定性案例和六案例分析应保留各自适用范围。token 图展示排除格式 token 后的内容长度（均值 **350.83 → 156.33**），与包含格式 token 的完整回答长度（**355.50 → 179.50**，缩短 **49.51%**）口径不同。FBA 三阶段方法与 G&F 两阶段方法分别说明；原始插图 PDF 已公开，G&F 完整论文尚未发布。
+WebP 仅做完整页面渲染与尺寸适配，未裁切、改写标签或改变图意。G&F 动机图中的两处岸线位于同一张输入图像中；定性案例和六案例分析应保留各自适用范围。token 图展示排除格式 token 后的内容长度（均值 **350.83 → 156.33**），与包含格式 token 的完整回答长度（**355.50 → 179.50**，缩短 **49.51%**）口径不同。FBA 三阶段方法与 G&F 两阶段方法分别说明；原始插图 PDF 见上表，完整论文见 [arXiv](https://arxiv.org/abs/2611.16408)。

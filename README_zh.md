@@ -7,6 +7,8 @@
 <p align="center"><em>“飞行并非摆脱重力，而是与其约束相处的艺术。”</em></p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2611.16408"><img src="https://img.shields.io/badge/arXiv-2611.16408-b31b1b.svg?style=flat-square" alt="G&amp;F 论文（arXiv）" height="24"></a>
+  &nbsp;
   <a href="https://z0ngl1ng.github.io/Gravity-and-Flight/web/"><img src="https://img.shields.io/badge/Project-Website-3d637c.svg?style=flat-square" alt="Project website" height="24"></a>
   &nbsp;
   <a href="https://huggingface.co/zongling/Gravity_and_Flight-4B"><img src="https://img.shields.io/badge/HF_Model-Preview-80613b.svg?logo=huggingface&amp;style=flat-square" alt="Hugging Face model preview" height="24"></a>
@@ -53,12 +55,13 @@ Overall 是六个港口评测集得分的等权均值。各集保留自身评分
 
 | 资源 | 入口 |
 | --- | --- |
+| **论文** | [Gravity and Flight: Learning to Navigate Fine-Grained Remote Sensing Scenes](https://arxiv.org/abs/2611.16408) |
 | **研究说明** | [方法、已报告实验与适用范围](docs/RESEARCH.md) |
 | **数据集样例** | [Stage 1](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) · [Stage 2](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2) · 3 条示范 + 3 个图像对 |
 | **发布状态** | [查看资源开放进展](RELEASE_STATUS.md) |
 | **仓库文档** | [网站源码](web/) · [本地预览](docs/WEBSITE.md#view-the-website) · [论文插图](docs/FIGURES.md) · [授权范围](LICENSE_SCOPE.md) |
 
-**模型权重与完整数据集计划在论文中稿后逐步开放。** 完整论文、训练与评测实现尚未发布。
+**模型权重与完整数据集计划在论文中稿后逐步开放。** 训练与评测代码尚未公开。
 
 <details>
 <summary><strong>前作引用与资源 · Filling Before Advancing</strong></summary>

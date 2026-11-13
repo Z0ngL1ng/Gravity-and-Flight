@@ -7,6 +7,8 @@
 <p align="center"><em>“Flight is not the absence of gravity, but the art of working within its constraints.”</em></p>
 
 <p align="center">
+  <a href="https://arxiv.org/abs/2611.16408"><img src="https://img.shields.io/badge/arXiv-2611.16408-b31b1b.svg?style=flat-square" alt="G&amp;F paper on arXiv" height="24"></a>
+  &nbsp;
   <a href="https://z0ngl1ng.github.io/Gravity-and-Flight/web/"><img src="https://img.shields.io/badge/Project-Website-3d637c.svg?style=flat-square" alt="Project website" height="24"></a>
   &nbsp;
   <a href="https://huggingface.co/zongling/Gravity_and_Flight-4B"><img src="https://img.shields.io/badge/HF_Model-Preview-80613b.svg?logo=huggingface&amp;style=flat-square" alt="Hugging Face model preview" height="24"></a>
@@ -53,12 +55,13 @@ Overall is the unweighted mean of six harbor evaluation-set scores. Each retains
 
 | Resource | Entry |
 | --- | --- |
+| **Paper** | [Gravity and Flight: Learning to Navigate Fine-Grained Remote Sensing Scenes](https://arxiv.org/abs/2611.16408) |
 | **Research notes** | [Method, reported experiments & study scope](docs/RESEARCH.md) |
 | **Dataset samples** | [Stage 1](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) · [Stage 2](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2) · 3 demonstrations + 3 image pairs |
 | **Release status** | [Follow artifact releases](RELEASE_STATUS.md) |
 | **Documentation** | [Website source](web/) · [Local preview](docs/WEBSITE.md#view-the-website) · [Paper figures](docs/FIGURES.md) · [License scope](LICENSE_SCOPE.md) |
 
-**Model weights and the full dataset are planned for staged release after paper acceptance.** The full manuscript and training/evaluation implementation remain unreleased.
+**Model weights and the full dataset are planned for staged release after paper acceptance.** The training and evaluation code is not yet public.
 
 <details>
 <summary><strong>Related work · Filling Before Advancing</strong></summary>

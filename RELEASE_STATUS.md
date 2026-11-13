@@ -11,7 +11,7 @@ This repository is the public home of **Gravity and Flight**. It currently publi
 | Research notes & reported results / 研究说明与报告结果 | Available / 已公开 | [Research notes](docs/RESEARCH.md), [中文介绍](README_zh.md) |
 | Project illustrations / 项目插图 | Available / 已公开 | [`web/assets/`](web/assets/) |
 | Author-provided paper figures / 作者提供的论文插图 | Available: four G&F figures and two FBA figures, with original PDFs / 已公开：四幅 G&F 图与两幅 FBA 图，均含原始 PDF | [Figure provenance and files](docs/FIGURES.md) |
-| Full manuscript / 完整论文 | Not released / 尚未发布 | A public manuscript link will be added here when available. |
+| Full manuscript / 完整论文 | Available on arXiv / 预印本已公开 | [arXiv:2611.16408](https://arxiv.org/abs/2611.16408) |
 | Training & evaluation implementation / 训练与评测实现 | Not released / 尚未发布 | Website JavaScript is presentation code, not the research implementation. |
 | Model repository / 模型发布页 | Model card available; weights planned after acceptance / 已公开模型介绍，权重待论文中稿后开放 | [Gravity_and_Flight-4B](https://huggingface.co/zongling/Gravity_and_Flight-4B) |
 | Dataset / 数据集 | Preview: 3 Stage-1 demonstrations + 3 Stage-2 pairs, with 9 original images; full release planned after acceptance / 预览：每阶段 3 个样例，共 9 张原图；完整数据待中稿后开放 | [Gravity_and_Flight-2K](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K) · [Stage 1](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage1) · [Stage 2](https://huggingface.co/datasets/zongling/Gravity_and_Flight-2K/tree/main/stage2) |
