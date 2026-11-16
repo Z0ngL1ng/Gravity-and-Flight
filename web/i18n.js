@@ -33,7 +33,7 @@ window.GF_I18N = {
     "example.taskLabel": "Shared question",
     "example.task":
       "How are the vessels positioned relative to the waterfront?",
-    "example.original": "Original image",
+    "example.viewImage": "View image",
     "example.capA": "A vessel within a narrow, elongated enclosure.",
     "example.capB": "Vessels along the edges of a more open basin.",
     "example.preserve": "Preserve",
@@ -278,7 +278,7 @@ window.GF_I18N = {
       "两张不同的港口图像，同一个问题。每张图像独立作答，再依据局部证据，检验判断应保持、改变，还是降低具体程度。",
     "example.taskLabel": "共同问题",
     "example.task": "船舶与滨水设施之间呈现怎样的空间关系？",
-    "example.original": "查看原图",
+    "example.viewImage": "查看图片",
     "example.capA": "一艘船舶位于狭长的围合区域内。",
     "example.capB": "船舶沿较为开阔的水域边缘分布。",
     "example.preserve": "保持",
