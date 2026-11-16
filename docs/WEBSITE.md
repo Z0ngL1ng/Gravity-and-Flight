@@ -69,9 +69,9 @@ The HTML includes content-fingerprint query parameters on the CSS/JavaScript and
 
 ## Maintain the research content
 
-The research snapshot is documented in [RESEARCH.md](RESEARCH.md#source-of-truth). Website design changes do not imply new experimental results. When updating a reported value, update the data module and the English HTML fallback together, then check both languages. Missing per-benchmark Stage-1/control values remain `null` rather than inferred scores.
+The research snapshot is documented in [RESEARCH.md](RESEARCH.md#source-of-truth). Website design changes do not imply new experimental results. When updating a reported value, update the data module and the English HTML fallback together, then check both languages. Missing per-benchmark Stage-1/control values remain `null` rather than inferred scores. Overall labels the second training stage as RTPO; individual benchmark comparisons label Gravity & Flight as Full (全阶段).
 
-Keep the study boundaries visible: Overall is a six-set harbor mean; urban specialization uses a separately trained model; the token analysis describes six sampled cases. The two example photographs illustrate reasoning relations and are not evaluated model outputs. The author-provided paper figures are also presentation material: their caption boundaries are recorded in [FIGURES.md](FIGURES.md#caption-boundaries). Public resource links should point to accessible notes or the availability table until the corresponding artifacts are released.
+Keep the study boundaries visible: Overall is a six-set harbor mean; urban specialization uses a separately trained model; the token analysis describes six sampled cases. The two example photographs illustrate reasoning relations and are not evaluated model outputs. Their display assets use 1254-pixel WebP files with 720-pixel responsive previews. The Original image links retain the unchanged 720-pixel JPEGs; clicking a displayed photograph opens its full-size display file. These display changes do not alter the evaluation inputs or reported scores. The author-provided paper figures are also presentation material: their caption boundaries are recorded in [FIGURES.md](FIGURES.md#caption-boundaries). Public resource links should point to accessible notes or the availability table until the corresponding artifacts are released.
 
 ## Validate changes
 

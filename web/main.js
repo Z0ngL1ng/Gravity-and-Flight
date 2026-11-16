@@ -27,20 +27,24 @@
     const models = (overall ? ["base", "stage1", "gf"] : ["base", "gf"]).map(
       (id) => research.models.find((model) => model.id === id),
     );
+    const modelName = (model) =>
+      model.id === "base"
+        ? "Qwen3.5-4B"
+        : model.id === "stage1"
+          ? "EoT-SFT"
+          : overall
+            ? "RTPO"
+            : "Gravity & Flight";
     const rows = models
       .filter(Boolean)
       .map((model) => {
         const value = overall ? model.overall : model.scores?.[metricIndex];
         if (!Number.isFinite(value)) return null;
         const row = element("div", "bar-row");
-        const name =
-          model.id === "base"
-            ? "Qwen3.5-4B"
-            : model.id === "stage1"
-              ? "EoT-SFT"
-              : "Gravity & Flight";
-        const label = element("div", "bar-label", name);
-        label.append(element("span", "", translate("chart." + model.id)));
+        const label = element("div", "bar-label", modelName(model));
+        const stageKey =
+          model.id === "gf" && !overall ? "chart.full" : "chart." + model.id;
+        label.append(element("span", "", translate(stageKey)));
         const track = element("div", "bar-track");
         const bar = element("span", "bar " + model.id);
         bar.style.width = `${value}%`;
@@ -71,6 +75,7 @@
       `+${(gf.overall - stage1.overall).toFixed(2)}`;
     $("#stage1-gain").hidden = !overall;
     $(".legend-stage1").hidden = !overall;
+    $("#chart-final-label").textContent = overall ? "RTPO" : "G&F";
     $(".chart-top h3").textContent = overall
       ? translate("results.chartTitle")
       : `${translate("chart.metricTitle")} ${metricLabel}`;
@@ -78,7 +83,7 @@
     chart.replaceChildren(...rows);
     chart.setAttribute(
       "aria-label",
-      `${overall ? "Overall" : research.benchmarks[metricIndex].label}: ${models.map((model) => `${model.shortLabel} ${(overall ? model.overall : model.scores[metricIndex]).toFixed(2)}`).join(", ")}`,
+      `${overall ? "Overall" : research.benchmarks[metricIndex].label}: ${models.map((model) => `${modelName(model)} ${(overall ? model.overall : model.scores[metricIndex]).toFixed(2)}`).join(", ")}`,
     );
     $("#chart-note").textContent = translate(
       overall ? "results.chartNote" : "chart.metricNote",

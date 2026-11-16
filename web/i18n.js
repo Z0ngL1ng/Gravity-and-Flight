@@ -131,6 +131,7 @@ window.GF_I18N = {
     "chart.base": "Base",
     "chart.stage1": "Stage 1",
     "chart.gf": "Stage 2",
+    "chart.full": "Full",
     "chart.metricNote":
       "Scores from Table 1. Both models use single-image inputs.",
     "meta.title": "Gravity & Flight — Learning to see, learning to reason",
@@ -152,8 +153,8 @@ window.GF_I18N = {
     "nav.paperShort": "arXiv",
     "nav.aero": "Design inspiration",
     "nav.analysis": "Response analysis",
-    "example.inspectA": "Inspect original Anchor image in a new tab",
-    "example.inspectB": "Inspect original Bridging image in a new tab",
+    "example.inspectA": "Open Anchor display image in a new tab",
+    "example.inspectB": "Open Bridging display image in a new tab",
     "results.tableHint": "Scroll horizontally to compare all six sets",
     "index.label": "In this study",
     "hero.artAlt":
@@ -368,6 +369,7 @@ window.GF_I18N = {
     "chart.base": "基座模型",
     "chart.stage1": "阶段一",
     "chart.gf": "阶段二",
+    "chart.full": "全阶段",
     "chart.metricNote": "分数取自表 1。两个模型均使用单图输入。",
     "meta.title": "Gravity & Flight — 学会观察，学会推理",
     "meta.description":
@@ -388,8 +390,8 @@ window.GF_I18N = {
     "nav.paperShort": "arXiv",
     "nav.aero": "设计启发",
     "nav.analysis": "回答分析",
-    "example.inspectA": "在新标签页查看原始Anchor图像",
-    "example.inspectB": "在新标签页查看原始Bridging图像",
+    "example.inspectA": "在新标签页打开 Anchor 展示图",
+    "example.inspectB": "在新标签页打开 Bridging 展示图",
     "results.tableHint": "左右滑动，查看六项评测",
     "index.label": "本研究",
     "hero.artAlt": "暖色纸面上的同心圆弧，展开为向上延伸的蓝色轨迹。",
